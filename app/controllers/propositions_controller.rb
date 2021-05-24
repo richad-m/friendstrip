@@ -19,11 +19,13 @@ class PropositionsController < ApplicationController
   def validate 
     @proposition = Proposition.find(params[:id])
     @proposition.status = "validated"
+    @proposition.save
   end
 
   def dismiss
     @proposition = Proposition.find(params[:id])
     @proposition.status = "dismissed"
+    @proposition.save
   end
 
   private

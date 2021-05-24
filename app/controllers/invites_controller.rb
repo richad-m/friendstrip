@@ -16,6 +16,7 @@ class InvitesController < ApplicationController
   def accept
     @invite = Invite.find(params[:id])
     @invite.accepted = true
+    @invite.save
     redirect_to trips_path
   end
 
