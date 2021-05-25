@@ -1,1 +1,11 @@
 <h1>TRIPS INDEX</h1>
+
+
+<ul>
+  <% @trips.each do |trip| %>
+    <li><%= trip.title %></li>
+    <li><%= trip.start_date %></li>
+    <li><%= trip.end_date %></li>
+    <li><%= trip.user_id %></li>
+  <% end %>
+</ul>
