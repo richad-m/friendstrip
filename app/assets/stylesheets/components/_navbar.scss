@@ -16,12 +16,6 @@
   align-items: left;
 }
 
-.fa-user-astronaut {
-  font-size: 22px;
-  font-weight: 600;
-  border: solid 2px black;
-  padding: 10px;
-}
 
 .navbar-lewagon .navbar-brand img {
   width: 46px;
@@ -46,4 +40,8 @@
   font-weight: 300;
   color:rgba(161, 0, 0, 0.856) !important;
   text-decoration: none;
+}
+
+.navbar-expand-sm .navbar-nav {
+  align-items: center;
 }
