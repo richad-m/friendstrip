@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80 );">
+  <div>
+    <div class="container">
+      <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
+      <p class="">Planning trips has never been easier</p>
+      <%= link_to "Sign up", new_user_registration_path, class: "sign-button button-green"%>
+      <%= link_to "Sign in", new_user_session_path, class: "sign-button button-orange"%>
+    </div>
+  </div>
+</div>
+
+<!-- Buttons are missing, waiting for components buttons to add them -->
