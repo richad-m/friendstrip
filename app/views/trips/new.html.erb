@@ -1,1 +1,8 @@
 <h1>NEW TRIP</h1>
+
+<%= simple_form_for(@trip) do |f| %>
+  <%= f.input :title %>
+  <%= f.date :start_date %>
+  <%= f.date :end_date %>
+  <%= f.submit %>
+<% end %>
