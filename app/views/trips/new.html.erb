@@ -1,1 +1,15 @@
 <h1>NEW TRIP</h1>
+
+<%= simple_form_for(@trip) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :start_date, input_html: { class: "form-show"},
+          label: 'Start date', label_html: { class: "label-show"},
+          as: :date,
+          html5: true%>
+  <%= f.input :end_date, input_html: { class: "form-show"},
+          label: "End date", label_html: {class: "label-show"},
+          as: :date,
+          html5: true%>
+  <%= f.submit %>
+<% end %>

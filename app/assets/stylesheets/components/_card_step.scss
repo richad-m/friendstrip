@@ -1,0 +1,202 @@
+/* card step */
+.card-step {
+  width: 895px;
+  height: 440px;
+}
+
+
+
+/* Upper background */
+.card-step-background-up {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 29.32%;
+
+  background: #C4C4C4;
+  border-radius: 20px;
+}
+
+
+/* Background down */
+.card-step-background-down {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 33.18%;
+  bottom: 29.32%;
+
+  background: #F5F3F3;
+  border-radius: 0px 0px 20px 20px;
+}
+
+
+// Due date"
+.p-step-due-date {
+  position: absolute;
+  left: 41.45%;
+  right: 41.34%;
+  top: 22.5%;
+  bottom: 70.23%;
+
+}
+
+// position: absolute;
+// left: 0%;
+// right: 0%;
+// top: 0%;
+// bottom: 0%;
+
+// font-family: Roboto;
+// font-style: normal;
+// font-weight: normal;
+// font-size: 24px;
+// line-height: 28px;
+
+// color: #000000;
+
+
+
+/* Lorem ipsum dolor sit amet. Qui repellat porro ut dicta quos aut voluptatem inventore et repellat quia! Est pariatur sapiente ut nemo doloribus eum dolore aliquam qui ipsum ratione. Ab molestiae odio eum corporis aspernatur aut maxime nostrum in Quis consequatur. */
+
+
+
+
+/* Secondary title */
+// Label "location"
+.step-label-location {
+  position: absolute;
+  left: 4.13%;
+  right: 60%;
+  top: 37.73%;
+  bottom: 54.32%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 35px;
+}
+
+
+
+/* This is a secondary title */
+
+// position: absolute;
+// left: 0%;
+// right: 63.55%;
+// top: 0%;
+// bottom: 0%;
+
+
+// color: #000000;
+
+
+
+/* Secondary title */
+// Label "date"
+.step-label-date {
+  position: absolute;
+  left: 4.13%;
+  right: 60%;
+  top: 57.73%;
+  bottom: 34.32%;
+
+}
+
+
+
+/* This is a secondary title */
+
+// position: absolute;
+// left: 0%;
+// right: 80.69%;
+// top: 0%;
+// bottom: 0%;
+
+// font-family: Roboto;
+// font-style: normal;
+// font-weight: bold;
+// font-size: 30px;
+// line-height: 35px;
+
+// color: #000000;
+
+
+
+/* main title */
+.step-name {
+  position: absolute;
+  left: 27.93%;
+  right: 27.82%;
+  top: 6.82%;
+  bottom: 80.45%;
+}
+
+
+
+/* main title */
+
+// position: absolute;
+// left: 0%;
+// right: 0%;
+// top: 0%;
+// bottom: 0%;
+
+// font-family: Roboto;
+// font-style: normal;
+// font-weight: bold;
+// font-size: 48px;
+// line-height: 56px;
+
+// color: #000000;
+
+
+
+/* Star 1 */
+.step-category-logo {
+  position: absolute;
+  left: 3.02%;
+  right: 90.61%;
+  top: 5.45%;
+  bottom: 81.59%;
+
+  background: #000000;
+}
+
+
+/* Ellipse 6 */
+.step-avatar {
+  position: absolute;
+  left: 86.93%;
+  right: 4.47%;
+  top: 6.82%;
+  bottom: 75.68%;
+
+  background: #646464;
+}
+
+
+/* Polygon 3 */
+.step-upvote {
+  position: absolute;
+  left: 76.31%;
+  right: 16.31%;
+  top: 50.91%;
+  bottom: 32.73%;
+
+  background: #C4C4C4;
+}
+
+
+/* Polygon 4 */
+.step-downvote {
+  position: absolute;
+  left: 86.15%;
+  right: 6.48%;
+  top: 63.18%;
+  bottom: 20.45%;
+
+  background: #C4C4C4;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
