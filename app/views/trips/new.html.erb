@@ -4,6 +4,7 @@
   <div class="form-wrapper" id="booking-form-div">
     <%= simple_form_for(@trip) do |f| %>
       <%= f.input :title %>
+      <%= f.input :destination %>
       <%= f.input :description %>
       <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
       <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none"  } %>

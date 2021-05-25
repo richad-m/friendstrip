@@ -1,11 +1,20 @@
-<h1>TRIPS INDEX</h1>
+<div class="container">
 
+  <h1>TRIPS INDEX</h1>
+  <div class="row" >
+    <% @trips.each do |trip| %>
+      <div class="col-6">
+        <div class="trip-card" >
+          <div class="trip-card-top" style="background-image: url('https://source.unsplash.com/600x200/?<%= trip.destination %>,')">
+            <p><%= trip.user_id %></p>
+            <h2><%= trip.title %></h2>
+          </div>
+          <div class="trip-card-bottom">
+            <p><%= trip.start_date %> / <%= trip.end_date %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<ul>
-  <% @trips.each do |trip| %>
-    <li><%= trip.title %></li>
-    <li><%= trip.start_date %></li>
-    <li><%= trip.end_date %></li>
-    <li><%= trip.user_id %></li>
-  <% end %>
-</ul>
