@@ -4,6 +4,7 @@
   color: white;
   padding: 9px 47px;
   margin: 9px;
+  text-decoration:none;
 }
 
 .button-orange {
@@ -12,4 +13,18 @@
   color: white;
   padding: 9px 47px;
   margin: 9px;
+
+}
+
+.button-orange:hover {
+  background-color: #af4619; /* Green */
+  color: white;
+  text-decoration:none;
+}
+
+
+.button-green:hover {
+  background-color: #114d4e; /* Green */
+  color: white;
+  text-decoration:none;
 }

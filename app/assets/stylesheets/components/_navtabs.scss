@@ -1,0 +1,22 @@
+.navigation-tabs {
+  display:flex;
+}
+
+.button-tabs {
+  position: relative;
+  bottom: -90px;
+  border-radius: 25px 25px 0px 0px;
+  background-color: #186F70;
+  color: white;
+  padding: 9px 47px;
+  margin: 0px 9px 0px 0px;
+  font-size:10px;
+  vertical-align: middle;
+
+
+  h5 {
+    font-size:18px;
+    width:100%;
+    margin-bottom: 0px;
+  }
+}
