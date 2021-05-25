@@ -1,0 +1,44 @@
+.footer {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $footer-height;
+  padding: 0px 50px;
+  color: rgb(27, 18, 18);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
+.footer-links a {
+  color:rgba(87, 13, 13, 0.603) !important;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.footer-links a:hover {
+  font-weight: 300;
+  color:rgba(161, 0, 0, 0.856) !important;
+  opacity: 1;
+}
+
+.footer .fa-heart {
+  color: #5d3535;
+}
+
+.flexbox {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  flex-grow: 1;
+}
+
+.main-container{
+  min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
+}
