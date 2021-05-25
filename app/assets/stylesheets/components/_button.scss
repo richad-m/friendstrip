@@ -28,3 +28,24 @@
   color: white;
   text-decoration:none;
 }
+
+.button-invite {
+  border-radius: 50px;
+  background-color: #FE6625;
+  color: white;
+  padding: 9px 47px;
+  margin: 9px;
+  // right: 0;
+  // bottom: 0;
+  // position: absolute;
+
+  &:hover {
+    background-color: #af4619; /* Green */
+    color: white;
+    text-decoration:none;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
