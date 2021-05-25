@@ -1,12 +1,49 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background: white;
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  justify-content: space-between;
+  height: $navbar-height;
+  transition: 0.5s background-color ease;
+}
+.white {
+  background-color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  align-items: left;
+}
+
+.fa-user-astronaut {
+  font-size: 22px;
+  font-weight: 600;
+  border: solid 2px black;
+  padding: 10px;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 46px;
+}
+
+.add-product {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.facette {
+  margin: 2px;;
+}
+
+.link-new-product{
+    color:rgba(168, 1, 1, 0.856) !important;
+}
+
+.link-new-product:hover {
+  font-size: large;
+  font-weight: 300;
+  color:rgba(161, 0, 0, 0.856) !important;
+  text-decoration: none;
 }
