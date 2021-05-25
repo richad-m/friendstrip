@@ -3,7 +3,7 @@
 <div class="container">
   <div class="form-wrapper" id="invite-form-div">
     <%= simple_form_for [@trip, @invite] do |f| %>
-      <%= f.input :user_id %>
+      <%= f.input :email %>
       <%= f.submit %>
     <% end %>
   </div>

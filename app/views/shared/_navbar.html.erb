@@ -10,12 +10,14 @@
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <%= link_to  "My invites", invites_path, class: "button-green" %>
+      </li>
       <li class="nav-item active">
        <%= link_to  "Add a trip", new_trip_path, class: "button-orange" %>
       </li>
       <li class="nav-item ">
       <%= link_to  "Your trip", trips_path, class: "button-green" %>
-
       </li>
       <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
