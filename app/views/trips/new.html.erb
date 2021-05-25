@@ -1,14 +1,25 @@
-<h1>NEW TRIP</h1>
-
-<div class="container">
-  <div class="form-wrapper" id="booking-form-div">
-    <%= simple_form_for(@trip) do |f| %>
-      <%= f.input :title %>
-      <%= f.input :destination %>
-      <%= f.input :description %>
-      <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
-      <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none"  } %>
-      <%= f.submit %>
-    <% end %>
+  <div class="banner text-center banner-new-trip" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80 );">
+    <div>
+      <div class="container">
+        <h1>NEW TRIP</h1>
+        <p class="">Create your trip here!</p>
+      </div>
+    </div>
   </div>
+<div class="container container-new-trip">
+  <div class="row justify-content-center row-new-trip">
+    <div class="col-6">
+      <div class="form-wrapper" id="booking-form-div">
+        <%= simple_form_for(@trip) do |f| %>
+          <%= f.input :title %>
+          <%= f.input :destination %>
+          <%= f.input :description %>
+          <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
+          <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none"  } %>
+          <%= f.submit class: "button-orange button-new-trip" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
