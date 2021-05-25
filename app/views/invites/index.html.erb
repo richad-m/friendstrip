@@ -1,0 +1,12 @@
+<h1>All your invitations to trip's</h1>
+
+<h1>My pending invites </h1>
+
+<% @pending_invites.each do |invite| %>
+  <%= "Invitation to #{invite.trip.title} by #{invite.trip.user.email}" %>
+<% end %>
+
+<h1>My accepted invites</h1>
+<% @accepted_invites.each do |invite| %>
+  <%= "Invitation to #{invite.trip.title} by #{invite.trip.user.email}" %>
+<% end %>
