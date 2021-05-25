@@ -4,6 +4,14 @@
       <h1>View your<strong> <%=@trip.title%></strong></h1>
       <p class="date-banner">from <%=@trip.start_date%> to <%=@trip.end_date%></p>
       <%= link_to "Back to all my trips", trips_path, class: "sign-button button-green"%>
+      <div class="navigation-tabs">
+        <div class="pending button-tabs">
+          <h5>Pending</h5>
+        </div>
+        <div class="all-steps button-tabs">
+          <h5>All steps</h5>
+        </div>
+      </div>
     </div>
   </div>
 </div>
