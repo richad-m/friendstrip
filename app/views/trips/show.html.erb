@@ -1,16 +1,20 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80 );">
   <div>
     <div class="container">
-      <h1>View your<strong> <%=@trip.title%></strong></h1>
-      <p class="date-banner">from <%=@trip.start_date%> to <%=@trip.end_date%></p>
-      <%= link_to "Back to all my trips", trips_path, class: "sign-button button-green"%>
+          <h1>View your<strong> <%=@trip.title%></strong></h1>
+          <p class="date-banner">from <%=@trip.start_date%> to <%=@trip.end_date%></p>
+        <%= link_to "Back to all my trips", trips_path, class: "sign-button button-green"%>
       <div class="navigation-tabs">
-        <div class="pending button-tabs">
-          <h5>Pending</h5>
-        </div>
+          <div class="pending button-tabs">
+            <h5>Pending</h5>
+          </div>
         <div class="all-steps button-tabs">
-          <h5>All steps</h5>
+            <h5>All steps</h5>
         </div>
+        <div class= "button-invite">
+          <%= link_to  "Invite a friend to join this trip", new_trip_invite_path(@trip.id) %>
+        </div>
+      </div>
       </div>
     </div>
   </div>

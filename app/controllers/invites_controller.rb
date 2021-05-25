@@ -1,17 +1,17 @@
 class InvitesController < ApplicationController
  #Richad a code trop vite ce controller
-  # def new
-  #   @invite = Invite.new
-  #   @trip = Trip.find(params[:trip_id])
-  # end
+  def new
+    @invite = Invite.new
+    @trip = Trip.find(params[:trip_id])
+  end
 
-  # def create
-  #   @invite = Invite.new(invite_params)
-  #   @trip = Trip.find(params[:trip_id])
-  #   @invite.trip_id = @trip.id
-  #   @invite.save
-  #   redirect_to trips_path
-  # end
+  def create
+    @invite = Invite.new(invite_params)
+    @trip = Trip.find(params[:trip_id])
+    @invite.trip_id = @trip.id
+    @invite.save
+    redirect_to trip_path(@trip.id)
+  end
 
   # def accept
   #   @invite = Invite.find(params[:id])
@@ -22,7 +22,7 @@ class InvitesController < ApplicationController
 
   # private
 
-  # def invite_params
-  #   params.require(:invite).permit(:user_id, :trip_id, :accepted)
-  # end
+  def invite_params
+    params.require(:invite).permit(:user_id, :trip_id, :accepted)
+  end
 end
