@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :trips, only: [:index, :new, :create, :show] do
     resources :invites, only: [:new, :create]
+    patch '/trips/:trip_id/invites/:id', to: 'invites#accept', as: :invite
   #   patch '/trips/:trip_id/invites/:id', to: 'invites#accept'
   #   resources :propositions, only: [:new, :create]
   end
