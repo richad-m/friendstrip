@@ -1,6 +1,8 @@
 <div class="container">
-  <h3>Propositions</h3>
+  <h3 class="my-5">Propositions</h3>
   <div class="row" >
+  </div>
+  <div class="button-add" id="bouton-sticky">+</div>
     <% propositions.each do |proposition| %>
       <% case proposition.category %>
       <% when "activity"%>
@@ -35,7 +37,6 @@
         </div>
       </div>
     <% end %>
-  </div>
 </div>
 
 
