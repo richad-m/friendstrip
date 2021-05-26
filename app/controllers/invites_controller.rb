@@ -3,8 +3,8 @@ class InvitesController < ApplicationController
 
   def index
     @invites = Invite.where(user_id: current_user.id)
-    @pending_invites = @invites.select {|invite| invite.accepted = false}
-    @accepted_invites = @invites.select {|invite| invite.accepted = true}
+    @pending_invites = @invites.select {|invite| invite.accepted.nil?}
+    @accepted_invites = @invites.select {|invite| invite.accepted?}
   end
 
   def new
@@ -29,6 +29,17 @@ class InvitesController < ApplicationController
       render :new
     end
   end
+
+  def accept
+    # raise
+    @invite = Invite.find(params[:id])
+    @invite.accepted = true
+    if @invite.save
+      redirect_to trips_path
+    end
+  end
+
+  private
 
   def invite_params
     params.require(:invite).permit(:trip_id)
