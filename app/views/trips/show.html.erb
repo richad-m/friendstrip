@@ -22,7 +22,7 @@
               </div>
             </div>
 
-            <!-- Modal -->
+            <!--  New invitation Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -46,10 +46,51 @@
                 </div>
               </div>
             </div>
+            <!--  New invitation Modal -->
+            <div class="modal fade" id="propositionModal" tabindex="-1" role="dialog" aria-labelledby="propositionModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="propositionModalLabel">Add a proposition to <%=@trip.title%></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-wrapper">
+                      <%= simple_form_for [@trip, @proposition] do |f| %>
+                        <%= f.input :category, :collection => ["food", "accomodation", "activity"], label: 'Pick a category' %>
+                        <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
+                        <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none"  } %>
+                        <%= f.input :due_date %>
+                        <%= f.input :address %>      
+                        <%= f.input :title %>
+                        <%= f.input :description %>
+                        <%= f.input :url %>
+                    </div>
+                  </div>
+                    <div class="modal-footer">
+                      <div type="button" class="button-green" data-dismiss="modal">Close</div>
+                      <%= f.button :submit, 'Add proposition', class: "button-orange" %>
+                      <% end %>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
       </div>
       </div>
     </div>
   </div>
   <%= render "propositions/list", propositions: @trip.propositions %>
 </div>
+</div>
+  <!-- Button trigger proposition new modal -->
+  <div class="button-add" data-toggle="modal" data-target="#propositionModal" id="bouton-sticky">
+    +
+  </div>
 </div>
