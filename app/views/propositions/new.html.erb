@@ -1,0 +1,17 @@
+
+<h1>Create a proposition for your @trip.title trip</h1>
+
+<div class="container">
+  <div class="form-wrapper" id="invite-form-div">
+    <%= simple_form_for [@trip, @proposition] do |f| %>
+      <%= f.input :category %>
+      <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
+      <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none"  } %>
+      <%= f.input :due_date %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :url %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
