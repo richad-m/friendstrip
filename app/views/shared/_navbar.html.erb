@@ -15,10 +15,14 @@
           <%= link_to  "Your trips", trips_path, class: "button-green" %>
         </li>
 
-        <li class="nav-item dropdown ">
+        <li class="nav-item dropdown dropdown-logged ">
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" type="button"/>
+          <%= "<i class='fas fa-dot-circle dot-invite'></i>".html_safe if current_user.invites.select {|invite| invite.accepted.nil?}.count!=0%>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to  "My invites", invites_path, class: "dropdown-item" %>
+            <div class = "notification-invite">
+              <%= link_to  "My invites", invites_path, class: "dropdown-item" %>
+              <%= "<i class='fas fa-dot-circle'></i>".html_safe if current_user.invites.select {|invite| invite.accepted.nil?}.count!=0%>
+            </div>
             <%= link_to  "Add a trip", new_trip_path, class: "dropdown-item" %>
             <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
