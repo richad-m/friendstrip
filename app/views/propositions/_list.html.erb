@@ -1,0 +1,29 @@
+<div class="container">
+
+  <h3>Propositions</h3>
+  <div class="row" >
+    <% propositions.each do |proposition| %>
+      <div class="col-8">
+        <div class="trip-card" >
+          <div class="card-proposition-top">
+            <div class="row" >
+              <i class="fas fa-volleyball-ball"></i>
+              <h5><%= proposition.title %></h5>
+              <p><%= proposition.user_id %></p>
+            </div>
+            <div class="row-2" >
+              <p>Due date: <%= proposition.due_date %></p>
+            </div>
+            </div>
+          <div class="card-proposition-bottom">
+            <p>Dates: <%= proposition.start_date %> / <%= proposition.end_date %></p>
+              <div>
+              <i class="fas fa-thumbs-up"></i>
+              <i class="fas fa-thumbs-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
