@@ -11,8 +11,36 @@
         <div class="all-steps button-tabs">
             <h5>All steps</h5>
         </div>
-        <div class= "button-invite">
-          <%= link_to  "Invite a friend to join this trip", new_trip_invite_path(@trip.id) %>
+        <div class= "">
+          <!-- Button trigger modal -->
+          <button class="button-invite button-orange" data-toggle="modal" data-target="#exampleModal">
+            Invite a friend
+          </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Invite a friend to join <%=@trip.title%></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-wrapper" id="invite-form-div">
+                  <%= simple_form_for [@trip, @invite] do |f| %>
+                    <%= f.input :email, label: 'Pick a friend to invite' %>
+                </div>
+              </div>
+                <div class="modal-footer">
+                  <div type="button" class="button-green" data-dismiss="modal">Close</div>
+                  <%= f.button :submit, 'Send invite', class: "button-orange" %>
+                  <% end %>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
       </div>
