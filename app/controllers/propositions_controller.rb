@@ -2,6 +2,13 @@ class PropositionsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     @propositions = Proposition.all
+    @markers = @propositions.geocoded.map do |proposition|
+      {
+        lat: proposition.latitude,
+        lng: proposition.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+      }
+    end
   end
 
    def new
@@ -37,4 +44,5 @@ class PropositionsController < ApplicationController
    def proposition_params
      params.require(:proposition).permit(:trip_id, :user_id, :category, :start_date, :end_date, :due_date, :title, :description, :url)
    end
+
 end
