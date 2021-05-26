@@ -45,3 +45,27 @@
 .navbar-expand-sm .navbar-nav {
   align-items: center;
 }
+
+.notification-invite {
+  display:flex;
+  align-items: center;
+  .fas {
+    color:red;
+  }
+  width:62%;
+}
+
+.dropdown-logged {
+  display:flex;
+  align-items: flex-end;
+}
+
+.avatar .dropdown-toggle {
+  position:relative;
+}
+
+.dot-invite {
+  position:absolute;
+  right:-9px;
+  color: red;
+}
