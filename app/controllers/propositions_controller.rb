@@ -13,6 +13,7 @@ class PropositionsController < ApplicationController
 
    def new
      @proposition = Proposition.new
+     @trip = Trip.find(params[:trip_id])
    end
 
    def create
