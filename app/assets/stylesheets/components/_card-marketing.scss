@@ -1,0 +1,48 @@
+.card-marketing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 10%;
+    padding: 1rem 0 !important;
+  }
+  
+  .card-marketing > img {
+    display: flex;
+    height: 150px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 10%;
+  }
+  
+  .card-marketing h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .card-marketing p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+  
+  
+  .card-marketing .card-marketing-infos {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    text-align: center;
+  }
+  
+  .card-marketing-infos .card-marketing-user {
+    position: absolute;
+    right: 16px;
+    top: -20px;
+    width: 40px;
+  }
+  
