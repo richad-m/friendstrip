@@ -1,15 +1,27 @@
 <div class="container">
-
-  <h3>Propositions</h3>
+  <h3 class="my-5">Propositions</h3>
   <div class="row" >
+
     <div class="col-8">
-      <% propositions.each do |proposition| %>
+  <div class="button-add" id="bouton-sticky">+</div>
+    <% propositions.each do |proposition| %>
+      <% case proposition.category %>
+      <% when "activity"%>
+      <% iconecategory="fa-volleyball-ball" %>
+      <% color="activity"%>
+      <% when "food"%>
+      <% iconecategory="fa-hamburger" %>
+      <% color="food"%>
+      <% when "accomodation"%>
+      <% iconecategory="fa-bed" %>
+      <% color="bed"%>
+      <% end %>
         <div class="trip-card" >
-          <div class="card-proposition-top">
+          <div class="card-proposition-top" id="<%=color%>">
             <div class="row" >
-              <i class="fas fa-volleyball-ball"></i>
+              <i class="fas <%=iconecategory%>"></i>
               <h5><%= proposition.title %></h5>
-              <p><%= proposition.user_id %></p>
+              <p>by <%= proposition.user.first_name %></p>
             </div>
             <div class="row-2" >
               <p>Due date: <%= proposition.due_date %></p>
@@ -34,3 +46,4 @@
     </div>
   </div>
 </div>
+
