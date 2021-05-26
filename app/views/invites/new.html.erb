@@ -1,1 +1,10 @@
 <h1>Create an invite for your @trip.title trip</h1>
+
+<div class="container">
+  <div class="form-wrapper" id="invite-form-div">
+    <%= simple_form_for [@trip, @invite] do |f| %>
+      <%= f.input :email %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

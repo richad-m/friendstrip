@@ -5,6 +5,7 @@
   padding: 9px 47px;
   margin: 9px;
   text-decoration:none;
+  box-shadow: 0px 2px 3px #0c4344;
 }
 
 .button-orange {
@@ -13,6 +14,7 @@
   color: white;
   padding: 9px 47px;
   margin: 9px;
+  box-shadow: 0px 2px 3px #c54813;
 
 }
 
@@ -20,6 +22,7 @@
   background-color: #af4619; /* Green */
   color: white;
   text-decoration:none;
+  box-shadow: 0px 2px 3px #c54813;
 }
 
 
@@ -27,4 +30,54 @@
   background-color: #114d4e; /* Green */
   color: white;
   text-decoration:none;
+  box-shadow: 0px 2px 3px #0c4344;
+}
+
+.button-new-trip {
+  border: 0px !important;
+}
+
+.button-invite {
+  border-radius: 50px;
+  background-color: #FE6625;
+  color: white;
+  padding: 9px 47px;
+  margin: 9px;
+  box-shadow: 0px 2px 3px #c54813;
+  // right: 0;
+  // bottom: 0;
+  // position: absolute;
+
+  &:hover {
+    background-color: #af4619; /* Green */
+    color: white;
+    text-decoration:none;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.button-add {
+  background-color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  display:block;
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+  text-align: center;
+  justify-content: auto;
+  border-radius: 50%;
+  color: #9da3a7;
+  -webkit-box-shadow: inset 1px 1px 10px #9da3a7;
+  -moz-box-shadow:    inset 1px 1px 10px #9da3a7;
+  box-shadow: 0px 2px 3px #9da3a7;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+}
+
+.button-add:hover {
+  color: $ft-gray;
+  text-decoration: underline;
 }

@@ -1,0 +1,43 @@
+<div class="container">
+
+  <h1>All your invitations to trip's</h1>
+
+  <h1>My pending invites </h1>
+  <div class="row">
+    <% @pending_invites.each do |invite| %>
+
+      <div class="col-6">
+        <div class="trip-card" >
+          <div class="trip-card-top" style="background-image: url('https://source.unsplash.com/600x200/?<%= invite.trip.destination %>,')">
+            <p><%= invite.trip.user_id %></p>
+            <h2><%= invite.trip.title %></h2>
+          </div>
+          <div class="trip-card-bottom">
+            <p><%= invite.trip.start_date %> / <%= invite.trip.end_date %></p>
+            <%= simple_form_for [invite.trip, invite] do |f| %>
+              <%= f.submit "Accept invitation", class:"button-green"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <h1>My accepted invites</h1>
+  <div class="row">
+    <% @accepted_invites.each do |invite| %>
+          <div class="col-6">
+        <div class="trip-card" >
+          <div class="trip-card-top" style="background-image: url('https://source.unsplash.com/600x200/?<%= invite.trip.destination %>,')">
+            <p><%= invite.trip.user_id %></p>
+            <h2><%= invite.trip.title %></h2>
+          </div>
+          <div class="trip-card-bottom">
+            <p><%= invite.trip.start_date %> / <%= invite.trip.end_date %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

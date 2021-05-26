@@ -1,5 +1,6 @@
 .navigation-tabs {
   display:flex;
+  justify-content: space-between;
 }
 
 .button-tabs {
@@ -12,6 +13,7 @@
   margin: 0px 9px 0px 0px;
   font-size:10px;
   vertical-align: middle;
+  box-shadow: 2px 0px 3px #0c4344;
 
 
   h5 {
@@ -19,4 +21,8 @@
     width:100%;
     margin-bottom: 0px;
   }
+}
+
+.logo-font{
+  font-family: $logo-font;
 }
