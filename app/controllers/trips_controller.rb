@@ -8,6 +8,8 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @invite = Invite.new
+    #Collection of email in DB
+    @emails = User.all.map {|user| user.email}
   end
 
   def new
