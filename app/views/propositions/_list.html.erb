@@ -19,7 +19,7 @@
             <div class="row" >
               <i class="fas <%=iconecategory%>"></i>
               <h5><%= proposition.title %></h5>
-              <p><%= proposition.user_id %></p>
+              <p>by <%= proposition.user.first_name %></p>
             </div>
             <div class="row-2" >
               <p>Due date: <%= proposition.due_date %></p>
