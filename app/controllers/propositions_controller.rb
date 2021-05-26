@@ -27,17 +27,17 @@ class PropositionsController < ApplicationController
      end
    end
 
-   def validate 
-     @proposition = Proposition.find(params[:id])
-     @proposition.status = "validated"
-     @proposition.save
-   end
+  #  def validate 
+  #    @proposition = Proposition.find(params[:id])
+  #    @proposition.status = "validated"
+  #    @proposition.save
+  #  end
 
-   def dismiss
-     @proposition = Proposition.find(params[:id])
-     @proposition.status = "dismissed"
-     @proposition.save
-   end
+  #  def dismiss
+  #    @proposition = Proposition.find(params[:id])
+  #    @proposition.status = "dismissed"
+  #    @proposition.save
+  #  end
 
    private
 
