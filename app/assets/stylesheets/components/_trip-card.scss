@@ -32,6 +32,14 @@ ul#ba {
   padding-bottom: 30px;
 }
 
+.trip-card-link{
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+
 // .card-trip {
 //   overflow: hidden;
 //   background: white;

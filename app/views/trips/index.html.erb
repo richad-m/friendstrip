@@ -4,15 +4,19 @@
   <div class="row" >
     <% @trips.each do |trip| %>
       <div class="col-6">
-        <div class="trip-card" >
-          <div class="trip-card-top" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/600x200/?<%= trip.destination %>,')">
-            <p><%= trip.user_id %></p>
-            <h2><%= trip.title %></h2>
+
+        <%= link_to trip_path(trip), class: "trip-card-link" do%>
+          <div class="trip-card" >
+            <div class="trip-card-top" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/600x200/?<%= trip.destination %>,')">
+              <p><%= trip.user_id %></p>
+              <h2><%= trip.title %></h2>
+            </div>
+            <div class="trip-card-bottom">
+              <p><%= trip.start_date %> / <%= trip.end_date %></p>
+            </div>
+
           </div>
-          <div class="trip-card-bottom">
-            <p><%= trip.start_date %> / <%= trip.end_date %></p>
-          </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
