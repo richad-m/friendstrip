@@ -5,11 +5,13 @@
           <p class="date-banner">from <%=@trip.start_date%> to <%=@trip.end_date%></p>
         <%= link_to "Back to all my trips", trips_path, class: "sign-button button-green"%>
       <div class="navigation-tabs">
+        <div class="navigation-tabs-green d-flex">
           <div class="pending button-tabs">
             <h5>Pending</h5>
           </div>
-        <div class="all-steps button-tabs">
-            <h5>All steps</h5>
+          <div class="all-steps button-tabs">
+              <h5>All propositions</h5>
+          </div>
         </div>
         <div class= "">
           <!-- Button trigger modal -->

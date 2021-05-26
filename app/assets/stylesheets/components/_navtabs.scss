@@ -1,11 +1,12 @@
 .navigation-tabs {
   display:flex;
   justify-content: space-between;
+  position:relative;
 }
 
 .button-tabs {
-  position: relative;
-  bottom: -90px;
+  position: absolute;
+  bottom: -150px;
   border-radius: 25px 25px 0px 0px;
   background-color: #186F70;
   color: white;
@@ -25,4 +26,9 @@
 
 .logo-font{
   font-family: $logo-font;
+}
+
+.all-steps {
+  position: absolute;
+  left: 205px;
 }
