@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :trips
   has_many :propositions
   has_many :votes
+  validates :first_name, presence: true
 end
