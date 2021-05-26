@@ -6,7 +6,7 @@ class PropositionsController < ApplicationController
       {
         lat: proposition.latitude,
         lng: proposition.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+        info_window: render_to_string(partial: "info_window", locals: { proposition: proposition })
       }
     end
   end
@@ -28,7 +28,7 @@ class PropositionsController < ApplicationController
      end
    end
 
-  #  def validate 
+  #  def validate
   #    @proposition = Proposition.find(params[:id])
   #    @proposition.status = "validated"
   #    @proposition.save

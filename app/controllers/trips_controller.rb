@@ -11,6 +11,13 @@ class TripsController < ApplicationController
     @proposition = Proposition.new
     #Collection of email in DB
     @emails = User.all.map {|user| user.email}
+    @markers = @trip.propositions.map do |proposition|
+      {
+        lat: proposition.latitude,
+        lng: proposition.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { proposition: proposition })
+      }
+    end
   end
 
   def new
