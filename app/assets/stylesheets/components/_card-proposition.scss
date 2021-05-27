@@ -68,12 +68,22 @@ ul#ba {
   font-size: 25px;
 }
 
-#food {
+.bg-color-food  {
  background-color: $ft-orange-clair;
 }
-#bed {
+.bg-color-accomodation {
   background-color: $ft-duck-blue;
 }
-#activity {
+.bg-color-activity {
   background-color: $ft-truquoise-clair;
+}
+
+.text-color-food  {
+  color: $ft-orange-clair;
+}
+.text-color-accomodation {
+  color: $ft-duck-blue;
+}
+.text-color-activity {
+  color: $ft-truquoise-clair;
 }

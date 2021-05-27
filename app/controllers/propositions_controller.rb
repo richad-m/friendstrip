@@ -6,7 +6,9 @@ class PropositionsController < ApplicationController
       {
         lat: proposition.latitude,
         lng: proposition.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { proposition: proposition })
+        info_window: render_to_string(partial: "info_window", locals: { proposition: proposition }),
+        marker_icon: '<i class="fas <%=iconecategory%>"></i>',
+        marker_color: "text-color-#{proposition.category}"
       }
     end
   end
@@ -43,7 +45,7 @@ class PropositionsController < ApplicationController
    private
 
    def proposition_params
-     params.require(:proposition).permit(:trip_id, :user_id, :category, :start_date, :end_date, :due_date, :title, :description, :url)
+     params.require(:proposition).permit(:trip_id, :user_id, :category, :start_date, :end_date, :due_date, :title, :description, :url, :address)
    end
 
 end

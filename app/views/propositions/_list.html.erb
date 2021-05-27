@@ -4,21 +4,21 @@
 
     <div class="col-8">
     <% propositions.each do |proposition| %>
-      <% case proposition.category %>
-      <% when "activity"%>
-      <% iconecategory="fa-volleyball-ball" %>
-      <% color="activity"%>
-      <% when "food"%>
-      <% iconecategory="fa-hamburger" %>
-      <% color="food"%>
-      <% when "accomodation"%>
-      <% iconecategory="fa-bed" %>
-      <% color="bed"%>
-      <% end %>
+      <%# case proposition.category %>
+      <%# when "activity"%>
+      <%# iconecategory="fa-volleyball-ball" %>
+      <%# color="activity"%>
+      <%# when "food"%>
+      <%# iconecategory="fa-hamburger" %>
+      <%# color="food"%>
+      <%# when "accomodation"%>
+      <%# iconecategory="fa-bed" %>
+      <%# color="bed" %>
+      <%# end %> <%=  %>
         <div class="trip-card" >
-          <div class="card-proposition-top" id="<%=color%>">
+          <div class="card-proposition-top bg-color-<%= proposition.category %>">
             <div class="row" >
-              <i class="fas <%=iconecategory%>"></i>
+              <i class="fas <%=Proposition::ICONS[proposition.category]%>"></i>
               <h5><%= proposition.title %></h5>
               <p>by <%= proposition.user.first_name %></p>
             </div>
@@ -29,14 +29,67 @@
           <div class="card-proposition-bottom">
             <p>Dates: <%= proposition.start_date %> / <%= proposition.end_date %></p>
               <div>
-              <i class="fas fa-thumbs-up"></i>
-              <i class="fas fa-thumbs-down"></i>
+              <!-- Button trigger like vote -->
+                <i class='fas fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"> <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%></i>
+              <!-- Like modal form -->
+                <div class="modal fade" id="likeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="likeModalLabel-<%=proposition.id%>" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="likeModalLabel-<%=proposition.id%>">Upvote <%=proposition.title%> ?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-wrapper">
+                          <%= simple_form_for [proposition, @vote] do |f| %>
+                            <%= f.input :comment %>
+                            <%= f.input :status, as: :hidden, :input_html => { :value =>  "upvote" } %>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <div type="button" class="button-green" data-dismiss="modal">Cancel</div>
+                        <%= f.button :submit, 'Upvote', class: "button-orange" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <!-- Button trigger dislike vote -->
+              <i class='fas fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"> <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%></i>
+              <!-- disLike modal form -->
+              <div class="modal fade" id="dislikeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="dislikeModalLabel-<%=proposition.id%>" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="dislikeModalLabel-<%=proposition.id%>">Downvote <%=proposition.title%> ?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-wrapper">
+                        <%= simple_form_for [proposition, @vote] do |f| %>
+                          <%= f.input :comment %>
+                          <%= f.input :status, as: :hidden, :input_html => { :value =>  "downvote" } %>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <div type="button" class="button-green" data-dismiss="modal">Close</div>
+                      <%= f.button :submit, 'Upvote', class: "button-orange" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       <% end %>
     </div>
     <div class="col-4">
+        <%#= raise %>
       <div id="map"
         style="width: 100%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
@@ -45,4 +98,5 @@
     </div>
   </div>
 </div>
+
 

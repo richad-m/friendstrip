@@ -11,8 +11,18 @@ const buildMap = (mapElement) => {
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
+    console.log(marker);
+    console.log(marker.marker_icon);
     const popup = new mapboxgl.Popup().setHTML(marker.info_window);
-    new mapboxgl.Marker()
+    const element = document.createElement('div');
+    element.className = 'marker';
+    element.insertAdjacentHTML("beforeend", marker.marker_icon);
+    element.classList.add(marker.marker_color);
+    // element.style.backgroundSize = 'contain';
+    element.style.width = '25px';
+    element.style.height = '25px';
+
+    new mapboxgl.Marker(element)
       .setLngLat([marker.lng, marker.lat])
       .setPopup(popup) // add this
       .addTo(map);
