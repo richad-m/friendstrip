@@ -1,0 +1,11 @@
+<h1>Vote for a proposition</h1>
+
+<div class="container">
+  <div class="form-wrapper" id="invite-form-div">
+    <%= simple_form_for [@proposition, @vote] do |f| %>
+      <%= f.input :comment %>
+      <%= f.hidden_field :status, :value => "true"%>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

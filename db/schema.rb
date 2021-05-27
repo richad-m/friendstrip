@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_141415) do
+ActiveRecord::Schema.define(version: 2021_05_27_094433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_05_26_141415) do
     t.bigint "user_id", null: false
     t.bigint "proposition_id", null: false
     t.text "comment"
-    t.boolean "status"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["proposition_id"], name: "index_votes_on_proposition_id"
