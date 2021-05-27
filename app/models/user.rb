@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :trips
   has_many :propositions
   has_many :votes
+
+  has_one_attached :avatar
   validates :first_name, presence: true
 end
