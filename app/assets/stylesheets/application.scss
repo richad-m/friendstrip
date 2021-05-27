@@ -12,3 +12,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.min-h-90vh {
+  min-height: 90vh;
+}
