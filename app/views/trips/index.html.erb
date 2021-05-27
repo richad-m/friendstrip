@@ -4,14 +4,13 @@
       <div class="index-title mb-5">
         <h1>Your trips</h1>
       </div>
-        <div>
-          <%= link_to  "Add a trip", new_trip_path, class: "button-orange" %>
-        </div>
-        <div class="row d-flex text-end">
-          <div class="">
-          <h4><%= link_to "Check your next trip" %></h4>
-          <h4><%#= link_to "5 past trips" %></h4>
-          </div>
+      <div>
+        <%= link_to  "Add a trip", new_trip_path, class: "button-orange" %>
+      </div>
+      <div class="row d-flex text-end">
+        <div class="">
+        <h4><%= link_to "Check your next trip" %></h4>
+        <h4><%#= link_to "5 past trips" %></h4>
         </div>
       </div>
     </div>
@@ -28,13 +27,15 @@
         <%= link_to trip_path(trip), class: "trip-card-link" do%>
           <div class="trip-card" >
             <div class="trip-card-top" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/600x200/?<%= trip.destination %>,')">
-              <p>by: <%= trip.user.first_name %></p>
+              <p>by: <%= cl_image_tag trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;" %></p>
               <h2><%= trip.title %></h2>
             </div>
             <div class="trip-card-bottom">
               <p><%= trip.start_date %> / <%= trip.end_date %></p>
+              <% trip.invites.each do |invite| %>
+                <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;" %>
+              <% end %>
             </div>
-
           </div>
         <% end %>
       </div>

@@ -69,3 +69,7 @@
   right:-9px;
   color: red;
 }
+
+.dropdown-toggle::after {
+  display: none;
+}
