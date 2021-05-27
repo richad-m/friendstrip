@@ -85,12 +85,12 @@
   </div>
   <div class="pending-prop">
     <div>
-      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"} %>
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}, map: "map-pending" %>
     </div>
   </div>
   <div class="all-prop d-none">
     <div>
-      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"} %>
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all" %>
     </div>
   </div>
 </div>
