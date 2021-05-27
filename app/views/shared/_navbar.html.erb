@@ -1,6 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to root_path, class: "navbar-brand" do %>
     <img src="https://seeklogo.com/images/V/vw-combi-lateral-logo-D02777CEAE-seeklogo.com.png" alt="mirror ball"  width="500" class="facette"/>
+
     <strong class="logo-font">Friends-Trip</strong>
   <% end %>
 
@@ -16,7 +17,7 @@
         </li>
 
         <li class="nav-item dropdown dropdown-logged ">
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" type="button"/>
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.avatar.key %>" type="button"/>
           <%= "<i class='fas fa-dot-circle dot-invite'></i>".html_safe if current_user.invites.select {|invite| invite.accepted.nil?}.count!=0%>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <div class = "notification-invite">

@@ -30,7 +30,11 @@
  justify-content: space-between;
 }
 
-
+.fa-user-circle:before {
+    font-size: 50px;
+    margin-right: -63px;
+    content: "\f2bd";
+}
 
 // .btn-index {
 //   text-decoration: none;
