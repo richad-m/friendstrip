@@ -1,10 +1,12 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+
+
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-  return new mapboxgl.Map({
-    container: 'map',
+    return new mapboxgl.Map({
+    container: mapElement,
     style: 'mapbox://styles/clotildelacaille/ckowykosf11l418oahozxlsmj'
   });
 };
@@ -35,8 +37,7 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
-const initMapbox = () => {
-  const mapElement = document.getElementById('map');
+const initMapbox = (mapElement) => {
   if (mapElement) {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
@@ -44,4 +45,9 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
   }
 };
+
+document.querySelectorAll(".map").forEach((map) => {
+  initMapbox(map);
+})
+
 export { initMapbox };
