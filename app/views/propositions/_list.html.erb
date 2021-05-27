@@ -15,8 +15,8 @@
               <div class="validation-prop">
                 <p>Due date: <%= proposition.due_date %></p>
                 <% if proposition.status != 'validated' %>
-                  <%= simple_form_for [proposition.trip, proposition] do |f| %>
-                    <%= f.submit "<i class='fas fa-check-circle'></i>".html_safe  %>
+                  <%= link_to validate_path(proposition), method: :patch do %>
+                    <i class='fas fa-check-circle'></i>
                   <% end %>
                 <% end %>
               </div>
