@@ -4,18 +4,7 @@
 
     <div class="col-8">
     <% propositions.each do |proposition| %>
-      <%# case proposition.category %>
-      <%# when "activity"%>
-      <%# iconecategory="fa-volleyball-ball" %>
-      <%# color="activity"%>
-      <%# when "food"%>
-      <%# iconecategory="fa-hamburger" %>
-      <%# color="food"%>
-      <%# when "accomodation"%>
-      <%# iconecategory="fa-bed" %>
-      <%# color="bed" %>
-      <%# end %> <%=  %>
-        <div class="trip-card" >
+        <div class="trip-card <%= 'validated-prop' if proposition.status == 'validated'%>">
           <div class="card-proposition-top bg-color-<%= proposition.category %>">
             <div class="row" >
               <i class="fas <%=Proposition::ICONS[proposition.category]%>"></i>
@@ -23,9 +12,16 @@
               <p>by <%= proposition.user.first_name %></p>
             </div>
             <div class="row-2" >
-              <p>Due date: <%= proposition.due_date %></p>
+              <div class="validation-prop">
+                <p>Due date: <%= proposition.due_date %></p>
+                <% if proposition.status != 'validated' %>
+                  <%= simple_form_for [proposition.trip, proposition] do |f| %>
+                    <%= f.submit "<i class='fas fa-check-circle'></i>".html_safe  %>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
-            </div>
+          </div>
           <div class="card-proposition-bottom">
             <p>Dates: <%= proposition.start_date %> / <%= proposition.end_date %></p>
               <div>

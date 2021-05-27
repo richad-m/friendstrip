@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     patch '/trips/:trip_id/invites/:id', to: 'invites#accept', as: :invite
   #   patch '/trips/:trip_id/invites/:id', to: 'invites#accept'
     resources :propositions, only: [:index, :new, :create, :show]
+    patch '/propositions/:id', to: 'propositions#validate', as: :validate
   end
   resources :invites, only: [:index]
-  # patch '/propositions/:id/validate', to: 'propositions#validate'
   # patch '/propositions/:id/dismiss', to: 'propositions#dismiss'
   resources :propositions, only: [:edit ] do
     resources :votes, only: [:new, :create]

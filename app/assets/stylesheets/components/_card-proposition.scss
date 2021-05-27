@@ -88,6 +88,22 @@ ul#ba {
   color: $ft-truquoise-clair;
 }
 
+.validation-prop{
+  display:flex;
+  justify-content: space-between;
+  .fa-check-circle {
+    font-size:50px;
+    font-size: 27px;
+    color: #6a8f47;
+  }
+  .fa-check-circle:hover {
+    color: #4d6834;
+    // box-shadow: 0px 2px 3px black;
+    }
+}
+.validated-prop {
+  opacity: 50%;
+}
 .vote-counter {
   font-family: $body-font !important;
 }

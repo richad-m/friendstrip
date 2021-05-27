@@ -30,17 +30,14 @@ class PropositionsController < ApplicationController
      end
    end
 
-  #  def validate
-  #    @proposition = Proposition.find(params[:id])
-  #    @proposition.status = "validated"
-  #    @proposition.save
-  #  end
+   def validate
+     @proposition = Proposition.find(params[:id])
+     @proposition.status = "validated"
+     if @proposition.save
+      redirect_to trip_path(@proposition.trip)
+     end
+   end
 
-  #  def dismiss
-  #    @proposition = Proposition.find(params[:id])
-  #    @proposition.status = "dismissed"
-  #    @proposition.save
-  #  end
 
    private
 
