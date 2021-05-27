@@ -9,7 +9,7 @@
       <div class="col-6">
         <div class="trip-card" >
           <div class="trip-card-top" style="background-image: url('https://source.unsplash.com/600x200/?<%= invite.trip.destination %>,')">
-            <p><%= invite.trip.user_id %></p>
+            <p><%= cl_image_tag invite.trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;" %></p>
             <h2><%= invite.trip.title %></h2>
           </div>
           <div class="trip-card-bottom">
@@ -29,7 +29,14 @@
           <div class="col-6">
         <div class="trip-card" >
           <div class="trip-card-top" style="background-image: url('https://source.unsplash.com/600x200/?<%= invite.trip.destination %>,')">
-            <p><%= invite.trip.user_id %></p>
+          <div class="avatar-card">
+            <p><%= cl_image_tag invite.trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
+            <div class="middle">
+              <div class="text">
+                <%= invite.trip.user.first_name %>
+              </div>
+            </div>
+          </div>
             <h2><%= invite.trip.title %></h2>
           </div>
           <div class="trip-card-bottom">
