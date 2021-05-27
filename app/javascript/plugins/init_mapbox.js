@@ -49,4 +49,5 @@ const initMapbox = (mapElement) => {
 document.querySelectorAll(".map").forEach((map) => {
   initMapbox(map);
 })
+
 export { initMapbox };
