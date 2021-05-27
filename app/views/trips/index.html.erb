@@ -28,7 +28,11 @@
           <div class="trip-card" >
             <div class="trip-card-top" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/600x200/?<%= trip.destination %>,')">
               <div class="avatar-card">
-                <p><%= cl_image_tag trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
+                <% if trip.user.avatar.attached? %>
+                  <p><%= cl_image_tag trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
+                <% else %>
+                  <i class='fas fa-user-circle avatar image'></i>
+                <% end %>
                 <div class="middle">
                   <div class="text">
                     <%= trip.user.first_name %>
@@ -40,7 +44,11 @@
             <div class="trip-card-bottom">
               <p><%= trip.start_date %> / <%= trip.end_date %></p>
               <% trip.invites.each do |invite| %>
-                <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;" %>
+                <% if invite.user.avatar.attached? %>
+                  <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;" %>
+                <% else %>
+                  <i class='fas fa-user-circle avatar dropdown-toggle' id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"type="button" ></i>
+                <% end %>
               <% end %>
             </div>
           </div>
