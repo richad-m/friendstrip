@@ -10,10 +10,8 @@ Rails.application.routes.draw do
   resources :invites, only: [:index]
   # patch '/propositions/:id/validate', to: 'propositions#validate'
   # patch '/propositions/:id/dismiss', to: 'propositions#dismiss'
-  # resources :propositions, only: [:edit ] do
-  #   resources :votes, only: [:new, :create]
-  #   patch '/propositions/:proposition_id/votes/:id', to: 'votes#upvote'
-  #   patch '/propositions/:proposition_id/votes/:id', to: 'votes#downvote'
-  # end
+  resources :propositions, only: [:edit ] do
+    resources :votes, only: [:new, :create]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
