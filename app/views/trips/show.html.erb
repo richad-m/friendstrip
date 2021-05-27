@@ -46,7 +46,7 @@
                 </div>
               </div>
             </div>
-            <!--  New invitation Modal -->
+            <!--  New proposition Modal -->
             <div class="modal fade" id="propositionModal" tabindex="-1" role="dialog" aria-labelledby="propositionModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -57,13 +57,13 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <div class="form-wrapper">
+                    <div class="form-wrapper" id="booking-form-div">
                       <%= simple_form_for [@trip, @proposition] do |f| %>
                         <%= f.input :category, :collection => ["food", "accomodation", "activity"], label: 'Pick a category' %>
                         <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
                         <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none"  } %>
                         <%= f.input :due_date %>
-                        <%= f.input :address %>      
+                        <%= f.input :address, as: :string %>
                         <%= f.input :title %>
                         <%= f.input :description %>
                         <%= f.input :url %>
