@@ -30,7 +30,7 @@
             <p>Dates: <%= proposition.start_date %> / <%= proposition.end_date %></p>
               <div>
               <!-- Button trigger like vote -->
-                <i class='fas fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"><%=proposition.votes.select {|vote| vote.status == "upvote"}.count%></i>
+                <i class='fas fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"> <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%></i>
               <!-- Like modal form -->
                 <div class="modal fade" id="likeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="likeModalLabel-<%=proposition.id%>" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -57,7 +57,7 @@
                   </div>
                 </div>
               <!-- Button trigger dislike vote -->
-              <i class='fas fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"><%=proposition.votes.select {|vote| vote.status == "downvote"}.count%></i>
+              <i class='fas fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"> <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%></i>
               <!-- disLike modal form -->
               <div class="modal fade" id="dislikeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="dislikeModalLabel-<%=proposition.id%>" aria-hidden="true">
                 <div class="modal-dialog" role="document">
