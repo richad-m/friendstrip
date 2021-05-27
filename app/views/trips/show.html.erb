@@ -14,10 +14,10 @@
           </div>
           <div class="navigation-tabs">
             <div class="navigation-tabs-green">
-              <div class="pending button-tabs">
+              <div class="pending button-tabs" id="pending-prop">
                 <h5>Pending</h5>
               </div>
-              <div class="all-steps button-tabs">
+              <div class="all-steps button-tabs" id="all-prop">
                   <h5>All propositions</h5>
               </div>
             </div>
@@ -79,16 +79,20 @@
                 </div>
               </div>
             </div>
-
-
-
-
-
       </div>
       </div>
     </div>
   </div>
-  <%= render "propositions/list", propositions: @trip.propositions %>
+  <div class="pending-prop">
+    <div>
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"} %>
+    </div>
+  </div>
+  <div class="all-prop d-none">
+    <div>
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"} %>
+    </div>
+  </div>
 </div>
 </div>
   <!-- Button trigger proposition new modal -->
