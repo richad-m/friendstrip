@@ -24,16 +24,16 @@
 .avatar-card {
   position: relative;
   .text {
-  background-color: rgba(0, 0, 0, 0.541);
-  padding: 2px;
-  color: white;
-  font-size: 16px;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-}
-
+    background-color: rgba(0, 0, 0, 0.658);
+    color: white;
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .image {
@@ -51,7 +51,6 @@
   left: 0%;
   // transform: translate(-50%, -50%);
   // -ms-transform: translate(-50%, -50%);
-  text-align: center;
 }
 
 .avatar-card:hover .image {
@@ -61,5 +60,4 @@
 .avatar-card:hover .middle {
   opacity: 1;
 }
-
 
