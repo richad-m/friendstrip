@@ -9,8 +9,8 @@
       </div>
       <div class="row d-flex text-end">
         <div class="">
-        <h4><%= link_to "Check your next trip" %></h4>
-        <h4><%#= link_to "5 past trips" %></h4>
+        <%# <h4><%= link_to "Check your next trip" %>
+        <%# <h4><%#= link_to "5 past trips" %>
         </div>
       </div>
     </div>
@@ -58,6 +58,9 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+  <div>
+    <%= link_to  "+", new_trip_path, class: "button-add-proposition bouton-sticky"%>
   </div>
 </div>
 
