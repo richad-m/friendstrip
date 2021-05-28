@@ -31,7 +31,7 @@
                 <% if trip.user.avatar.attached? %>
                   <p><%= cl_image_tag trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
                 <% else %>
-                  <i class='fas fa-user-circle avatar image'></i>
+                  <%= image_tag("avatar.png", class: "trip-invitee") %>
                 <% end %>
                 <div class="middle">
                   <div class="text">

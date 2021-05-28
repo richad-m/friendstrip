@@ -44,7 +44,6 @@ ul#ba {
   }
 }
 
-
 .trip-invitees {
   position: absolute;
   top: 0;
@@ -53,6 +52,18 @@ ul#ba {
   img.trip-invitee {
     height: 30px;
     width: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+  }
+}
+.trip-owner-show{
+  position: absolute;
+  left: 16px;
+  transform: translateY(-115%);
+  img.trip-owner-show {
+    height: 60px;
+    width: 60px;
     object-fit: cover;
     border-radius: 50%;
     background: white;
