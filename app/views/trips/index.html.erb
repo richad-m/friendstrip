@@ -44,6 +44,8 @@
             <div class="trip-card-bottom">
 
               <p> <%= "from #{trip.start_date.strftime("%B %d, %Y")} to #{trip.end_date.strftime("%B %d, %Y")}"%> </p>
+              <p> <%= "#{pluralize (trip.end_date - trip.start_date).to_i, "day"}" %> </p>
+
               <div class="trip-invitees">
                 <% trip.invites.each do |invite| %>
                   <% if invite.user.avatar.attached? %>
