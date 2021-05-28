@@ -42,7 +42,7 @@
               <h2><%= trip.title %></h2>
             </div>
             <div class="trip-card-bottom">
-              <p><%= trip.start_date %> / <%= trip.end_date %></p>
+              <p>from <%= trip.start_date %> to  <%= trip.end_date %></p>
               <% trip.invites.each do |invite| %>
                 <% if invite.user.avatar.attached? %>
                   <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;" %>
