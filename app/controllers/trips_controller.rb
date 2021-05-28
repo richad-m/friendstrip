@@ -7,6 +7,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @trip_duration = (@trip.end_date - @trip.start_date).to_i
     @invite = Invite.new
     @proposition = Proposition.new
     @vote = Vote.new

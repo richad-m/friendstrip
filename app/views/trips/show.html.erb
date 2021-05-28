@@ -2,7 +2,7 @@
   <div>
     <div class="container">
           <h1>View your<strong> <%=@trip.title%></strong></h1>
-          <p class="date-banner">from <%=@trip.start_date%> to <%=@trip.end_date%></p>
+          <p class="date-banner">from <%=@trip.start_date.strftime("%B %d, %Y")%> to <%=@trip.end_date.strftime("%B %d, %Y")%></p>
           <div class="show-banner-interactions">
             <%= link_to "Back to all my trips", trips_path, class: "sign-button button-green"%>
             <div class="sign-button button-orange" data-toggle="modal" data-target="#propositionModal" >Add a proposition</div>
@@ -16,10 +16,10 @@
           <div class="navigation-tabs">
             <div class="navigation-tabs-green">
               <div class="pending button-tabs" id="pending-prop">
-                <h5>Pending</h5>
+                <h5>Pending (<%= @trip.propositions.select {|prop| prop.status != "validated"}.count %>)</h5>
               </div>
-              <div class="all-steps button-tabs" id="all-prop">
-                  <h5>Validated propositions</h5>
+              <div class="all-steps button-tabs unactive-tab" id="all-prop">
+                  <h5>Validated propositions (<%= @trip.propositions.select {|prop| prop.status == "validated"}.count %>)</h5>
               </div>
             </div>
 
