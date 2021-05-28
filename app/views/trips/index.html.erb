@@ -43,13 +43,15 @@
             </div>
             <div class="trip-card-bottom">
               <p><%= trip.start_date %> / <%= trip.end_date %></p>
-              <% trip.invites.each do |invite| %>
-                <% if invite.user.avatar.attached? %>
-                  <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;" %>
-                <% else %>
-                  <i class='fas fa-user-circle avatar dropdown-toggle' id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"type="button" ></i>
+              <div class="trip-invitees">
+                <% trip.invites.each do |invite| %>
+                  <% if invite.user.avatar.attached? %>
+                    <%= cl_image_tag invite.user.avatar.key, width: 30, height: 30, crop: :fill, class: "trip-invitee" %>
+                  <% else %>
+                    <%= image_tag("avatar.png", class: "trip-invitee") %>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
           </div>
         <% end %>

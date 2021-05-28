@@ -40,6 +40,21 @@ ul#ba {
   }
 }
 
+
+.trip-invitees {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  transform: translateY(-50%);
+  img.trip-invitee {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+  }
+}
+
 // .card-trip {
 //   overflow: hidden;
 //   background: white;
