@@ -13,7 +13,7 @@
             </div>
             <div class="row-2" >
               <div class="validation-prop">
-                <p>Due date: <%= proposition.due_date %></p>
+                <p>Due date: <%= proposition.due_date.strftime("%B %d, %Y") %></p>
                 <% if proposition.status != 'validated' %>
                   <%= link_to validate_path(proposition), method: :patch do %>
                     <i class='fas fa-check-circle'></i>
@@ -24,9 +24,9 @@
           </div>
           <div class="card-proposition-bottom">
             <% if proposition.start_date != proposition.end_date %>
-              <p>Dates: from <%= proposition.start_date %> to <%= proposition.end_date %></p>
+              <p><%= "Dates from #{trip.start_date.strftime("%B %d, %Y")} to #{trip.end_date.strftime("%B %d, %Y")}"%></p>
             <% else %>
-              <p>Date: on <%= proposition.start_date %></p>
+              <p> <%="Date: on #{proposition.start_date}" %> </p>
             <% end %>
               <div>
               <!-- Button trigger like vote -->
