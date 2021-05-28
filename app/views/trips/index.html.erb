@@ -31,7 +31,7 @@
                 <% if trip.user.avatar.attached? %>
                   <p><%= cl_image_tag trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
                 <% else %>
-                  <%= image_tag("avatar.png", class: "trip-invitee") %>
+                  <%= image_tag("avatar.png", width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image") %>
                 <% end %>
                 <div class="middle">
                   <div class="text">
@@ -51,7 +51,6 @@
                   <% else %>
                     <%= image_tag("avatar.png", class: "trip-invitee") %>
                   <% end %>
-
                 <% end %>
               </div>
             </div>
