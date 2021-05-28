@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!
   #Richad a code trop vite ce controller!
   def index
-    @trips = Trip.all
+    @trips = Trip.all.order('start_date DESC')
   end
 
   def show

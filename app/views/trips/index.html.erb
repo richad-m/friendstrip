@@ -25,7 +25,7 @@
       <div class="col-6">
 
         <%= link_to trip_path(trip), class: "trip-card-link" do%>
-          <div class="trip-card" >
+          <div class="trip-card <%= "past-trip" if trip.end_date < Date.today %> " >
             <div class="trip-card-top" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/600x200/?<%= trip.destination %>,')">
               <div class="avatar-card">
                 <% if trip.user.avatar.attached? %>
@@ -42,6 +42,7 @@
               <h2><%= trip.title %></h2>
             </div>
             <div class="trip-card-bottom">
+
               <p><%= trip.start_date %> / <%= trip.end_date %></p>
               <div class="trip-invitees">
                 <% trip.invites.each do |invite| %>
@@ -50,6 +51,7 @@
                   <% else %>
                     <%= image_tag("avatar.png", class: "trip-invitee") %>
                   <% end %>
+
                 <% end %>
               </div>
             </div>
