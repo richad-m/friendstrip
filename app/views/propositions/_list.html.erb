@@ -45,9 +45,9 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
+                      <%= simple_form_for [proposition, @vote] do |f| %>
                       <div class="modal-body">
                         <div class="form-wrapper">
-                          <%= simple_form_for [proposition, @vote] do |f| %>
                             <%= f.input :comment %>
                             <%= f.input :status, as: :hidden, :input_html => { :value =>  "upvote" } %>
                         </div>
@@ -55,8 +55,8 @@
                       <div class="modal-footer">
                         <div type="button" class="button-green" data-dismiss="modal">Cancel</div>
                         <%= f.button :submit, 'Upvote', class: "button-orange" %>
-                        <% end %>
                       </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>
