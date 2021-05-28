@@ -15,7 +15,23 @@
   padding: 9px 47px;
   margin: 9px;
   box-shadow: 0px 2px 3px #c54813;
+}
 
+.button-orange-clair {
+  border-radius: 50px;
+  background-color: $ft-orange-clair;
+  color: white;
+  padding: 9px 47px;
+  margin: 9px;
+  text-decoration:none;
+  box-shadow: 0px 2px 3px #bb6b20;
+}
+
+.button-orange-clair:hover {
+  background-color: #bb6b20; /* Orange clair */
+  color: white;
+  text-decoration:none;
+  box-shadow: 0px 2px 3px #bb6b20
 }
 
 .button-orange:hover {
@@ -76,9 +92,41 @@
   box-shadow: 0px 2px 3px #9da3a7;
   text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
   cursor: pointer;
+  &:hover {
+    color: grey;
+    font-size: 40px;
+    text-decoration: none;
+    box-shadow: 0px 2px 8px #9da3a7;
+  }
 }
 
-#bouton-sticky {
+.button-add-proposition {
+  background-color: $ft-orange;
+  opacity: 0,8;
+  font-size: 30px;
+  font-weight: bolder;
+  display:block;
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  -webkit-box-shadow: inset 1px 1px 10px #9da3a7;
+  -moz-box-shadow:    inset 1px 1px 10px #9da3a7;
+  box-shadow: 0px 2px 3px #9da3a7;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+  cursor: pointer;
+  &:hover {
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+    box-shadow: 0px 2px 8px #FE6625;
+  }
+}
+
+.bouton-sticky {
   position: fixed;
   bottom: 13%;
   left: 5%;
@@ -87,9 +135,3 @@
   align-items: center;
 }
 
-.button-add:hover {
-  color: grey;
-  font-size: 40px;
-  text-decoration: none;
-  box-shadow: 0px 2px 8px #9da3a7;
-}

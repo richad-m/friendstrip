@@ -5,9 +5,10 @@
           <p class="date-banner">from <%=@trip.start_date%> to <%=@trip.end_date%></p>
           <div class="show-banner-interactions">
             <%= link_to "Back to all my trips", trips_path, class: "sign-button button-green"%>
+            <div class="sign-button button-orange" data-toggle="modal" data-target="#propositionModal" >Add a proposition</div>
             <div class= "">
               <!-- Button trigger modal -->
-              <div class="button-invite button-orange button-modal" data-toggle="modal" data-target="#exampleModal">
+              <div class="button-orange-clair button-modal" data-toggle="modal" data-target="#exampleModal">
                 Invite a friend
               </div>
             </div>
@@ -116,7 +117,7 @@
 </div>
 </div>
   <!-- Button trigger proposition new modal -->
-  <div class="button-add" data-toggle="modal" data-target="#propositionModal" id="bouton-sticky">
+  <div class="button-add-proposition bouton-sticky" data-toggle="modal" data-target="#propositionModal">
     +
   </div>
 </div>
