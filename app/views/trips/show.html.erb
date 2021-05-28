@@ -84,10 +84,30 @@
     </div>
   </div>
   <div class="pending-prop">
+
+    <div class="trip-owner-show">
+      <% if @trip.user.avatar.attached? %>
+        <p><%= cl_image_tag @trip.user.avatar.key, width: 60, height: 60, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
+      <% else %>
+        <%= image_tag("avatar.png", class: "trip-owner-show") %>
+      <% end %>
+    </div>
+
+    <div class="trip-invitees-show">
+      <% @trip.invites.each do |invite| %>
+        <% if invite.user.avatar.attached? %>
+          <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show" %>
+        <% else %>
+          <%= image_tag("avatar.png", class: "trip-invitee-show") %>
+        <% end %>
+      <% end %>
+    </div>
     <div>
       <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}, map: "map-pending" %>
     </div>
   </div>
+
+
   <div class="all-prop d-none">
     <div>
       <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all" %>

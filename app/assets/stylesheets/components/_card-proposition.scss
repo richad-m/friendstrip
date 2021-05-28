@@ -107,3 +107,17 @@ ul#ba {
 .vote-counter {
   font-family: $body-font !important;
 }
+
+.trip-invitees-show {
+  position: absolute;
+  right: 16px;
+  transform: translateY(-150%);
+  img.trip-invitee-show {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+    margin-left: 5px;
+  }
+}
