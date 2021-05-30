@@ -24,6 +24,7 @@ class InvitesController < ApplicationController
       @invite.user = user
     end
     if @invite.save
+      flash.notice = "#{@invite.user.first_name} has been invited to #{@invite.trip.title}"
       redirect_to trip_path(@trip.id)  
     else
       render :new

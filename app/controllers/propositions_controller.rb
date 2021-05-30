@@ -24,7 +24,8 @@ class PropositionsController < ApplicationController
      @trip = Trip.find(params[:trip_id])
      @proposition.trip_id = @trip.id
      if @proposition.save
-       redirect_to trip_path(@trip.id)
+       flash.notice = "#{@proposition.title} has been added to pending propositions"
+       redirect_to trip_path(@trip.id, anchor: "prop-#{@proposition.id}")
      else
        render :new
      end
@@ -34,7 +35,8 @@ class PropositionsController < ApplicationController
      @proposition = Proposition.find(params[:id])
      @proposition.status = "validated"
      if @proposition.save
-      redirect_to trip_path(@proposition.trip)
+      flash.notice = "#{@proposition.title} has been moved to validated propositions."
+      redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")
      end
    end
 
