@@ -13,7 +13,7 @@
             </div>
             <div class="row-2" >
               <div class="validation-prop">
-                <p>Due date: <%= proposition.due_date.strftime("%B %d, %Y") %></p>
+                <p>Due date: <%= proposition.due_date.strftime("%B %d, %Y") if proposition.due_date %></p>
                 <% if proposition.status != 'validated' %>
                   <%= link_to validate_path(proposition), method: :patch do %>
                     <i class='fas fa-check-circle'></i>
