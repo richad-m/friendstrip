@@ -34,7 +34,8 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
     if @trip.save
-      redirect_to trips_path
+      flash.notice = "#{@trip.title} has been created"
+      redirect_to trip_path(@trip.id)
     else
       render :new
     end
