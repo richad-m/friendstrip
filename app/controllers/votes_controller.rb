@@ -11,7 +11,7 @@ class VotesController < ApplicationController
     @vote.proposition_id = @proposition.id
     @vote.user_id = current_user.id
     if @vote.save
-      redirect_to trip_path(@proposition.trip)
+      redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")
     else
       render :new
     end
