@@ -97,7 +97,12 @@
     <div class="trip-invitees-show">
       <% @trip.invites.each do |invite| %>
         <% if invite.user.avatar.attached? %>
-          <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show" %>
+          <% if invite.accepted == "true"%>
+            <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show" %>
+          <% else %>
+            <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite" %>
+          <% end %>
+        
         <% else %>
           <%= image_tag("avatar.png", class: "trip-invitee-show") %>
         <% end %>
