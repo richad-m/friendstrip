@@ -1,3 +1,27 @@
-<h1>Proposition <%= @proposition.title %></h1>
+<div class="modal fade" id="propositionShow-<%= proposition.id %>" tabindex="-1" role="dialog" aria-labelledby="propositionShowModalLabel-<%= proposition.id %>" aria-hidden="true">
 
 
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="propositionShowModalLabel-<%= proposition.id %>"><%= proposition.title %></h5>
+        <br>
+        <p>Upvote: <%= proposition.votes.select{ |vote| vote.status == "upvote" }.count %> times</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><%= proposition.description %></p>
+        <h6>Comments: </h6>
+        <ul>
+          <li><%= proposition.user.first_name %>: <%= proposition.user.votes.comment %></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
