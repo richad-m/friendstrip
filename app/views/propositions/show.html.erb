@@ -25,3 +25,46 @@
     </div>
   </div>
 </div>
+
+
+
+
+<div class="modal " id="propositionShow-<%= proposition.id %>" tabindex="-1" role="dialog" aria-labelledby="propositionShowModalLabel-<%= proposition.id %>" aria-hidden="true">
+
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-prop-title">
+          <h5 class="modal-title text-center" id="propositionShowModalLabel-<%= proposition.id %>"><%= proposition.title %> (<%= link_to "link to Url", proposition.url %>)</h5>
+        </div>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-prop-counter pl-3 text-right">
+          <p><mark>Upvoted: <%= proposition.votes.select{ |vote| vote.status == "upvote" }.count %> times</mark></p>
+        </div>
+        <div class="modal-prop-description bg-light pl-3">
+          <p><ins>Description:</ins></p>
+          <p>"<em><%= proposition.description %></em>"</p>
+        </div>
+        <div class="modal-prop-comments pl-3">
+          <p><ins>Comments:</ins></p>
+          <ul>
+          <% proposition.votes.each do |vote|%>
+            <li><p><%= vote.user.first_name %>: "<%= vote.comment %>"</p></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span class="sign-button button-green" data-dismiss="modal">Close</span>
+        <span class="sign-button button-orange">Edit</span>
+      </div>
+    </div>
+  </div>
+</div>
+

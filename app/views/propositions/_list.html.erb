@@ -22,7 +22,6 @@
               </div>
             </div>
           </div>
-          <%= render 'propositions/proposition_modal', proposition: proposition %>
           <div class="card-proposition-bottom">
             <% if proposition.start_date != proposition.end_date %>
               <p><%= "Dates from #{proposition.start_date.strftime("%B %d, %Y")} to #{proposition.end_date.strftime("%B %d, %Y")}"%></p>
@@ -40,38 +39,7 @@
                     <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%>
                   </span>
                 </i>
-              <!-- Like modal form -->
-                <div class="modal fade" id="likeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="likeModalLabel-<%=proposition.id%>" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="likeModalLabel-<%=proposition.id%>">Upvote <%=proposition.title%> ?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <%= simple_form_for [ proposition, @vote ], remote: true do |f| %>
-                      <div class="modal-body">
-                        <div class="form-wrapper">
-                              <%= f.input :comment %>
-                            <%= f.input :status, as: :hidden, :input_html => { :value =>  "upvote" } %>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <div type="button" class="button-green" data-dismiss="modal">Cancel</div>
-                        <% if proposition.users.include?(current_user) %>
-                          <%= f.button :submit, 'Already voted', class: "button-orange d-none" %>
-                          <div class = 'btn btn-disabled'>
-                            You already voted!
-                          </div>
-                        <% else %>
-                          <%= f.button :submit, 'Upvote', class: "button-orange" %>
-                        <% end %>
-                      </div>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
+
               <!-- Button trigger dislike vote -->
                 <% if proposition.users.include?(current_user) %>
                   <i class='fas fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal">
@@ -82,45 +50,84 @@
                   <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%>
                 </span>
               </i>
-              <!-- disLike modal form -->
-              <div class="modal fade" id="dislikeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="dislikeModalLabel-<%=proposition.id%>" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="dislikeModalLabel-<%=proposition.id%>">Downvote <%=proposition.title%> ?</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                        <%= simple_form_for [proposition, @vote], remote: true do |f| %>
-                    <div class="modal-body">
-                      <div class="form-wrapper">
-                        <% if proposition.users.include?(current_user) %>
-                          <%= f.input :comment, disabled: true %>
-                        <% else %>
-                          <%= f.input :comment %>
-                        <% end %>
-                          <%= f.input :status, as: :hidden, :input_html => { :value =>  "downvote" } %>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <div type="button" class="button-green" data-dismiss="modal">Cancel</div>
-                      <% if proposition.users.include?(current_user) %>
-                          <%= f.button :submit, 'Already voted', class: "button-orange d-none" %>
-                          <div class = 'btn btn-disabled'>
-                            You already voted!
-                          </div>
-                        <% else %>
-                          <%= f.button :submit, 'downvote', class: "button-orange" %>
-                        <% end %>
-                    </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
+
+        <%= render 'propositions/proposition_modal', proposition: proposition %>
+
+
+        <!-- Like modal form -->
+        <div class="modal " id="likeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="likeModalLabel-<%=proposition.id%>" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered"  role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="likeModalLabel-<%=proposition.id%>">Upvote <%=proposition.title%> ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <%= simple_form_for [ proposition, @vote ], remote: true do |f| %>
+              <div class="modal-body">
+                <div class="form-wrapper">
+                      <%= f.input :comment %>
+                    <%= f.input :status, as: :hidden, :input_html => { :value =>  "upvote" } %>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div type="button" class="button-green" data-dismiss="modal">Cancel</div>
+                <% if proposition.users.include?(current_user) %>
+                  <%= f.button :submit, 'Already voted', class: "button-orange d-none" %>
+                  <div class = 'btn btn-disabled'>
+                    You already voted!
+                  </div>
+                <% else %>
+                  <%= f.button :submit, 'Upvote', class: "button-orange" %>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <!-- disLike modal form -->
+        <div class="modal " id="dislikeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="dislikeModalLabel-<%=proposition.id%>" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered"  role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="dislikeModalLabel-<%=proposition.id%>">Downvote <%=proposition.title%> ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                  <%= simple_form_for [proposition, @vote], remote: true do |f| %>
+              <div class="modal-body">
+                <div class="form-wrapper">
+                  <% if proposition.users.include?(current_user) %>
+                    <%= f.input :comment, disabled: true %>
+                  <% else %>
+                    <%= f.input :comment %>
+                  <% end %>
+                    <%= f.input :status, as: :hidden, :input_html => { :value =>  "downvote" } %>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div type="button" class="button-green" data-dismiss="modal">Cancel</div>
+                <% if proposition.users.include?(current_user) %>
+                    <%= f.button :submit, 'Already voted', class: "button-orange d-none" %>
+                    <div class = 'btn btn-disabled'>
+                      You already voted!
+                    </div>
+                  <% else %>
+                    <%= f.button :submit, 'downvote', class: "button-orange" %>
+                  <% end %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
     <% end %>
     </div>
     <div class="col-4">

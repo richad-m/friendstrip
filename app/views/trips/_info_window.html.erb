@@ -1,5 +1,5 @@
 <div class="container info-window">
-  <h2><%= link_to proposition.title, proposition.url %></h2>
-  <h6><%= proposition.address %></h6>
+  <h2><%= link_to proposition.title, proposition.url, target: "_blank" %></h2>
+  <p><%= proposition.address %></p>
   <p>by: <%= proposition.user.first_name %></p>
 </div>
