@@ -4,13 +4,15 @@
       <% if user_signed_in?%>
         <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
         <h3 class="">Plan your next trip!!</h3>
-        <%= link_to  "Your trips", trips_path, class: "button-green mt-5" %>
-        <%= link_to  "Add a trip", new_trip_path, class: "button-orange mt-5" %>
+        <div class="show-banner-interactions">
+          <%= link_to  "Your trips", trips_path, class: "button-green mt-5" %>
+          <%= link_to  "Add a trip", new_trip_path, class: "button-orange mt-5" %>
+        </div>
       <% else %>
         <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
         <p class="">Planning trips has never been easier</p>
-        <%= link_to "Sign up", new_user_registration_path, class: "sign-button button-green"%>
-        <%= link_to "Sign in", new_user_session_path, class: "sign-button button-orange"%>
+          <%= link_to "Sign up", new_user_registration_path, class: "sign-button button-green"%>
+          <%= link_to "Sign in", new_user_session_path, class: "sign-button button-orange"%>
       <% end %>
     </div>
   </div>
