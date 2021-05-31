@@ -2,9 +2,8 @@
   <div>
     <div class="container">
           <h1>View your<strong> <%=@trip.title%></strong></h1>
-          <p class="date-banner">from <%=@trip.start_date.strftime("%B %d, %Y")%> to <%=@trip.end_date.strftime("%B %d, %Y")%></p>
+          <h3 class="date-banner">from <%=@trip.start_date.strftime("%B %d, %Y")%> to <%=@trip.end_date.strftime("%B %d, %Y")%></h3>
           <div class="show-banner-interactions">
-            <%= link_to "Back to all my trips", trips_path, class: "sign-button button-green"%>
             <div class="sign-button button-orange" data-toggle="modal" data-target="#propositionModal" >Add a proposition</div>
             <div class= "">
               <!-- Button trigger modal -->
@@ -58,6 +57,7 @@
                     </button>
                   </div>
                   <%= simple_form_for [@trip, @proposition], remote: true do |f| %>
+                  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                   <div class="modal-body">
                     <div class="form-wrapper" id="booking-form-div">
                         <%= f.input :category, :collection => ["food", "accomodation", "activity"], label: 'Pick a category' %>
@@ -100,9 +100,9 @@
           <% if invite.accepted == "true"%>
             <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show" %>
           <% else %>
-            <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite" %>
+            <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite"%>
           <% end %>
-        
+
         <% else %>
           <%= image_tag("avatar.png", class: "trip-invitee-show") %>
         <% end %>
@@ -123,6 +123,8 @@
 </div>
   <!-- Button trigger proposition new modal -->
   <div class="button-add-proposition bouton-sticky" data-toggle="modal" data-target="#propositionModal">
-    +
+    <div data-toggle="tooltip" data-placement="top" title="Add a proposition" class="tooltip-add">
+      <i class="fas fa-plus"></i>
+    </div>
   </div>
 </div>

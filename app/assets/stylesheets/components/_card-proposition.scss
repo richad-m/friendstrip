@@ -50,11 +50,13 @@ ul#ba {
  color: $ft-vert;
  padding-right: 4px;
  font-size: 25px;
+ cursor: pointer;
 }
 
 .fa-thumbs-down{
   color: $ft-rouge;
   font-size: 25px;;
+  cursor: pointer;
  }
 
 .fa-volleyball-ball{

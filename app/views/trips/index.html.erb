@@ -24,7 +24,7 @@
     <% @trips.each do |trip| %>
       <div class="col-6">
 
-        <%= link_to trip_path(trip), class: "trip-card-link" do%>
+        <%= link_to trip_path(trip), class: "trip-card-link", data: {turbolinks: false} do%>
           <div class="trip-card <%= "past-trip" if trip.end_date < Date.today %> " >
             <div class="trip-card-top <%= trip.destination %>">
               <div class="avatar-card">
@@ -71,4 +71,3 @@
     <%= link_to  "+", new_trip_path, class: "button-add-proposition bouton-sticky"%>
   </div>
 </div>
-
