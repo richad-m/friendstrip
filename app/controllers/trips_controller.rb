@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   def index
     @trips_invitations = current_user.invites.select { |invite| invite.accepted?}.map { |invite| invite.trip}
     @all_user_trips = current_user.trips + @trips_invitations
-    @trips = @all_user_trips.uniq
+    @trips = @all_user_trips.uniq.sort {|a,b| b.start_date <=> a.start_date}
     # @trips = Trip.all.order('start_date DESC')
   end
 
