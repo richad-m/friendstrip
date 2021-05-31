@@ -30,7 +30,7 @@
 //   text-align: center;
 //   margin-top: 10px;
 //   margin-bottom: 40px;
-//   font-size: 20px;
+//   font-size: 2
 //   color: white;
 //   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 // }
@@ -54,6 +54,10 @@
   display:flex;
   justify-content: space-between;
 }
+.home-interactive-butons {
+  display:flex;
+  justify-content: space-between;
+}
 
 .fa-user-circle:before {
   font-size: 50px;
@@ -64,6 +68,9 @@
 .container h1 h4 {
   color: white;
   margin-top: 10px;
+  h3 .button-orange{
+    right:0px;
+  }
 }
 // .btn-index {
 //   text-decoration: none;
