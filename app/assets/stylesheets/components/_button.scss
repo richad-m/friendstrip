@@ -136,14 +136,15 @@
 
 
 .tooltip > .tooltip-inner {
-  padding:3px;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
   margin-bottom: 10px;
   background-color: white;
   color: $ft-orange;
   border-radius: 50px;
 }
-.tooltip > .tooltip-arrow {
-  display: none;
+.tooltip .arrow {
+  display: none !important;
 }
 
 .bouton-sticky {
