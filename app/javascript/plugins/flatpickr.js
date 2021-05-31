@@ -13,29 +13,28 @@ const initFlatpickr = () => {
       inline: true,
       dateFormat: "Y-m-d"
     })
-
-
-  }
-
-  const startDate = document.getElementsByClassName('.flatpickr-day.selected.startRange');
-  const endDate = document.getElementsByClassName('.flatpickr-day.selected.endRange');
-
-  const changeClass = (element) => {
-    element.classList.remove('.selected.endRange') || element.classList.remove('.selected.startRange');
   };
 
-  if (startDate && endDate) {
-    startDate.addEventListener('click', (event) => {
-      event.preventDefault();
-      // changeClass(startDate)
-      console.log(startDate)
-    });
-    endDate.addEventListener('click', (event) => {
-      event.preventDefault();
-      // changeClass(endDate)
-    });
-  }
+  // const startDate = document.getElementsByClassName('flatpickr-day selected startRange');
+  // const endDate = document.getElementsByClassName(' flatpickr-day selected endRange');
+
+  // const changeClass = (element) => {
+  //   element.classList.remove(' selected endRange') || element.classList.remove('selected startRange');
+  // };
+
+  // if (startDate && endDate) {
+  //   startDate.addEventListener('click', (event) => {
+  //     event.preventDefault();
+  //      changeClass(startDate)
+  //     console.log(startDate)
+  //   });
+  //   endDate.addEventListener('click', (event) => {
+  //     event.preventDefault();
+  //      changeClass(endDate)
+  //   });
+  // }
 }
+
 export { initFlatpickr };
 
 

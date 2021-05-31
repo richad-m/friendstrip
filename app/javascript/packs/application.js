@@ -30,13 +30,13 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { tabButtons } from '../components/tab_button';
 
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-  initAutocomplete();
   initFlatpickr();
+  initAutocomplete();
   tabButtons();
   $('.modal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
+  initMapbox();
 })
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
