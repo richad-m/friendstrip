@@ -36,7 +36,13 @@ document.addEventListener('turbolinks:load', () => {
   $('.modal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
   initMapbox();
+
 })
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

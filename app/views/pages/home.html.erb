@@ -3,9 +3,9 @@
     <div class="container">
       <% if user_signed_in?%>
         <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
-        <p class="">Plan your next trip!!</p>
-        <%= link_to  "Your trips", trips_path, class: "button-green" %>
-        <%= link_to  "Add a trip", new_trip_path, class: "button-orange" %>
+        <h3 class="">Plan your next trip!!</h3>
+        <%= link_to  "Your trips", trips_path, class: "button-green mt-5" %>
+        <%= link_to  "Add a trip", new_trip_path, class: "button-orange mt-5" %>
       <% else %>
         <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
         <p class="">Planning trips has never been easier</p>
