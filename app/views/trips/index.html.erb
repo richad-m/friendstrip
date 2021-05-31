@@ -24,10 +24,10 @@
     <% @trips.each do |trip| %>
       <div class="col-6">
 
-        <%= link_to trip_path(trip), class: "trip-card-link" do%>
+        <%= link_to trip_path(trip), class: "trip-card-link", data: {turbolinks: false} do%>
           <div class="trip-card <%= "past-trip" if trip.end_date < Date.today %> " >
             <div class="trip-card-top" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/600x200/?<%= trip.destination %>,')">
-              <div class="avatar-card">
+              <div class="avatar-card" style="width: 20%;">
                 <% if trip.user.avatar.attached? %>
                   <p><%= cl_image_tag trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
                 <% else %>
