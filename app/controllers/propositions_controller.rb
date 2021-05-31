@@ -1,5 +1,5 @@
 class PropositionsController < ApplicationController
-  skip_before_action :authenticate_user!
+
   def index
     @propositions = Proposition.all
     @markers = @propositions.geocoded.map do |proposition|
