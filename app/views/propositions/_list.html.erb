@@ -14,7 +14,7 @@
             <div class="row-2" >
               <div class="validation-prop">
                 <p>Due date: <%= proposition.due_date.strftime("%B %d, %Y") if proposition.due_date %></p>
-                <% if proposition.status != 'validated' %>
+                <% if proposition.status != 'validated' && proposition.trip.user == current_user %>
                   <%= link_to validate_path(proposition), remote: true, method: :patch do %>
                     <i class='fas fa-check-circle'></i>
                   <% end %>
@@ -52,11 +52,7 @@
                       <%= simple_form_for [ proposition, @vote ], remote: true do |f| %>
                       <div class="modal-body">
                         <div class="form-wrapper">
-                            <% if proposition.users.include?(current_user) %>
-                              <%= f.input :comment, disabled: true %>
-                            <% else %>
                               <%= f.input :comment %>
-                            <% end %>
                             <%= f.input :status, as: :hidden, :input_html => { :value =>  "upvote" } %>
                         </div>
                       </div>

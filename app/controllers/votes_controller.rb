@@ -10,7 +10,7 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
     @vote.proposition_id = @proposition.id
     @vote.user_id = current_user.id
-    if @vote.save && !proposition.users.include?(current_user)
+    if @vote.save
       flash.notice = "Your like has been submitted"
       redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")
     else
