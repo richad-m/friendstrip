@@ -16,7 +16,7 @@
                 <p>Due date: <%= proposition.due_date.strftime("%B %d, %Y") if proposition.due_date %></p>
                 <% if proposition.status != 'validated' && proposition.trip.user == current_user %>
                   <%= link_to validate_path(proposition), remote: true, method: :patch do %>
-                    <i class='fas fa-check-circle'></i>
+                    <span class='button-prout'>validate</span>
                   <% end %>
                 <% end %>
               </div>
