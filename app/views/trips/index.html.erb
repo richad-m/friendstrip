@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80 );">
+<div class="banner " style="background-image:  url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80 );">
   <div>
     <div class="container text-center">
       <div class="index-title mb-5">
@@ -26,7 +26,7 @@
 
         <%= link_to trip_path(trip), class: "trip-card-link" do%>
           <div class="trip-card <%= "past-trip" if trip.end_date < Date.today %> " >
-            <div class="trip-card-top" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/600x200/?<%= trip.destination %>,')">
+            <div class="trip-card-top <%= trip.destination %>">
               <div class="avatar-card">
                 <% if trip.user.avatar.attached? %>
                   <p><%= cl_image_tag trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
@@ -39,13 +39,19 @@
                   </div>
                 </div>
               </div>
-              <h2><%= trip.title %></h2>
+              <h3><%= trip.title %></h3>
+              <%= trip.destination %>
             </div>
             <div class="trip-card-bottom">
-
-              <p> <%= "from #{trip.start_date.strftime("%B %d, %Y")} to #{trip.end_date.strftime("%B %d, %Y")}"%> </p>
-              <p> <%= "#{pluralize (trip.end_date - trip.start_date).to_i, "day"}" %> </p>
-
+              <div class="date">
+              <div class="start-date"> <i class="fas fa-plane-departure"></i> <%= "#{trip.start_date.strftime("%d %b %Y")}"%> </div>
+              <div class="end-date"> <i class="fas fa-plane-arrival"></i> <%= "#{trip.end_date.strftime("%d %b %Y")}"%> </div>
+              </div>
+              <div class="trip-days">
+              <%# <span class="month"> <#%= "from #{trip.start_date.strftime("%b %d, %Y")} to #{trip.end_date.strftime("%b %d, %Y")}"%>
+              <div class="duration"><i class="far fa-clock"></i> Duration:<div class="data"> <%= "#{pluralize (trip.end_date - trip.start_date).to_i, "day"}" %></div> </div>
+              <div class="participating"><i class="fas fa-user-check"></i>Participating:<div class="data"> <%= "#{trip.users.count + 1}" %> </div> </div>
+            </div>
               <div class="trip-invitees">
                 <% trip.invites.each do |invite| %>
                   <% if invite.user.avatar.attached? %>
