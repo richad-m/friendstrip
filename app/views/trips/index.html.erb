@@ -61,7 +61,7 @@
       </div>
     <% end %>
   </div>
-  <div class="button-add-proposition bouton-sticky" id="test" data-toggle="tooltip" data-placement="top" title="Add a proposition">
-    <%= link_to  "<i class='fas fa-plus'></i>".html_safe, new_trip_path, { :class => 'tooltips tooltip-add', 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'Add a trip'}%>
+  <div>
+    <%= link_to  "+", new_trip_path, class: "button-add-proposition bouton-sticky"%>
   </div>
 </div>

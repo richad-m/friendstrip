@@ -58,7 +58,6 @@ document.addEventListener('turbolinks:load', () => {
   })
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-    $('#test').tooltip()
   })
 })
 // Internal imports, e.g:
