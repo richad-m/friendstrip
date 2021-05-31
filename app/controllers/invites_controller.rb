@@ -27,7 +27,8 @@ class InvitesController < ApplicationController
       flash.notice = "#{@invite.user.first_name} has been invited to #{@invite.trip.title}"
       redirect_to trip_path(@trip.id)  
     else
-      render :new
+      flash.alert = "#{email} doesn't have a Friends Trip account yet."
+      redirect_to trip_path(@trip.id)  
     end
   end
 
