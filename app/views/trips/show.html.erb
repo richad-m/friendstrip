@@ -57,6 +57,7 @@
                     </button>
                   </div>
                   <%= simple_form_for [@trip, @proposition], remote: true do |f| %>
+                  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                   <div class="modal-body">
                     <div class="form-wrapper" id="booking-form-div">
                         <%= f.input :category, :collection => ["food", "accomodation", "activity"], label: 'Pick a category' %>
