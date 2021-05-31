@@ -1,6 +1,8 @@
 ul#ba {
     list-style-type: none;
 }
+
+
 .trip-card-top{
   text-align: center;
   justify-content: center;
@@ -14,14 +16,26 @@ ul#ba {
   color: white;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+  background-color: white;
+  background-size: cover !important;
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("travel"));
+  &.madrid {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("madrid"));
+  }&.miami {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("miami"));
+  }&.bali {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("bali"));
+  }&.rio {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("rio"));
+  }
 }
 
 
 .trip-card-bottom{
-  padding: 16px;
+  padding: 0px 20px 0px 10px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-end;
   position: relative;
   background:white;
   border-bottom-right-radius: 20px;
@@ -30,10 +44,16 @@ ul#ba {
 
 .trip-card {
   padding-bottom: 30px;
+  transition: all .2s ease-in-out; 
+
+}
+
+.trip-card:hover {
+  transform: scale(1.025);
 }
 
 .past-trip {
-  opacity: 50%;
+  filter: brightness(35%);
 }
 
 .trip-card-link{
@@ -48,7 +68,7 @@ ul#ba {
   position: absolute;
   top: 0;
   right: 16px;
-  transform: translateY(-50%);
+  transform: translateY(-75%);
   img.trip-invitee {
     height: 30px;
     width: 30px;
@@ -68,6 +88,51 @@ ul#ba {
     border-radius: 50%;
     background: white;
   }
+}
+
+.date{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right:1px dashed;
+  padding-top: 5px;
+  padding-right: 5px;
+  font-size:12px;
+}
+
+.year{
+  font-size:10px;
+  padding-left: 20px;
+}
+
+.end-date{
+  padding-top: 4px;
+}
+
+.fas{
+  margin-right: 3px;
+}
+
+.trip-days{
+  font-size: 12px;
+  padding-top: 7px;
+  color: rgb(166, 170, 170);
+}
+
+.participating{
+display: flex;
+width: 120px;
+justify-content: space-around;
+}
+
+.duration{
+  display: flex;
+  width: 120px;
+  justify-content: space-around;
+  }
+
+.data{
+  color: black;
 }
 
 // .card-trip {
