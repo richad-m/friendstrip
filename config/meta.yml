@@ -1,0 +1,5 @@
+meta_product_name: "Friends Trip"
+meta_title: "Friends Trip - Planning trips should be a no brainer"
+meta_description: "Plan your next trip with friends or family !"
+meta_image: "combi.png" # should exist in `app/assets/images/`
+twitter_account: "@Lewagonparis"   # required for Twitter Cards

@@ -11,9 +11,11 @@ class VotesController < ApplicationController
     @vote.proposition_id = @proposition.id
     @vote.user_id = current_user.id
     if @vote.save
+      flash.notice = "Your like has been submitted"
       redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")
     else
-      render :new
+      # flash.notice = "You already liked / disliked that proposition!"
+      redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")
     end
   end
 

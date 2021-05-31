@@ -35,7 +35,7 @@
                   <%= simple_form_for [@trip, @invite], remote: true do |f| %>
                   <div class="modal-body">
                     <div class="form-wrapper" id="invite-form-div">
-                        <%= f.input :email, :collection => @emails, label: 'Pick a friend to invite' %>
+                        <%= f.input :email, label: 'Pick a friend to invite' %>
                     </div>
                   </div>
                     <div class="modal-footer">

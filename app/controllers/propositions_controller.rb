@@ -13,6 +13,10 @@ class PropositionsController < ApplicationController
     end
   end
 
+  def show
+    @proposition = Proposition.find(params[:id])
+  end
+
    def new
      @proposition = Proposition.new
      @trip = Trip.find(params[:trip_id])
