@@ -6,6 +6,7 @@
 }
 
 .banner h1 {
+  text-align: center;
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -13,11 +14,23 @@
   font-weight: bold;
 }
 
-.banner p {
-  margin-bottom: 50px;
+// .banner
+//   p {
+//   text-align: center;
+//   margin-top: 10px;
+//   margin-bottom: 40px;
+//   font-size: 20px;
+//   color: white;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+// }
+
+.banner
+  h3 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
   font-size: 20px;
   color: white;
-  opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
@@ -31,11 +44,15 @@
 }
 
 .fa-user-circle:before {
-    font-size: 50px;
-    margin-right: -63px;
-    content: "\f2bd";
+  font-size: 50px;
+  margin-right: -63px;
+  content: "\f2bd";
 }
 
+.container h1 h4 {
+  color: white;
+  margin-top: 10px;
+}
 // .btn-index {
 //   text-decoration: none;
 //   color: white;
