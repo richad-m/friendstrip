@@ -4,8 +4,8 @@
 
     <div class="col-8">
     <% propositions.each do |proposition| %>
-        <div class="trip-card <%= 'validated-prop' if proposition.status == 'validated'%>" id = "prop-<%= proposition.id %>">
-          <div class="card-proposition-top bg-color-<%= proposition.category %>">
+        <div class="trip-card <%= 'validated-prop' if proposition.status == 'validated'%>" id="prop-<%= proposition.id %>">
+          <div class="card-proposition-top bg-color-<%= proposition.category %>" data-toggle="modal" data-target="#propositionShow-<%= proposition.id %>">
             <div class="row" >
               <i class="fas <%=Proposition::ICONS[proposition.category]%>"></i>
               <h5><%= proposition.title %></h5>
@@ -22,6 +22,7 @@
               </div>
             </div>
           </div>
+          <%= render 'propositions/proposition_modal', proposition: proposition %>
           <div class="card-proposition-bottom">
             <% if proposition.start_date != proposition.end_date %>
               <p><%= "Dates from #{proposition.start_date.strftime("%B %d, %Y")} to #{proposition.end_date.strftime("%B %d, %Y")}"%></p>
@@ -120,7 +121,7 @@
             </div>
           </div>
         </div>
-      <% end %>
+    <% end %>
     </div>
     <div class="col-4">
         <%#= raise %>

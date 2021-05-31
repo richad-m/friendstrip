@@ -14,7 +14,7 @@ class PropositionsController < ApplicationController
   end
 
   def show
-    @proposition = Proposition.find(params[:id])
+    @proposition = Proposition.find(params[:trip_id])
   end
 
    def new
