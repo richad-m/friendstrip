@@ -89,6 +89,7 @@
       </div>
     </div>
   </div>
+  <!-- pending proposition tabs below -->
   <div class="pending-prop">
     <div class="trip-owner-show">
       <% if @trip.user.avatar.attached? %>
@@ -113,12 +114,12 @@
       <% end %>
     </div>
     <div>
-      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}, map: "map-pending" %>
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}, map: "map-pending", markers: @markers.to_json %>
     </div>
 
   </div>
 
-
+<!-- Validated propositions tabs beloowwww -->
   <div class="all-prop d-none">
     <div class="trip-owner-show">
       <% if @trip.user.avatar.attached? %>
@@ -143,11 +144,9 @@
       <% end %>
     </div>
     <div>
-      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all" %>
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all", markers: @validated_markers.to_json %>
     </div>
   </div>
-</div>
-</div>
   <!-- Button trigger proposition new modal -->
   <div class="button-add-proposition bouton-sticky" data-toggle="modal" data-target="#propositionModal">
     <div data-toggle="tooltip" data-placement="top" title="Add a proposition" class="tooltip-add">
