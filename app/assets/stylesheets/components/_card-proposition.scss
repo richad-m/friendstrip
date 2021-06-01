@@ -15,6 +15,9 @@ ul#ba {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   box-shadow: 0px 2px 10px #b4b8bb;
+    &:hover {
+      cursor: pointer;
+    }
 }
 
 

@@ -46,6 +46,9 @@
 
 .sign-in-up-btn {
   display:flex;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .show-banner-interactions {
