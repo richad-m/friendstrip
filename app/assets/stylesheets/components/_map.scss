@@ -23,5 +23,11 @@
   .btn-marker:hover {
     text-decoration: none;
     color: black;
+    cursor: pointer;
   }
 
+  .fas {
+    &:hover {
+    cursor: pointer;
+  }
+  }

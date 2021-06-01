@@ -6,7 +6,7 @@
 <div class="banner <%= @trip.destination %>">
   <div>
     <div class="container">
-          <h1>View your<strong> <%=@trip.title%></strong></h1>
+          <h1><strong> <%=@trip.title%></strong></h1>
           <h3 class="date-banner">from <%=@trip.start_date.strftime("%B %d, %Y")%> to <%=@trip.end_date.strftime("%B %d, %Y")%></h3>
           <div class="show-banner-interactions">
             <div class="sign-button button-orange" data-toggle="modal" data-target="#propositionModal" >Add a proposition</div>

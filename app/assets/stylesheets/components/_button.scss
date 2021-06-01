@@ -32,7 +32,8 @@
   background-color: #bb6b20; /* Orange clair */
   color: white;
   text-decoration:none;
-  box-shadow: 0px 2px 3px #bb6b20
+  box-shadow: 0px 2px 3px #bb6b20;
+  cursor: pointer;
 }
 
 .button-orange:hover {
@@ -40,6 +41,7 @@
   color: white;
   text-decoration:none;
   box-shadow: 0px 2px 3px #c54813;
+    cursor: pointer;
 }
 
 
@@ -48,10 +50,14 @@
   color: white;
   text-decoration:none;
   box-shadow: 0px 2px 3px #0c4344;
+  cursor: pointer;
 }
 
 .button-new-trip {
   border: 0px !important;
+    &:hover {
+    cursor: pointer;
+  }
 }
 
 .button-invite {
@@ -69,6 +75,7 @@
     background-color: #af4619; /* Green */
     color: white;
     text-decoration:none;
+    cursor: pointer;
   }
   a {
     color: white;
@@ -101,6 +108,7 @@
     font-size: 40px;
     text-decoration: none;
     box-shadow: 0px 2px 8px #9da3a7;
+    cursor: pointer;
   }
 }
 
@@ -131,6 +139,7 @@
     font-size: 30px;
     text-decoration: none;
     box-shadow: 0px 2px 8px #FE6625;
+    cursor: pointer;
       .text-hover {
         display: block;
       }
