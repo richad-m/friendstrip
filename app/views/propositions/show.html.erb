@@ -1,3 +1,6 @@
+<% content_for :meta_title, "#{@proposition.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @proposition.description %>
+
 <div class="modal fade" id="propositionShow-<%= proposition.id %>" tabindex="-1" role="dialog" aria-labelledby="propositionShowModalLabel-<%= proposition.id %>" aria-hidden="true">
 
 
