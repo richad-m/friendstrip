@@ -54,25 +54,7 @@
   // -ms-transform: translate(-50%, -50%);
 }
 
-.middle-invitee {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 0%;
-  left: 9% !important;
-  // transform: translate(-50%, -50%);
-  // -ms-transform: translate(-50%, -50%);
-}
-
-.avatar-card:hover .image {
-  opacity: 0.3;
-}
-
 .avatar-card:hover .middle {
-  opacity: 1;
-}
-
-.avatar-card:hover .middle-invitee {
   opacity: 1;
 }
 
@@ -81,3 +63,24 @@
   opacity: 50%;
 }
 
+.avatar-card-name {
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 5px;
+  background-color: rgba(0, 0, 0, 0.658);
+  color: white;
+  text-shadow: 1px 1px 0px rgba(0,0,0,1);
+  font-size: 12px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  transition: .5s ease;
+  &:hover {
+    opacity: 0.7 !important;
+  }
+}
