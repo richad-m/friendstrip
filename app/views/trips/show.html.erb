@@ -53,7 +53,7 @@
               <div class="modal-dialog modal-dialog-centered modal-proposition-new" role="document">
                 <div class="modal-content modal-proposition-new-style">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="propositionModalLabel"></h5>
+                    <h5 class="modal-title" id="propositionModalLabel">Submit your proposition</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -61,7 +61,7 @@
                   <%= simple_form_for [@trip, @proposition], remote: true do |f| %>
                   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                   <div class="modal-body">
-                    <div class="form-wrapper proposition-form d-flex justify-content-between" id="booking-form-div">
+                    <div class="form-wrapper proposition-form d-flex justify-content-between" id="booking-form-div-proposition">
                       <div class="proposition-form-left">
                         <%= f.input :category, :collection => ["food", "accomodation", "activity"], label: 'Pick a category' %>
                         <%= f.input :address, as: :string %>
