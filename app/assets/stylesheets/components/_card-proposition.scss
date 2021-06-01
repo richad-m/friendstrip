@@ -141,9 +141,25 @@ ul#ba {
 }
 
 .proposition-form {
-  width: 600px;
+  width: 690px;
 }
 
+#booking-form-div-proposition {
+    background: white;
+    margin-top: 2px;
+    padding: 22px;
+    border-radius: 20px;
+    margin-bottom: 2px;
+}
+
+.proposition-form-left {
+  border-right: 1px solid black;
+  padding-right: 66px;
+}
+
+.modal-title {
+  color: $ft-duck-blue;
+}
 
 .proposition-owner {
   // position: absolute;
