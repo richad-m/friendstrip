@@ -76,17 +76,7 @@
   }
 }
 
-.tooltip > .tooltip-inner {
-  padding-right: 15px !important;
-  padding-left: 15px !important;
-  margin-bottom: 10px;
-  background-color: white;
-  color: $ft-orange;
-  border-radius: 50px;
-}
-.tooltip .arrow {
-  display: none !important;
-}
+
 
 
 .button-add {
@@ -147,6 +137,53 @@
   }
 }
 
+
+
+.button-add-invites {
+  background-color:$ft-duck-blue;
+  opacity: 0,8;
+  font-size: 20px;
+  font-weight: bolder;
+  display:block;
+  height: 50px;
+  width: 50px;
+  padding: 11px 6px 10px 8px;
+  text-align: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  -webkit-box-shadow: inset 1px 1px 10px #9da3a7;
+  -moz-box-shadow:    inset 1px 1px 10px #9da3a7;
+  box-shadow: 0px 2px 3px #9da3a7;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+  cursor: pointer;
+    .text-hover {
+        display: none;
+      }
+  &:hover {
+    color: white;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+    font-size: 30px;
+    padding: 4px 6px 10px 8px;
+    text-decoration: none;
+    box-shadow: 0px 2px 8px $ft-dark-blue;
+      .text-hover {
+        display: block;
+      }
+  }
+}
+
+.tooltip > .tooltip-inner {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  margin-bottom: 10px;
+  background-color: white;
+  color: $ft-orange;
+  border-radius: 50px;
+}
+.tooltip .arrow {
+  display: none !important;
+}
 
 // .lalala > .tooltip-inner {
 //   padding-right: 15px !important;

@@ -4,8 +4,8 @@
   <div class="modal-dialog modal-dialog-centered modal-trip-show" role="document">
     <div class="modal-content modal-trip-show-radius">
       <div class="modal-header">
-        <div class="modal-prop-title">
-          <h5 class="modal-title text-center" id="propositionShowModalLabel-<%= proposition.id %>"><%= proposition.title %> (<%= link_to "link to Url", proposition.url %>)</h5>
+        <div class="modal-prop-title ">
+          <h5 class="modal-title text-center" id="propositionShowModalLabel-<%= proposition.id %>"><%= link_to "#{proposition.title}", proposition.url %></h5>
         </div>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -14,19 +14,20 @@
       </div>
       <div class="modal-body">
         <div class="modal-prop-counter pl-3 text-right">
-          <p><mark>Upvoted: <%= proposition.votes.select{ |vote| vote.status == "upvote" }.count %> times</mark></p>
+          <p><mark style="color:green"><%= pluralize proposition.votes.select{ |vote| vote.status == "upvote" }.count, "upvote" %></mark></p>
+          <p><mark style="color: red"><%= pluralize proposition.votes.select{ |vote| vote.status == "downvote" }.count, "downvote" %></mark></p>
         </div>
         <div class="modal-prop-description bg-light pl-3">
           <p><ins>Description:</ins></p>
-          <p>"<em><%= proposition.description %></em>"</p>
+          <p><em><%= proposition.description %></em></p>
         </div>
         <div class="modal-prop-comments pl-3">
-          <p><ins>Comments:</ins></p>
-          <ul>
+          <p><ins><%=  pluralize proposition.votes.select {|vote| vote.comment !=""}.count, "comment" %></ins> :</p>
           <% proposition.votes.each do |vote|%>
-            <li><p><%= vote.user.first_name %>: "<%= vote.comment %>"</p></li>
+            <% if vote.comment != "" %>
+              <p><strong><%= vote.user.first_name %></strong>: "<%= vote.comment %>"</p>
+            <% end %>
           <% end %>
-          </ul>
         </div>
       </div>
       <div class="modal-footer">
