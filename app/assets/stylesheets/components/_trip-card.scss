@@ -6,7 +6,7 @@ ul#ba {
 .trip-card-top{
   text-align: center;
   justify-content: center;
-  height: 200px;
+  height: 180px;
   width: 100%;
   background-size: cover;
   padding: 16px;
@@ -32,7 +32,8 @@ ul#ba {
 
 
 .trip-card-bottom{
-  padding: 0px 20px 0px 10px;
+  padding: 10px 20px 20px 10px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,6 +43,18 @@ ul#ba {
   border-bottom-left-radius: 20px;
 }
 
+.fa-plane-departure {
+  font-size: 20px;
+}
+.fa-plane-arrival {
+  font-size: 20px;
+}
+.fa-clock{
+  font-size: 20px;
+}
+.fa-user-check{
+  font-size: 20px;
+}
 .trip-card {
   padding-bottom: 30px;
   transition: all .2s ease-in-out;
@@ -96,8 +109,8 @@ ul#ba {
   align-items: center;
   border-right:1px dashed;
   padding-top: 5px;
-  padding-right: 5px;
-  font-size:12px;
+  padding-right:15px;
+  font-size:15px;
 }
 
 .year{
@@ -114,20 +127,21 @@ ul#ba {
 }
 
 .trip-days{
-  font-size: 12px;
+  position: left;
+  font-size: 15px;
   padding-top: 10px;
   color: rgb(166, 170, 170);
 }
 
 .participating{
-display: flex;
-width: 120px;
-justify-content: space-around;
+  text-indent: 1em;
+  display: flex;
+  justify-content: space-around;
 }
 
 .duration{
+  text-indent: 1em;
   display: flex;
-  width: 120px;
   justify-content: space-around;
   }
 
