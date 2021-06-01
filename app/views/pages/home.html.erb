@@ -12,9 +12,12 @@
         </div>
       <% else %>
         <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
-        <p class="">Planning trips has never been easier</p>
+        <h3 class="">Planning trips has never been easier</h3>
+
+        <div class="row d-flex justify-content-between" >
           <%= link_to "Sign up", new_user_registration_path, class: "sign-button button-green"%>
           <%= link_to "Sign in", new_user_session_path, class: "sign-button button-orange"%>
+        </div>
       <% end %>
     </div>
   </div>
