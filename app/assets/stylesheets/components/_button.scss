@@ -76,6 +76,19 @@
   }
 }
 
+.tooltip > .tooltip-inner {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  margin-bottom: 10px;
+  background-color: white;
+  color: $ft-orange;
+  border-radius: 50px;
+}
+.tooltip .arrow {
+  display: none !important;
+}
+
+
 .button-add {
   background-color: white;
   font-size: 30px;
@@ -135,17 +148,17 @@
 }
 
 
-.tooltip > .tooltip-inner {
-  padding-right: 15px !important;
-  padding-left: 15px !important;
-  margin-bottom: 10px;
-  background-color: white;
-  color: $ft-orange;
-  border-radius: 50px;
-}
-.tooltip .arrow {
-  display: none !important;
-}
+// .lalala > .tooltip-inner {
+//   padding-right: 15px !important;
+//   padding-left: 15px !important;
+//   margin-bottom: 10px;
+//   color: green !important;
+//   background-color: white;
+//   border-radius: 50px;
+// }
+// .lalala .arrow {
+//   display: none !important;
+// }
 
 .bouton-sticky {
   position: fixed;
