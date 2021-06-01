@@ -36,13 +36,18 @@ document.addEventListener('turbolinks:load', () => {
   $('.modal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
-
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
+  // initMapbox();
 
-  initMapbox();
+  if (document.querySelector("#map-pending")) {
+    initMapbox(document.querySelector("#map-pending"));
+  }
 
+  if (document.querySelector("#map-all")) {
+    initMapbox(document.querySelector("#map-all"));
+  }
 })
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
