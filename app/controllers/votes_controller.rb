@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
  #Richad a code trop vite ce controller
+
   def new
     @vote = Vote.new
     @proposition = Proposition.find(params[:proposition_id])
