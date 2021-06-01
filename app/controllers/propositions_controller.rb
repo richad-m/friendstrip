@@ -1,18 +1,5 @@
 class PropositionsController < ApplicationController
 
-  def index
-    @propositions = Proposition.all
-    @markers = @propositions.geocoded.map do |proposition|
-      {
-        lat: proposition.latitude,
-        lng: proposition.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { proposition: proposition }),
-        marker_icon: '<i class="fas <%=iconecategory%>"></i>',
-        marker_color: "text-color-#{proposition.category}"
-      }
-    end
-  end
-
   def show
     @proposition = Proposition.find(params[:trip_id])
   end
@@ -43,6 +30,34 @@ class PropositionsController < ApplicationController
       redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")
      end
    end
+
+  #  def markers(prop)
+  #   @trip = Trip.find(params[:id])
+  #   @propositions = @trip.propositions
+  #   @pending_prop = @propositions.select {|prop| prop.status =! "validated"}
+  #   @validated_prop = @propositions.select {|prop| prop.status == "validated"}
+  #   if prop = "pending"
+  #     @markers = @pending_propositions.geocoded.map do |proposition|
+  #       {
+  #         lat: proposition.latitude,
+  #         lng: proposition.longitude,
+  #         info_window: render_to_string(partial: "info_window", locals: { proposition: proposition }),
+  #         marker_icon: '<i class="fas <%=iconecategory%>"></i>',
+  #         marker_color: "text-color-#{proposition.category}"
+  #       }
+  #     end
+  #   else
+  #     @markers = @validated_prop.geocoded.map do |proposition|
+  #       {
+  #         lat: proposition.latitude,
+  #         lng: proposition.longitude,
+  #         info_window: render_to_string(partial: "info_window", locals: { proposition: proposition }),
+  #         marker_icon: '<i class="fas <%=iconecategory%>"></i>',
+  #         marker_color: "text-color-#{proposition.category}"
+  #       }
+  #     end
+  #   end
+  #  end
 
 
    private

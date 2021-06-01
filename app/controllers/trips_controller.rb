@@ -14,16 +14,27 @@ class TripsController < ApplicationController
     @invite = Invite.new
     @proposition = Proposition.new
     @vote = Vote.new
+    @propositions = @trip.propositions
     # @pending_propositions = Trip.propositions.where(status: nil)
     # @validation_propositions = Trip.propositions.where(status: validated)
     #Collection of email in DB
     @emails = User.all.map {|user| user.email}
-    @markers = @trip.propositions.map do |proposition|
+    @markers = @trip.propositions.select {|prop| prop.status != "validated"}.map do |proposition|
       {
         lat: proposition.latitude,
         lng: proposition.longitude,
         info_window: render_to_string(partial: "info_window", locals: { proposition: proposition }),
         marker_icon: "<i class='fas #{Proposition::ICONS[proposition.category]}'</i>",
+        marker_color: "text-color-#{proposition.category}"
+      }
+    end
+    @validated_prop = @propositions.select {|prop| prop.status == "validated"}
+    @validated_markers = @validated_prop.map do |proposition|
+      {
+        lat: proposition.latitude,
+        lng: proposition.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { proposition: proposition }),
+        marker_icon: "<i class='fas #{Proposition::ICONS[proposition.category]}'></i>",
         marker_color: "text-color-#{proposition.category}"
       }
     end

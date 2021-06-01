@@ -1,4 +1,11 @@
-  #map {
+  #map-all {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    //margin-top: 0px;
+  }
+
+  #map-pending {
     height: 100vh;
     position: sticky;
     top: 0;
