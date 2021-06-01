@@ -76,17 +76,7 @@
   }
 }
 
-.tooltip > .tooltip-inner {
-  padding-right: 15px !important;
-  padding-left: 15px !important;
-  margin-bottom: 10px;
-  background-color: white;
-  color: $ft-orange;
-  border-radius: 50px;
-}
-.tooltip .arrow {
-  display: none !important;
-}
+
 
 
 .button-add {
@@ -148,6 +138,7 @@
 }
 
 
+
 .button-add-invites {
   background-color:$ft-duck-blue;
   opacity: 0,8;
@@ -182,7 +173,17 @@
   }
 }
 
-
+.tooltip > .tooltip-inner {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  margin-bottom: 10px;
+  background-color: white;
+  color: $ft-orange;
+  border-radius: 50px;
+}
+.tooltip .arrow {
+  display: none !important;
+}
 
 // .lalala > .tooltip-inner {
 //   padding-right: 15px !important;
