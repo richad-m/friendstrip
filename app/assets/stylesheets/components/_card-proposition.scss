@@ -123,7 +123,19 @@ ul#ba {
 }
 
 
-
+.proposition-owner {
+  // position: absolute;
+  top: 0;
+  right: 16px;
+  // transform: translateY(-75%);
+  img.proposition-owner {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+  }
+}
 
 
 

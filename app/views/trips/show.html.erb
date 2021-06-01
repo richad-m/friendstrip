@@ -92,7 +92,7 @@
         <%= image_tag("avatar.png", class: "trip-owner-show") %>
       <% end %>
     </div>
-  
+
     <div class="trip-invitees-show">
       <% @trip.invites.each do |invite| %>
         <% if invite.user.avatar.attached? %>
@@ -101,7 +101,7 @@
           <% else %>
             <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite"%>
           <% end %>
-  
+
         <% else %>
           <%= image_tag("avatar.png", class: "trip-invitee-show") %>
         <% end %>
@@ -122,7 +122,7 @@
         <%= image_tag("avatar.png", class: "trip-owner-show") %>
       <% end %>
     </div>
-  
+
     <div class="trip-invitees-show">
       <% @trip.invites.each do |invite| %>
         <% if invite.user.avatar.attached? %>
@@ -131,7 +131,7 @@
           <% else %>
             <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite"%>
           <% end %>
-  
+
         <% else %>
           <%= image_tag("avatar.png", class: "trip-invitee-show") %>
         <% end %>
@@ -145,7 +145,7 @@
 </div>
   <!-- Button trigger proposition new modal -->
   <div class="button-add-proposition bouton-sticky" data-toggle="modal" data-target="#propositionModal">
-    <div data-toggle="tooltip" data-placement="top" title="Add a proposition" class="tooltip-add">
+    <div data-toggle="tooltip" data-placement="top" title="Add a proposition">
       <i class="fas fa-plus"></i>
     </div>
   </div>
