@@ -148,16 +148,20 @@ ul#ba {
 }
 
 .booking-form-div-proposition {
-    background: white;
-    margin-top: 2px;
-    padding: 22px;
-    border-radius: 20px;
-    margin-bottom: 2px;
+    background: white !important;
+    margin-top: 2px !important;
+    padding: 22px !important;
+    border-radius: 20px !important;
+    margin-bottom: 2px !important;
 }
 
+
 .proposition-form-left {
-  border-right: 1px solid black;
-  padding-right: 66px;
+  border-right: 1px solid $ft-duck-blue;
+  padding-right: 45px;
+}
+.proposition-form-right {
+  padding-left: 45px;
 }
 
 .modal-title {
