@@ -24,8 +24,8 @@
 
             <!--  New invitation Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
+              <div class="modal-dialog modal-dialog-centered modal-trip-show" role="document">
+                <div class="modal-content modal-trip-show-radius">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Invite a friend to join <%=@trip.title%></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -47,9 +47,9 @@
               </div>
             </div>
             <!--  New proposition Modal -->
-            <div class="modal fade" id="propositionModal" tabindex="-1" role="dialog" aria-labelledby="propositionModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
+            <div class="modal fade w-600" id="propositionModal" tabindex="-1" role="dialog" aria-labelledby="propositionModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-proposition-new" role="document">
+                <div class="modal-content modal-proposition-new-style">
                   <div class="modal-header">
                     <h5 class="modal-title" id="propositionModalLabel"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -59,15 +59,19 @@
                   <%= simple_form_for [@trip, @proposition], remote: true do |f| %>
                   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                   <div class="modal-body">
-                    <div class="form-wrapper" id="booking-form-div">
+                    <div class="form-wrapper proposition-form d-flex justify-content-between" id="booking-form-div">
+                      <div class="proposition-form-left">
                         <%= f.input :category, :collection => ["food", "accomodation", "activity"], label: 'Pick a category' %>
-                        <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
-                        <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none"  } %>
-                        <%= f.input :due_date %>
                         <%= f.input :address, as: :string %>
                         <%= f.input :title %>
                         <%= f.input :description %>
                         <%= f.input :url %>
+                      </div>
+                      <div class="proposition-form-right">
+                        <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
+                        <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none"  } %>
+                        <%= f.input :due_date %>
+                      </div>
                     </div>
                   </div>
                     <div class="modal-footer">
@@ -92,8 +96,8 @@
         <%= image_tag("avatar.png", class: "trip-owner-show") %>
       <% end %>
     </div>
-  
-    <div class="trip-invitees-show">
+
+    <div class="trip-invitees-show avatar-card">
       <% @trip.invites.each do |invite| %>
         <% if invite.user.avatar.attached? %>
           <% if invite.accepted?%>
@@ -101,10 +105,15 @@
           <% else %>
             <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite"%>
           <% end %>
-  
+
         <% else %>
           <%= image_tag("avatar.png", class: "trip-invitee-show") %>
         <% end %>
+      <div class="middle">
+        <div class="text">
+          <%= invite.user.first_name %>
+        </div>
+      </div>
       <% end %>
     </div>
     <div>
@@ -122,21 +131,28 @@
         <%= image_tag("avatar.png", class: "trip-owner-show") %>
       <% end %>
     </div>
-  
-    <div class="trip-invitees-show">
-      <% @trip.invites.each do |invite| %>
-        <% if invite.user.avatar.attached? %>
-          <% if invite.accepted == "true"%>
-            <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show" %>
+
+    <div class="avatar-card trip-invitees-show">
+      <div class="">
+        <% @trip.invites.each do |invite| %>
+          <% if invite.user.avatar.attached? %>
+            <% if invite.accepted == "true"%>
+              <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show" %>
+            <% else %>
+              <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite"%>
+            <% end %>
           <% else %>
-            <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite"%>
+            <%= image_tag("avatar.png", class: "trip-invitee-show") %>
           <% end %>
-  
-        <% else %>
-          <%= image_tag("avatar.png", class: "trip-invitee-show") %>
-        <% end %>
-      <% end %>
+          <div class="middle-invitee">
+              <div class="text">
+                  <%= invite.trip.user.first_name %>
+              </div>
+            </div>
+         <% end %>
+      </div>
     </div>
+
     <div>
       <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all" %>
     </div>
