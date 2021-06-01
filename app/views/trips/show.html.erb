@@ -138,9 +138,6 @@
       <% end %>
     </div>
     <div>
-      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}, map: "map-pending" %>
-    </div>
-    <div>
       <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all" %>
     </div>
   </div>
