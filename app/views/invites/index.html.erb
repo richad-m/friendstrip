@@ -1,63 +1,30 @@
-<div class="container">
-
-  <h2>My pending invites </h2>
-  <div class="row">
-    <% @pending_invites.each do |invite| %>
-
-      <div class="col-6">
-        <div class="trip-card" >
-          <div class="trip-card-top" style="background-image: url('https://source.unsplash.com/600x200/?<%= invite.trip.destination %>,')">
-          <div class="avatar-card">
-            <% if invite.trip.user.avatar.attached? %>
-              <p><%= cl_image_tag invite.trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;" %></p>
-            <% else %>
-              <i class='fas fa-user-circle avatar dropdown-toggle image' ></i>
-            <% end %>
-            <div class="middle">
-              <div class="text">
-                <%= invite.trip.user.first_name %>
-              </div>
-            </div>
-          </div>
-            <h2><%= invite.trip.title %></h2>
-          </div>
-          <div class="trip-card-bottom">
-            <p><%= invite.trip.start_date %> / <%= invite.trip.end_date %></p>
-            <%= simple_form_for [invite.trip, invite] do |f| %>
-              <%= f.submit "Accept invitation", class:"button-green"%>
-            <% end %>
-          </div>
+<div class="banner " style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80 );">
+  <div>
+    <div class="container text-center">
+      <div class="index-title mb-5">
+        <h1>Your invites</h1>
+      </div>
+      <div>
+        <%= link_to  "Add a trip", new_trip_path, class: "button-orange" %>
+      </div>
+      <div class="row d-flex text-end">
+        <div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-2 user-invites container">
+
+  <div class="row">
+    <% if @pending_invites.count == 0 %>
+      <p> You have no pending invites... Maybe you should go back to <%= link_to "your trips", trips_path %></p>
+    <% else %>
+      <h2>My pending invites <%= "(#{@pending_invites.count})" %> </h2>
+      <div class="container">
+        <%= render "invite_card", invites: @pending_invites.uniq %>  
       </div>
     <% end %>
   </div>
-
-  <h2>My accepted invites</h2>
-  <div class="row">
-    <% @accepted_invites.each do |invite| %>
-          <div class="col-6">
-        <div class="trip-card" >
-          <div class="trip-card-top" style="background-image: url('https://source.unsplash.com/600x200/?<%= invite.trip.destination %>,')">
-          <div class="avatar-card">
-            <% if invite.trip.user.avatar.attached? %>
-              <p><%= cl_image_tag invite.trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;" %></p>
-            <% else %>
-              <i class='fas fa-user-circle avatar image'></i>
-            <% end %>
-            <div class="middle">
-              <div class="text">
-                <%= invite.trip.user.first_name %>
-              </div>
-            </div>
-          </div>
-            <h2><%= invite.trip.title %></h2>
-          </div>
-          <div class="trip-card-bottom">
-            <p><%= invite.trip.start_date %> / <%= invite.trip.end_date %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
 </div>

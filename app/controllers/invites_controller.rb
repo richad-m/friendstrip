@@ -3,9 +3,9 @@ class InvitesController < ApplicationController
  protect_from_forgery with: :null_session
 
   def index
-    @invites = Invite.where(user_id: current_user.id)
-    @pending_invites = @invites.select {|invite| invite.accepted.nil?}
-    @accepted_invites = @invites.select {|invite| invite.accepted?}
+    @invites = current_user.invites
+    @pending_invites = @invites.select {|invite| invite.accepted.nil?}.uniq
+    @accepted_invites = @invites.select {|invite| invite.accepted?}.uniq
   end
 
   def new
