@@ -100,6 +100,11 @@
     </div>
 
     <div class="trip-invitees-show">
+     <div class="button-add-proposition " data-toggle="modal" data-target="#exampleModal">
+        <div data-toggle="tooltip" data-placement="top" title="Invate a friend" class="tooltip-add">
+          <i class="fas fa-plus"></i>
+        </div>
+      </div>
       <% @trip.invites.each do |invite| %>
         <% if invite.user.avatar.attached? %>
           <% if invite.accepted?%>
