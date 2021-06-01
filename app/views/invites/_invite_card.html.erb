@@ -1,0 +1,54 @@
+<div class="row" >
+  <% invites.each do |invite| %>
+        <div class="col-6">
+
+          <%= link_to trip_path(invite.trip), class: "trip-card-link", data: {turbolinks: false} do%>
+            <div class="trip-card" >
+              <div class="trip-card-top <%= invite.trip.destination %>">
+                <div class="avatar-card">
+                  <% if invite.trip.user.avatar.attached? %>
+                    <p><%= cl_image_tag invite.trip.user.avatar.key, width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
+                  <% else %>
+                    <%= image_tag("avatar.png", width: 50, height: 50, crop: :fill, style: "border-radius: 50%;", class: "image") %>
+                  <% end %>
+                  <div class="middle">
+                    <div class="text">
+                      <%= invite.trip.user.first_name %>
+                    </div>
+                  </div>
+                </div>
+                <h3><%= invite.trip.title %></h3>
+                <%= invite.trip.destination %>
+              </div>
+              <div class="trip-card-bottom">
+                <div class="trip-card-date">
+                <div class="start-date"> <i class="fas fa-plane-departure"></i> <%= "#{invite.trip.start_date.strftime("%d %b %Y")}"%> </div>
+                <div class="end-date"> <i class="fas fa-plane-arrival"></i> <%= "#{invite.trip.end_date.strftime("%d %b %Y")}"%> </div>
+                </div>
+                <% if invite.accepted.nil? %>
+                  <div class="accept-invite">
+                    <%= link_to trip_invite_path(invite.trip.id, invite.id), remote: true, method: :patch do %>
+                      <span class='button-prout invite-button'>Accept</span>
+                    <% end %>
+                  </div>
+                <% end %>
+                <div class="trip-days">
+                <%# <span class="month"> <#%= "from #{trip.start_date.strftime("%b %d, %Y")} to #{trip.end_date.strftime("%b %d, %Y")}"%>
+                <div class="duration"><i class="far fa-clock"></i> Duration:<div class="data"> <%= "#{pluralize (invite.trip.end_date - invite.trip.start_date).to_i, "day"}" %></div> </div>
+                <div class="participating"><i class="fas fa-user-check"></i>Participating:<div class="data"> <%= "#{invite.trip.users.count + 1}" %> </div> </div>
+              </div>
+                <div class="trip-invitees">
+                  <% invite.trip.invites.each do |invite| %>
+                    <% if invite.user.avatar.attached? %>
+                      <%= cl_image_tag invite.user.avatar.key, width: 30, height: 30, crop: :fill, class: "trip-invitee" %>
+                    <% else %>
+                      <%= image_tag("avatar.png", class: "trip-invitee") %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+</div>
