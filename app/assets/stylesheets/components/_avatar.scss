@@ -59,9 +59,10 @@
 }
 
 .unaccepted-invite {
-  background-color: white !important;
-  opacity: 50%;
+  filter: brightness(35%);
+
 }
+
 
 .avatar-card-name {
   display: flex;
