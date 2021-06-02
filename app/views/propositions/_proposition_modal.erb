@@ -3,9 +3,9 @@
 
   <div class="modal-dialog modal-dialog-centered modal-trip-show" role="document">
     <div class="modal-content modal-trip-show-radius">
-      <div class="modal-header">
+      <div class="modal-header bg-color-<%= proposition.category %>">
         <div class="modal-prop-title ">
-          <h5 class="modal-title text-center" id="propositionShowModalLabel-<%= proposition.id %>"><%= link_to "#{proposition.title}", proposition.url %></h5>
+          <h5 class="modal-title proposition-title" id="propositionShowModalLabel-<%= proposition.id %>"><%= link_to "#{proposition.title}", proposition.url %></h5>
         </div>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -13,26 +13,34 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="modal-prop-counter pl-3 text-right">
-          <p><mark style="color:green"><%= pluralize proposition.votes.select{ |vote| vote.status == "upvote" }.count, "upvote" %></mark></p>
-          <p><mark style="color: red"><%= pluralize proposition.votes.select{ |vote| vote.status == "downvote" }.count, "downvote" %></mark></p>
+        <div class="modal-prop-counter-proposition">
+          <p><mark style="color:green"><%= pluralize proposition.votes.select{ |vote| vote.status == "upvote" }.count,"" %><i class="fas fa-thumbs-up"></i></mark></p>
+          <p><mark style="color: red"><%= pluralize proposition.votes.select{ |vote| vote.status == "downvote" }.count, "" %><i class="fas fa-thumbs-down"></i></mark></p>
         </div>
-        <div class="modal-prop-description bg-light pl-3">
+        <div class="modal-prop-description bg-light">
           <p><ins>Description:</ins></p>
           <p><em><%= proposition.description %></em></p>
         </div>
-        <div class="modal-prop-comments pl-3">
+        <div class="modal-prop-comments">
           <p><ins><%=  pluralize proposition.votes.select {|vote| vote.comment !=""}.count, "comment" %></ins> :</p>
           <% proposition.votes.each do |vote|%>
             <% if vote.comment != "" %>
-              <p><strong><%= vote.user.first_name %></strong>: "<%= vote.comment %>"</p>
+            <div class="comment">
+              <p class="name"><%= vote.user.first_name %>:</p>
+              <p class="content"><%= vote.comment %></p>
+            </div>
             <% end %>
           <% end %>
         </div>
       </div>
       <div class="modal-footer">
-        <span class="sign-button button-green" data-dismiss="modal">Close</span>
-        <span class="sign-button button-orange">Edit</span>
+        <% if proposition.status != 'validated' && proposition.trip.user == current_user %>
+            <%= link_to validate_path(proposition), remote: true, method: :patch do %>
+              <span class='button-interactive'>validate</span>
+            <% end %>
+            <% else %>
+                <p class='validatedpropmsg'>validated</p>
+            <% end %>
       </div>
     </div>
   </div>
