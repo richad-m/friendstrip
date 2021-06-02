@@ -10,7 +10,7 @@
       <%= simple_form_for [@trip, @invite], remote: true do |f| %>
       <div class="modal-body">
         <div class="form-wrapper" id="invite-form-div">
-            <%= f.input :email, label: 'Please enter an email address to invite a friend' %>
+            <%= f.input :email, label: 'Please enter an email address to invite a friend', :placeholder => 'friend@friendtrip.com' %>
         </div>
       </div>
         <div class="modal-footer">
