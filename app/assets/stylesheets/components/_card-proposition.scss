@@ -15,9 +15,6 @@ ul#ba {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   box-shadow: 0px 2px 10px #b4b8bb;
-    &:hover {
-      cursor: pointer;
-    }
 }
 
 
@@ -233,4 +230,30 @@ ul#ba {
 			width: 100%;
 		}
 	}
+}
+
+
+// HOVER SUR TITRE
+.proposition-title {
+  position: relative;
+  &:hover {
+    // color: grayscale($color: #252323ea);
+    cursor: pointer;
+    transition: 0.4s ease;
+    &:before {
+      width: 110%;
+    }
+  }
+
+  &:before {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    bottom: -4px;
+    transition: width 0.4s ease;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
