@@ -37,11 +37,10 @@
                   <%= simple_form_for [@trip, @invite], remote: true do |f| %>
                   <div class="modal-body">
                     <div class="form-wrapper" id="invite-form-div">
-                        <%= f.input :email, label: 'Pick a friend to invite' %>
+                        <%= f.input :email, label: 'Please enter an email address to invite a friend' %>
                     </div>
                   </div>
                     <div class="modal-footer">
-                      <div type="button" class="button-green" data-dismiss="modal">Close</div>
                       <%= f.button :submit, 'Send invite', class: "button-orange" %>
                     </div>
                     <% end %>
@@ -53,7 +52,7 @@
               <div class="modal-dialog modal-dialog-centered modal-proposition-new" role="document">
                 <div class="modal-content modal-proposition-new-style">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="propositionModalLabel">Submit your proposition</h5>
+                    <!-- <h5 class="modal-title" id="propositionModalLabel">Submit your proposition</h5> -->
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -77,7 +76,7 @@
                     </div>
                   </div>
                     <div class="modal-footer">
-                      <div type="button" class="button-green" data-dismiss="modal">Close</div>
+                      <!-- <div type="button" class="button-green" data-dismiss="modal">Close</div> -->
                       <div class="">
                         <%= f.button :submit, 'Add proposition', class: "button-orange" %>
                       </div>
@@ -94,7 +93,8 @@
   <div class="pending-prop">
     <%= render "propositions/avatar_on_cards" %>
     <div>
-      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}, map: "map-pending", markers: @markers.to_json %>
+      <!-- propositions are sorted by descending nb of votes -->
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}.sort {|a,b| b.votes.count <=> a.votes.count}, map: "map-pending", markers: @markers.to_json %>
     </div>
 
   </div>
@@ -103,6 +103,7 @@
   <div class="all-prop d-none">
     <%= render "propositions/avatar_on_cards" %>
     <div>
+      <!-- propositions are sorted by start_date -->
       <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all", markers: @validated_markers.to_json %>
     </div>
   </div>
