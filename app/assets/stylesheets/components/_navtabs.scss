@@ -9,27 +9,40 @@
   cursor: pointer;
   bottom: -150px;
   border-radius: 25px 25px 0px 0px;
-  background-color: #186F70;
-  color: white;
+  background-color: #f4f4f4;
+  color: #8a8a8a;
   padding: 9px 47px;
   margin: 0px 9px 0px 0px;
   font-size:10px;
   vertical-align: middle;
-  box-shadow: 2px 0px 3px #0c4344;
+}
+
+.button-tabs span {
+  background: $ft-truquoise-clair;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+}
+
+.unactive-tab {
+  background-color: #cccbcb;
   &:hover {
-    background-color: #114d4e; /* Green */
-    color: white;
-    text-decoration:none;
-    box-shadow: 2px 0px 3px #0c4344;
-    cursor: pointer;
-    }
+    color: #8a8a8a;
+    background-color: #f4f4f4;
+  }
+}
 
   h5 {
     font-size:18px;
     width:100%;
     margin-bottom: 0px;
   }
-}
+
 
 .logo-font{
   font-family: $logo-font;
@@ -37,10 +50,6 @@
 
 .all-steps {
   position: absolute;
-  left: 205px;
+  left: 230px;
 }
 
-.unactive-tab {
-  background-color: #80a3a3;
-  box-shadow: 0px 0px 0px #0c4344;
-}
