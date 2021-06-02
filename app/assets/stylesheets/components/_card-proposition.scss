@@ -135,12 +135,15 @@ ul#ba {
 }
 
 .modal-proposition-new {
-  top: 14%;
+  top: 6%;
   width: 600px;
 }
 .modal-proposition-new-style {
   border-radius: 15px;
   width: auto;
+    .modal-footer {
+      justify-content: center !important;
+    }
 }
 
 .proposition-form {
@@ -152,7 +155,7 @@ ul#ba {
     margin-top: 2px !important;
     padding: 22px !important;
     border-radius: 20px !important;
-    margin-bottom: 2px !important;
+    margin-bottom: 0px !important;
 }
 
 
