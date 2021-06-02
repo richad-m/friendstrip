@@ -39,9 +39,11 @@ class TripsController < ApplicationController
         marker_color: "text-color-#{proposition.category}"
       }
     end
-    points = @validated_prop.map { |prop| prop.slice(:latitude, :longitude)}
-    mapbox_reponse = Mapbox::Directions.directions(points, "driving", {geometries: "geojson"})
-    @steps = mapbox_reponse&.first&.dig("routes")&.first&.dig("geometry","coordinates")
+    if @validated_prop.count != 0
+      points = @validated_prop.map { |prop| prop.slice(:latitude, :longitude)}
+      mapbox_reponse = Mapbox::Directions.directions(points, "driving", {geometries: "geojson"})
+      @steps = mapbox_reponse&.first&.dig("routes")&.first&.dig("geometry","coordinates")
+    end
   end
 
   def new
