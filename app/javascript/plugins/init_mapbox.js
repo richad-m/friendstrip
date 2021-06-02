@@ -30,10 +30,10 @@ const addRoute = (map, steps) => {
         'line-join': 'round',
         'line-cap': 'round'
       },
-      // paint: {
-      //   'line-color': rideColor,
-      //   'line-width': 4
-      // }
+      paint: {
+        'line-color': '#114D4E',
+        'line-width': 2
+      }
     });
   });
 }
