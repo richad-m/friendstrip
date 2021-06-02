@@ -14,6 +14,7 @@ file1 = URI.open("https://i.pravatar.cc/150?img=52")
 file2 = URI.open("https://i.pravatar.cc/150?img=34")
 file3 = URI.open("https://i.pravatar.cc/150?img=60")
 file4 = URI.open("https://i.pravatar.cc/150?img=68")
+file6 = URI.open("https://i.pravatar.cc/150?img=51")
 file5 = URI.open("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/50a43a42-2380-4d5d-8e2c-e9b8f382d416/1200x680_booba_01072020_miami_gqfrance_paridukovic_0303.jpg")
 
 user1 = User.create(email: "richad@friendstrip.com", password:"123456", first_name:"Richad")
@@ -30,6 +31,9 @@ User.last.avatar.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg
 User.last.save!
 user5 = User.create(email: "booba@friendstrip.com", password:"123456", first_name:"Booba")
 User.last.avatar.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.save!
+user6 = User.create(email: "kaaris@friendstrip.com", password:"123456", first_name:"Armand")
+User.last.avatar.attach(io: file6, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 
 #Setting up Trip1 to XXXX
