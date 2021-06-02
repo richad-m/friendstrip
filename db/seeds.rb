@@ -71,6 +71,7 @@ vote25 = Vote.create(user_id: user2.id, proposition_id:prop23.id, comment:"trop 
 vote26 = Vote.create(user_id: user3.id, proposition_id:prop23.id, comment:"trop cher en vrai, j'ai pas votre salaire moi", status:"downvote")
 vote27 = Vote.create(user_id: user3.id, proposition_id:prop27.id, comment:"oh yes comme les experts à Miami", status:"upvote")
 vote28 = Vote.create(user_id: user2.id, proposition_id:prop27.id, comment:"LOURD les crocos", status:"upvote")
+vote29 = Vote.create(user_id: user4.id, proposition_id:prop27.id, comment:"J'adore Lacoste", status:"upvote")
 
 
 #Setting up a few other trips
