@@ -1,6 +1,10 @@
-// .modal-dialog {
-//   bottom: -37vh;
-// }
+.modal-dialog {
+  max-width: unset !important;
+}
+
+.modal-dialog-centered {
+  justify-content: center;
+}
 
 // .modal-content {
 //   border-radius: 16px;
