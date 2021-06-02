@@ -51,9 +51,11 @@ ul#ba {
 }
 .fa-clock{
   font-size: 20px;
+  padding-right: 8px;
 }
 .fa-user-check{
   font-size: 20px;
+  padding-right: 8px;
 }
 .trip-card {
   padding-bottom: 30px;
@@ -143,12 +145,18 @@ ul#ba {
   text-indent: 1em;
   display: flex;
   justify-content: space-around;
+  padding-bottom: 5px;
   }
 
 .data{
   color: black;
 }
 
+
+
+.fa-clock{
+ 
+}
 // .card-trip {
 //   overflow: hidden;
 //   background: white;
