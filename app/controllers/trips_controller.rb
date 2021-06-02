@@ -28,7 +28,8 @@ class TripsController < ApplicationController
         marker_color: "text-color-#{proposition.category}"
       }
     end
-    @validated_prop = @propositions.select {|prop| prop.status == "validated"}
+    # @validated_prop = @propositions.select {|prop| prop.status == "validated"}
+    @validated_prop = @propositions.where(status: "validated").order('start_date ASC')
     @validated_markers = @validated_prop.map do |proposition|
       {
         lat: proposition.latitude,
@@ -38,6 +39,9 @@ class TripsController < ApplicationController
         marker_color: "text-color-#{proposition.category}"
       }
     end
+    points = @validated_prop.map { |prop| prop.slice(:latitude, :longitude)}
+    mapbox_reponse = Mapbox::Directions.directions(points, "driving", {geometries: "geojson"})
+    @steps = mapbox_reponse&.first&.dig("routes")&.first&.dig("geometry","coordinates")
   end
 
   def new

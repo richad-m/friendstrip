@@ -9,6 +9,35 @@ const buildMap = (mapElement) => {
   });
 };
 
+const addRoute = (map, steps) => {
+  map.on('load', function() {
+    map.addSource('driving', {
+      type: 'geojson',
+      data: {
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          type: 'LineString',
+          coordinates: steps
+        }
+      }
+    });
+    map.addLayer({
+      id: 'driving',
+      type: 'line',
+      source: 'driving',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      // paint: {
+      //   'line-color': rideColor,
+      //   'line-width': 4
+      // }
+    });
+  });
+}
+
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window);
@@ -37,8 +66,12 @@ const initMapbox = (mapElement) => {
   if (mapElement) {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
+    const steps = mapElement.dataset.steps;
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+    if (steps) {
+      addRoute(map, JSON.parse(steps));
+    }
   }
 };
 

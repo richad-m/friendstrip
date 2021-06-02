@@ -117,6 +117,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mapbox-sdk (2.3.2)
+      rest-client (~> 2.1.0)
     marcel (1.0.1)
     method_source (1.0.0)
     mime-types (3.3.1)
@@ -267,6 +269,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mapbox-sdk
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
