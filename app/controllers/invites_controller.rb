@@ -38,7 +38,8 @@ class InvitesController < ApplicationController
     @invite = Invite.find(params[:id])
     @invite.accepted = true
     if @invite.save
-      redirect_to trips_path
+      flash.notice = "You successfully joined #{@invite.trip.title}"
+      redirect_to trip_path(@invite.trip)
     end
   end
 
