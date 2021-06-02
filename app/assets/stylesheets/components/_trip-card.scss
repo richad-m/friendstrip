@@ -19,14 +19,14 @@ ul#ba {
   background-color: white;
   background-size: cover !important;
   background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("travel"));
-  &.madrid {
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("madrid"));
-  }&.miami {
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("miami"));
-  }&.bali {
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("bali"));
-  }&.rio {
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("rio"));
+  &.Madrid {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("Madrid"));
+  }&.Miami {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("Miami"));
+  }&.Bali {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("Bali"));
+  }&.Rio {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("Rio"));
   }
 }
 
