@@ -2,14 +2,22 @@
   padding: 150px 0;
   position: relative;
   background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("travel"));
-  &.Madrid {
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("Madrid"));
-  }&.Miami {
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("Miami"));
-  }&.Bali {
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("Bali"));
-  }&.Rio {
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("Rio"));
+  &.madrid {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("madrid"));
+    background-position: center;
+    background-size: cover;
+  }&.miami {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("miami"));
+    background-position: center;
+    background-size: cover;
+  }&.bali {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("bali"));
+    background-position: center;
+    background-size: cover;
+  }&.rio {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("rio"));
+    background-position: center;
+    background-size: cover;
   }
   background-position: center;
   background-size: cover;
