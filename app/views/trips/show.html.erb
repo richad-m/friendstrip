@@ -46,7 +46,7 @@
     <%= render "propositions/avatar_on_cards" %>
     <div>
       <!-- propositions are sorted by start_date -->
-      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all", markers: @validated_markers.to_json %>
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all", markers: @validated_markers.to_json, steps: @steps %>
     </div>
   </div>
   <!-- Button trigger proposition new modal -->
