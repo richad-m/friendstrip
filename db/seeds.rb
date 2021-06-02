@@ -14,6 +14,7 @@ file1 = URI.open("https://i.pravatar.cc/150?img=52")
 file2 = URI.open("https://i.pravatar.cc/150?img=34")
 file3 = URI.open("https://i.pravatar.cc/150?img=60")
 file4 = URI.open("https://i.pravatar.cc/150?img=68")
+file6 = URI.open("https://i.pravatar.cc/150?img=78")
 file5 = URI.open("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/50a43a42-2380-4d5d-8e2c-e9b8f382d416/1200x680_booba_01072020_miami_gqfrance_paridukovic_0303.jpg")
 
 user1 = User.create(email: "richad@friendstrip.com", password:"123456", first_name:"Richad")
@@ -30,6 +31,9 @@ User.last.avatar.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg
 User.last.save!
 user5 = User.create(email: "booba@friendstrip.com", password:"123456", first_name:"Booba")
 User.last.avatar.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.save!
+user6 = User.create(email: "kaaris@friendstrip.com", password:"123456", first_name:"Armand")
+User.last.avatar.attach(io: file6, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 
 #Setting up Trip1 to XXXX
@@ -52,7 +56,6 @@ trip2 = Trip.create(start_date: Date.new(2021,9,5), end_date: Date.new(2021,10,5
 invite21 = Invite.create(trip_id:trip2.id, user_id: user4.id, accepted: true)
 invite22 = Invite.create(trip_id:trip2.id, user_id: user2.id, accepted: true)
 invite23 = Invite.create(trip_id:trip2.id, user_id: user3.id, accepted: true)
-invite24 = Invite.create(trip_id:trip2.id, user_id: user5.id)
 
 prop21 = Proposition.create(trip_id:trip2.id, user_id: user1.id, category: "accomodation", start_date: Date.new(2021,9,5), end_date: Date.new(2021,9,13), due_date: "2021-06-15", title: "Hotel Newton", description: "hotel pas cher", url: "http://www.thehotelnewton.com/", address: "2528 East Broadway, New York, United States of America", status: "validated")
 prop22 = Proposition.create(trip_id:trip2.id, user_id: user2.id, category: "accomodation", start_date: Date.new(2021,9,15), end_date: Date.new(2021,9,17), due_date: "2021-06-15", title: "Homewood Suites", description: "hotel plutot classe", url: "https://www.hilton.com/en/hotels/washwhw-homewood-suites-washington-dc-downtown/?SEO_id=GMB-HW-WASHWHW&y_source=1_MjA4MjQwNy03MTUtbG9jYXRpb24uZ29vZ2xlX3dlYnNpdGVfb3ZlcnJpZGU%3D", address: "1475 Massachusetts Ave SE, Washington, District of Columbia, United States of America")
@@ -71,12 +74,13 @@ vote25 = Vote.create(user_id: user2.id, proposition_id:prop23.id, comment:"trop 
 vote26 = Vote.create(user_id: user3.id, proposition_id:prop23.id, comment:"trop cher en vrai, j'ai pas votre salaire moi", status:"downvote")
 vote27 = Vote.create(user_id: user3.id, proposition_id:prop27.id, comment:"oh yes comme les experts à Miami", status:"upvote")
 vote28 = Vote.create(user_id: user2.id, proposition_id:prop27.id, comment:"LOURD les crocos", status:"upvote")
+vote29 = Vote.create(user_id: user4.id, proposition_id:prop27.id, comment:"Pas loin de l'hotel en plus", status:"upvote")
 
 
 #Setting up a few other trips
 trip3 = Trip.create(start_date: Date.new(2022,8,5), end_date: Date.new(2022,9,5), title: "Bali 2022", user_id:user5.id, description:"Bali mon gaaaars", destination:"Bali")
 invite31 = Invite.create(trip_id:trip3.id, user_id: user2.id)
-invite32 = Invite.create(trip_id:trip3.id, user_id: user1.id, accepted: true)
+invite32 = Invite.create(trip_id:trip3.id, user_id: user1.id)
 
 
 puts "All good, seed is ready"
