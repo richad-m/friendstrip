@@ -4,12 +4,12 @@
 
     <div class="col-8">
     <% propositions.each do |proposition| %>
-        <div class="trip-card <%= 'validated-prop' if proposition.status == 'validated'%>" id="prop-<%= proposition.id %>">
+        <div class=" <%= 'validated-prop' if proposition.status == 'validated'%>" id="prop-<%= proposition.id %>">
           <div class="card-proposition-top bg-color-<%= proposition.category %>"
           data-toggle="modal" data-target="#propositionShow-<%= proposition.id %>">
             <div class="row" >
               <div>
-                <i class="fas <%=Proposition::ICONS[proposition.category]%>"></i>  
+                <i class="fas <%=Proposition::ICONS[proposition.category]%>"></i>
                 <%= proposition.category %>
               </div>
               <h4><%= proposition.title %></h4>
@@ -32,8 +32,10 @@
                 <% end %>
                 <% if proposition.status != 'validated' && proposition.trip.user == current_user %>
                   <%= link_to validate_path(proposition), remote: true, method: :patch do %>
-                    <span class='button-prout'>validate</span>
+                    <span class='button-interactive'>validate</span>
                   <% end %>
+                  <% else %>
+                    <span class='button-validated'>validated</span>
                 <% end %>
               </div>
             </div>

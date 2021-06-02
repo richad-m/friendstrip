@@ -15,12 +15,12 @@
             </div>
           </div>
           <div class="navigation-tabs">
-            <div class="navigation-tabs-green">
+            <div class="navigation-tabs-green row">
               <div class="pending button-tabs" id="pending-prop">
-                <h5>Pending (<%= @trip.propositions.select {|prop| prop.status != "validated"}.count %>)</h5>
+                <h5>Propositions <span><%= @trip.propositions.select {|prop| prop.status != "validated"}.count %></span> </h5>
               </div>
               <div class="all-steps button-tabs unactive-tab" id="all-prop">
-                  <h5>Validated propositions (<%= @trip.propositions.select {|prop| prop.status == "validated"}.count %>)</h5>
+                  <h5>Trip details <span><%= @trip.propositions.select {|prop| prop.status == "validated"}.count %></span></h5>
               </div>
             </div>
 

@@ -28,7 +28,7 @@
                 <% if invite.accepted.nil? %>
                   <div class="accept-invite">
                     <%= link_to trip_invite_path(invite.trip.id, invite.id), remote: true, method: :patch do %>
-                      <span class='button-prout invite-button'>Accept</span>
+                      <span class='button-interactive invite-button'>Accept</span>
                     <% end %>
                   </div>
                 <% end %>
