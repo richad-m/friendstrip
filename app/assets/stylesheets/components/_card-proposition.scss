@@ -157,6 +157,8 @@ ul#ba {
 
 .modal-trip-show-radius {
   border-radius: 15px;
+  width: 450px;
+  margin: auto;
 }
 
 .modal-proposition-new {
@@ -194,9 +196,9 @@ ul#ba {
   padding-left: 45px;
 }
 
-.modal-title {
-  color: $ft-duck-blue;
-}
+// .modal-title {
+//   color: $ft-duck-blue;
+// }
 
 .proposition-owner {
   // position: absolute;
@@ -408,16 +410,17 @@ ul#ba {
 // BUTTON DELETE ABSOLUTE TO .card-proposition-top
 .card-proposition-top{
   .delete-prop {
-    position: absolute;
-    right: 6px;
-    top: 7px;
     text-decoration: none;
     .button-delete {
+      position: absolute;
+      right: 18px;
+      top: 13px;
       color: rgba(255, 255, 255, 0.795);
       font-size: 16px;
       &:hover {
         font-size: larger;
         color: $ft-rouge;
+        transition: 0.4s ease;
       }
     }
   }

@@ -91,8 +91,8 @@
 
           <!-- Like modal form -->
           <div class="modal " id="likeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="likeModalLabel-<%=proposition.id%>" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered"  role="document">
-              <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered modal-trip-show-radius"  role="document">
+              <div class="modal-content" style="border-radius: 15px">
                 <div class="modal-header">
                   <h5 class="modal-title" id="likeModalLabel-<%=proposition.id%>">Upvote <%=proposition.title%> ?</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -124,8 +124,8 @@
 
           <!-- disLike modal form -->
           <div class="modal " id="dislikeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="dislikeModalLabel-<%=proposition.id%>" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered"  role="document">
-              <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered modal-trip-show-radius"   role="document">
+              <div class="modal-content" style="border-radius: 15px">
                 <div class="modal-header">
                   <h5 class="modal-title" id="dislikeModalLabel-<%=proposition.id%>">Downvote <%=proposition.title%> ?</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
