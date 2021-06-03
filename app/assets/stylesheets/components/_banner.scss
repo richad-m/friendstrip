@@ -1,5 +1,5 @@
 .banner {
-  padding: 150px 0;
+  padding: 85px 0;
   position: relative;
   background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("travel"));
   &.madrid {
@@ -82,33 +82,93 @@
     right:0px;
   }
 }
-// .btn-index {
-//   text-decoration: none;
+
+
+
+//!\ HOME BANNER BELOW //
+
+.banner-home {
+  padding: 150px 0;
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("travel"));
+  &.madrid {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("madrid"));
+    background-position: center;
+    background-size: cover;
+  }&.miami {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("miami"));
+    background-position: center;
+    background-size: cover;
+  }&.bali {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("bali"));
+    background-position: center;
+    background-size: cover;
+  }&.rio {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("rio"));
+    background-position: center;
+    background-size: cover;
+  }
+  background-position: center;
+  background-size: cover;
+}
+
+.banner-home h1 {
+  text-align: center;
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+// .banner
+//   p {
+//   text-align: center;
+//   margin-top: 10px;
+//   margin-bottom: 40px;
+//   font-size: 2
 //   color: white;
-//   border: 1px solid white;
-//   background-color: rgba(78, 27, 27, 0.664);
-//   padding: 16px 32px;
-//   border-radius: 50px;
-//   font-weight: lighter;
-//   transition: opacity 0.3s ease;
-// }
-// .btn-index:hover {
-//   color: white;
-//   border: 2px solid white;
-//   background-color: #2c514693;
-//   text-decoration: none;
-//   opacity: 1;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 // }
 
-// .link-all-products {
-//   color:rgba(168, 1, 1, 0.856) !important;
-// }
+.banner-home
+  h3 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
 
+.sign-in-up-btn {
+  display:flex;
+  &:hover {
+    cursor: pointer;
+  }
+}
 
-// .link-all-products:hover {
-//   font-size: large;
-//   font-weight: 300;
-//   color:rgba(161, 0, 0, 0.856) !important;
-//   text-decoration: none;
-//   font-size: 50px;
-// }
+.show-banner-interactions {
+  padding-top: 15px;
+  display:flex;
+  justify-content: center;
+}
+.home-interactive-butons {
+  display:flex;
+  justify-content: space-between;
+}
+
+.fa-user-circle:before {
+  font-size: 50px;
+  margin-right: -63px;
+  content: "\f2bd";
+}
+
+.container h1 h4 {
+  color: white;
+  margin-top: 10px;
+  h3 .button-orange{
+    right:0px;
+  }
+}
+
