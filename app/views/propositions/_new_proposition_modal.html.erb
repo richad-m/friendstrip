@@ -12,14 +12,14 @@
         </button>
         <div class="form-wrapper proposition-form d-flex justify-content-between booking-form-div-proposition" id="booking-form-div">
           <div class="proposition-form-left">
-            <%= f.input :category, :collection => ["food", "accomodation", "activity"], label: 'Pick a category' %>
-            <%= f.input :address, as: :string %>
-            <%= f.input :title %>
-            <%= f.input :description %>
-            <%= f.input :url %>
+            <%= f.input :category, :collection => ["food", "accomodation", "activity"], label: 'Pick a category'%>
+            <%= f.input :address, as: :string, :placeholder => '96 Rue Saint-Maur, 75011 Paris' %>
+            <%= f.input :title, :placeholder => "L'Alicheur" %>
+            <%= f.input :description, :placeholder => "Great restaurant for lunch" %>
+            <%= f.input :url, :placeholder => "wwww.restaurantwebsite.com" %>
           </div>
           <div class="proposition-form-right">
-            <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
+            <%= f.input :start_date, label: "Select dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none" } %>
             <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none"  } %>
             <%= f.input :due_date %>
           </div>

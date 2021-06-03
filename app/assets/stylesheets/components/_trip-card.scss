@@ -43,6 +43,12 @@ ul#ba {
   border-bottom-left-radius: 20px;
 }
 
+.trip-card:hover {
+  transform: scale(1.025);
+    .delete-prop {
+      display: flex;
+    }
+}
 .fa-plane-departure {
   font-size: 20px;
 }
@@ -61,9 +67,6 @@ ul#ba {
 
 }
 
-.trip-card:hover {
-  transform: scale(1.025);
-}
 
 .past-trip {
   filter: brightness(35%);
@@ -93,7 +96,7 @@ ul#ba {
 .trip-owner-show{
   position: absolute;
   left: 16px;
-  transform: translateY(-443%);
+  transform: translateY(-325%);
   img.trip-owner-show {
     height: 100px;
     width: 100px;

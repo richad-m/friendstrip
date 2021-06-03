@@ -1,5 +1,5 @@
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+// import mapboxgl from 'mapbox-gl';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -30,10 +30,10 @@ const addRoute = (map, steps) => {
         'line-join': 'round',
         'line-cap': 'round'
       },
-      // paint: {
-      //   'line-color': rideColor,
-      //   'line-width': 4
-      // }
+      paint: {
+        'line-color': '#114D4E',
+        'line-width': 2
+      }
     });
   });
 }

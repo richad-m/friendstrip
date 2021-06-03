@@ -14,6 +14,7 @@ file1 = URI.open("https://i.pravatar.cc/150?img=52")
 file2 = URI.open("https://i.pravatar.cc/150?img=34")
 file3 = URI.open("https://i.pravatar.cc/150?img=60")
 file4 = URI.open("https://i.pravatar.cc/150?img=68")
+file6 = URI.open("https://i.pravatar.cc/150?img=51")
 file5 = URI.open("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/50a43a42-2380-4d5d-8e2c-e9b8f382d416/1200x680_booba_01072020_miami_gqfrance_paridukovic_0303.jpg")
 
 user1 = User.create(email: "richad@friendstrip.com", password:"123456", first_name:"Richad")
@@ -30,6 +31,9 @@ User.last.avatar.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg
 User.last.save!
 user5 = User.create(email: "booba@friendstrip.com", password:"123456", first_name:"Booba")
 User.last.avatar.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.save!
+user6 = User.create(email: "kaaris@friendstrip.com", password:"123456", first_name:"Armand")
+User.last.avatar.attach(io: file6, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 
 #Setting up Trip1 to XXXX
@@ -62,6 +66,8 @@ prop25 = Proposition.create(trip_id:trip2.id, user_id: user3.id, category: "acti
 prop26 = Proposition.create(trip_id:trip2.id, user_id: user3.id, category: "food", start_date: Date.new(2021,9,16), end_date: Date.new(2021,9,16), due_date: "2021-06-15", title: "Brunch Cruise on the Odyssey", description: "brunch sur un boat oklm", url: "https://www.getyourguide.com/washington-dc-l62/washington-dcgourmet-brunch-or-dinner-cruise-on-the-odyssey-t279712/", address: "Washington Avenue Southwest, Washington, District of Columbia, United States of America", status: "validated")
 prop27 = Proposition.create(trip_id:trip2.id, user_id: user3.id, category: "activity", start_date: Date.new(2021,9,16), end_date: Date.new(2021,9,16), due_date: "2021-06-15", title: "Everglades", description: "Qui veut voir des crocos ??", url: "https://www.getyourguide.com/everglades-national-park-l1867/everglades-national-park-airboat-tour-and-wildlife-show-t172401/", address: "Southwest 8th Street, Miami, Florida, United States of America")
 prop28 = Proposition.create(trip_id:trip2.id, user_id: user1.id, category: "food", start_date: Date.new(2021,9,30), end_date: Date.new(2021,9,30), due_date: "2021-06-15", title: "Makan Restaurant", description: "Trop bien noté sur tripadvisor", url: "https://www.tripadvisor.fr/Restaurant_Review-g34438-d21106364-Reviews-Makan_Miami-Miami_Florida.html", address: "North Kendall Drive, Coral Gables, Florida, United States of America")
+prop29 = Proposition.create(trip_id:trip2.id, user_id: user2.id, category: "activity", start_date: Date.new(2021,9,14), end_date: Date.new(2021,9,14), due_date: "2021-06-15", title: "Disneyland", description: "On peut aller voir mickey svp??", url: "https://www.disneyworld.eu/", address: "Orlando, Florida, United States of America")
+prop30 = Proposition.create(trip_id:trip2.id, user_id: user4.id, category: "activity", start_date: Date.new(2021,9,13), end_date: Date.new(2021,9,13), due_date: "2021-06-15", title: "Speedboat", description: "Vroum vrouuuum", url: "https://www.getyourguide.com/charleston-l894/charleston-harbor-2-hour-speedboat-adventure-t126641/", address: "Charleston, South Carolina, United States of America")
 
 vote21 = Vote.create(user_id: user4.id, proposition_id:prop21.id, comment:"", status:"upvote")
 vote22 = Vote.create(user_id: user2.id, proposition_id:prop21.id, comment:"les lits ont l'air dar", status:"upvote")
@@ -71,6 +77,7 @@ vote25 = Vote.create(user_id: user2.id, proposition_id:prop23.id, comment:"trop 
 vote26 = Vote.create(user_id: user3.id, proposition_id:prop23.id, comment:"trop cher en vrai, j'ai pas votre salaire moi", status:"downvote")
 vote27 = Vote.create(user_id: user3.id, proposition_id:prop27.id, comment:"oh yes comme les experts à Miami", status:"upvote")
 vote28 = Vote.create(user_id: user2.id, proposition_id:prop27.id, comment:"LOURD les crocos", status:"upvote")
+vote29 = Vote.create(user_id: user4.id, proposition_id:prop27.id, comment:"J'adore Lacoste", status:"upvote")
 
 
 #Setting up a few other trips
@@ -80,3 +87,5 @@ invite32 = Invite.create(trip_id:trip3.id, user_id: user1.id, accepted: true)
 
 
 puts "All good, seed is ready"
+
+

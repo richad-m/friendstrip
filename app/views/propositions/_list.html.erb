@@ -2,12 +2,28 @@
   <h3 class="my-5"></h3>
   <div class="row">
     <div class="col-8">
+
       <div class="list-propositions">
         <% propositions.each do |proposition| %>
           <div class="prop-card global-card-proposition<%= 'validated-prop' if proposition.status == 'validated'%> <%= proposition.category %>" id="prop-<%= proposition.id %>">
             <!--top card -->
             <div class="card-proposition-top bg-color-<%= proposition.category %>">
               <h4 data-toggle="modal" data-target="#propositionShow-<%= proposition.id %>" class="proposition-title">
+
+                
+              <div>
+              <% if proposition.trip.user == current_user %>
+                <%= link_to trip_proposition_path(proposition),
+                              method: :delete,
+                              class: "delete-prop",
+                              data: { confirm: "Are you sure?" } do %>
+                  <span class="button-delete">
+                    <i class="far fa-times-circle"></i>
+                  </span>
+                <% end %>
+              <% end %>
+               </div>
+                
                 <%= proposition.title %>
               </h4>
               <p class="prop-by">by <%=proposition.user.first_name%></p>
