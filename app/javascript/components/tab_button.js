@@ -1,3 +1,4 @@
+import { initMapbox } from '../plugins/init_mapbox';
 
 const tabButtons = () => {
   if (document.querySelector("#pending-prop")) {
@@ -13,6 +14,12 @@ const tabButtons = () => {
       allprop.classList.add('d-none')
       pendingBtn.classList.remove('unactive-tab')
       allpropBtn.classList.add('unactive-tab')
+      if (document.querySelector("#map-all")) {
+        initMapbox(document.querySelector("#map-all"));
+      }
+      if (document.querySelector("#map-pending")) {
+        initMapbox(document.querySelector("#map-pending"));
+      }
     });
 
     allpropBtn.addEventListener("click", (event) => {
@@ -21,6 +28,12 @@ const tabButtons = () => {
       pending.classList.add('d-none')
       allpropBtn.classList.remove('unactive-tab')
       pendingBtn.classList.add('unactive-tab')
+      if (document.querySelector("#map-all")) {
+        initMapbox(document.querySelector("#map-all"));
+      }
+      if (document.querySelector("#map-pending")) {
+        initMapbox(document.querySelector("#map-pending"));
+      }
     });
   }
 };
