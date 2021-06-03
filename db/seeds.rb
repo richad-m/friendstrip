@@ -85,3 +85,5 @@ invite32 = Invite.create(trip_id:trip3.id, user_id: user1.id, accepted: true)
 
 
 puts "All good, seed is ready"
+
+
