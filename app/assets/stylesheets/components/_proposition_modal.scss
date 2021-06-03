@@ -1,0 +1,12 @@
+.modal-header {
+  &.bg-color-accomodation {
+      background-color: $ft-duck-blue;
+  }
+  &.bg-color-food {
+      background-color: $ft-orange-clair;
+  }
+
+  &.bg-color-activity {
+      background-color: $ft-truquoise-clair;
+  }
+}
