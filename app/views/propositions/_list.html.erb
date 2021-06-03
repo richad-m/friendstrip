@@ -44,23 +44,35 @@
 
               <div class="prop-votes">
                 <!-- Button trigger like vote -->
-                <% if proposition.users.include?(current_user) %>
-                  <i class='fas fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% else %>
-                  <i class='far fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% end %>
-                <span class="vote-counter">
-                  <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%>
-                </span>
+                <div class="mx-2">
+                  <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
+                    <i class='far fa-thumbs-up user-voted' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                  <% else %>
+                    <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
+                      <i class='far fa-thumbs-up unactive-vote' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                    <% else %>
+                      <i class='far fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                    <% end %>
+                  <% end %>
+                  <span class="vote-counter">
+                    <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%>
+                  </span>
+                </div>
                 <!-- Button trigger dislike vote -->
-                <% if proposition.users.include?(current_user) %>
-                  <i class='fas fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% else %>
-                  <i class='far fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% end %>
-                <span class="vote-counter">
-                  <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%>
-                </span>
+                <div class = "mx-2">
+                  <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
+                    <i class='far fa-thumbs-down user-voted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                  <% else %>
+                    <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
+                      <i class='far fa-thumbs-down unactive-vote' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                    <% else %>
+                      <i class='far fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                    <% end %>
+                  <% end %>
+                  <span class="vote-counter">
+                    <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%>
+                  </span>
+                </div>
               </div>
 
               <div class="validation-prop">
