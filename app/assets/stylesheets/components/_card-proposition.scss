@@ -345,11 +345,11 @@ ul#ba {
 }
 
 .list-propositions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 45px 24px;
-    margin-bottom: 60px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 45px 24px;
+  margin-bottom: 60px;
+}
 
 
 .prop-card {
@@ -359,6 +359,7 @@ ul#ba {
     }
     .card-proposition-top {
       background-color: $ft-duck-blue;
+      position: relative;
     }
     .badge-category {
       color: #173C3E;
@@ -386,6 +387,24 @@ ul#ba {
     }
     .badge-category {
       color: #104b4c;
+    }
+  }
+}
+
+// BUTTON DELETE ABSOLUTE TO .card-proposition-top
+.card-proposition-top{
+  .delete-prop {
+    position: absolute;
+    right: 6px;
+    top: 7px;
+    text-decoration: none;
+    .button-delete {
+      color: rgba(255, 255, 255, 0.795);
+      font-size: 16px;
+      &:hover {
+        font-size: larger;
+        color: $ft-rouge;
+      }
     }
   }
 }
