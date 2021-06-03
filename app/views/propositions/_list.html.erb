@@ -9,6 +9,7 @@
             <!--top card -->
             <div class="card-proposition-top bg-color-<%= proposition.category %>">
 
+<<<<<<< HEAD
                 <!-- BUTTON DELETE -->
                 <% if proposition.trip.user == current_user %>
                   <%= link_to trip_proposition_path(proposition),
@@ -22,6 +23,22 @@
                 <% end %>
 
                 <h4 data-toggle="modal" data-target="#propositionShow-<%= proposition.id %>" class="proposition-title">
+=======
+
+              <div>
+              <% if proposition.trip.user == current_user %>
+                <%= link_to trip_proposition_path(proposition),
+                              method: :delete,
+                              class: "delete-prop",
+                              data: { confirm: "Are you sure?" } do %>
+                  <span class="button-delete">
+                    <i class="far fa-times-circle"></i>
+                  </span>
+                <% end %>
+              <% end %>
+               </div>
+
+>>>>>>> d099bc75336052d474596ca1837d370910dc8787
                 <%= proposition.title %>
                 </h4>
                 <p class="prop-by">by <%=proposition.user.first_name%></p>
@@ -42,23 +59,35 @@
 
               <div class="prop-votes">
                 <!-- Button trigger like vote -->
-                <% if proposition.users.include?(current_user) %>
-                  <i class='fas fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% else %>
-                  <i class='far fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% end %>
-                <span class="vote-counter">
-                  <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%>
-                </span>
+                <div class="mx-2">
+                  <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
+                    <i class='far fa-thumbs-up user-voted' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                  <% else %>
+                    <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
+                      <i class='far fa-thumbs-up unactive-vote' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                    <% else %>
+                      <i class='far fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                    <% end %>
+                  <% end %>
+                  <span class="vote-counter">
+                    <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%>
+                  </span>
+                </div>
                 <!-- Button trigger dislike vote -->
-                <% if proposition.users.include?(current_user) %>
-                  <i class='fas fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% else %>
-                  <i class='far fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% end %>
-                <span class="vote-counter">
-                  <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%>
-                </span>
+                <div class = "mx-2">
+                  <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
+                    <i class='far fa-thumbs-down user-voted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                  <% else %>
+                    <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
+                      <i class='far fa-thumbs-down unactive-vote' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                    <% else %>
+                      <i class='far fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                    <% end %>
+                  <% end %>
+                  <span class="vote-counter">
+                    <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%>
+                  </span>
+                </div>
               </div>
 
               <div class="validation-prop">
@@ -68,8 +97,8 @@
                   <%= link_to validate_path(proposition), remote: true, method: :patch do %>
                     <span class='button-interactive'>validate</span>
                   <% end %>
-                <% else %>
-                  <span class='button-validated'>validate</span>
+                <% elsif proposition.status == 'validated'%>
+                  <span class='button-validated'>validated</span>
                 <% end %>
               </div>
             </div>
@@ -154,7 +183,7 @@
     <div class="col-4">
         <%#= raise %>
       <div class="map" id="<%= map %>"
-        style="width: 100%; height: 100vh;"
+        style="width: 100%; height: 100vh; border-radius: 20px;"
         data-markers="<%= markers %>"
         <% if local_assigns[:steps] %>
           data-steps="<%= steps.to_json %>"
