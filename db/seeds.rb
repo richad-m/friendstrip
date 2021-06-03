@@ -23,7 +23,7 @@ User.last.save!
 user2 = User.create(email: "clotilde@friendstrip.com", password:"123456", first_name:"Clotilde")
 User.last.avatar.attach(io: file2, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
-user3 = User.create(email: "marc-antoine@friendstrip.com", password:"123456", first_name:"Marc-Antoine")
+user3 = User.create(email: "marc-antoine@friendstrip.com", password:"123456", first_name:"Marco")
 User.last.avatar.attach(io: file3, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 user4 = User.create(email: "inaki@friendstrip.com", password:"123456", first_name:"Inaki")
