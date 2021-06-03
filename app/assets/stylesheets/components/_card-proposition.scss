@@ -291,10 +291,15 @@ ul#ba {
 
 
 .comment {
+  .name{
+    margin-bottom: -1px;
+    color: black;
+  }
   color: grey;
   padding: 10px;
   font-style: italic;
   background: #f3f3f3;
+  margin-bottom: -10px;
 }
 
 
@@ -345,13 +350,9 @@ ul#ba {
     }
   }
 }
-
-
 .name{
   color: black;
 }
-
-
 
 
 ::placeholder {
