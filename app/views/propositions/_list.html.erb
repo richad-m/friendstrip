@@ -10,7 +10,7 @@
             <div class="card-proposition-top bg-color-<%= proposition.category %>">
               <h4 data-toggle="modal" data-target="#propositionShow-<%= proposition.id %>" class="proposition-title">
 
-                
+
               <div>
               <% if proposition.trip.user == current_user %>
                 <%= link_to trip_proposition_path(proposition),
@@ -23,7 +23,7 @@
                 <% end %>
               <% end %>
                </div>
-                
+
                 <%= proposition.title %>
               </h4>
               <p class="prop-by">by <%=proposition.user.first_name%></p>
@@ -156,7 +156,7 @@
     <div class="col-4">
         <%#= raise %>
       <div class="map" id="<%= map %>"
-        style="width: 100%; height: 100vh;"
+        style="width: 100%; height: 100vh; border-radius: 20px;"
         data-markers="<%= markers %>"
         <% if local_assigns[:steps] %>
           data-steps="<%= steps.to_json %>"
