@@ -389,3 +389,8 @@ ul#ba {
     }
   }
 }
+
+.prop-card:hover {
+  transform: scale(1.015);
+  transition: all .2s ease-in-out;
+}
