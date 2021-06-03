@@ -338,13 +338,19 @@ ul#ba {
 
 
 
+::placeholder {
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(211, 211, 211, 0.808);
+}
 
 .list-propositions {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 45px 24px;
     margin-bottom: 60px;
-}
+  }
+
 
 .prop-card {
   &.accomodation {
@@ -382,10 +388,4 @@ ul#ba {
       color: #104b4c;
     }
   }
-
-::placeholder {
-  font-style: italic;
-  font-size: 12px;
-  color: rgba(211, 211, 211, 0.808);
-
 }
