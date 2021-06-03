@@ -40,7 +40,6 @@ document.addEventListener('turbolinks:load', () => {
     $('[data-toggle="tooltip"]').tooltip()
   })
   // initMapbox();
-
   if (document.querySelector("#map-pending")) {
     initMapbox(document.querySelector("#map-pending"));
   }
@@ -49,6 +48,7 @@ document.addEventListener('turbolinks:load', () => {
     initMapbox(document.querySelector("#map-all"));
   }
 })
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
