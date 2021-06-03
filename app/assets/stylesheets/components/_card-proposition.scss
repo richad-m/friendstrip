@@ -1,38 +1,76 @@
 ul#ba {
     list-style-type: none;
 }
+// .global-card-proposition{
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 16px;
+// }
+
 .card-proposition-top{
-  text-align: center;
   justify-content: center;
-  height: 100px;
-  width: 100%;
   background-size: cover;
-  padding: 16px;
+  padding: 24px;
   justify-content: space-around;
   align-items: flex-end;
-  position: relative;
   color: white;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   box-shadow: 0px 2px 10px #b4b8bb;
+  position: relative;
+
+  .prop-by {
+    font-size: 14px;
+    font-style: italic;
+  }
+
 }
 
+.badge-category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: white;
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+  font-size: 14px;
+  padding: 8px 16px;
+  box-shadow: 0px 10px 30px rgba(22, 60, 86, 0.10);
+
+}
 
 .card-proposition-bottom{
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  padding: 36px 24px 24px;
   position: relative;
   background:white;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
   box-shadow: 0px 2px 10px #b4b8bb;
+
+  p {
+    color: #2A343A;
+    margin-bottom: 0;
+  }
+
+  .prop-votes {
+    margin: 24px 0;
+    text-align: center;
+  }
 }
 
-.card-proposition {
-  padding-bottom: 30px;
+.button-validated{
+  display: inline-block;
+  border-radius: 10rem;
+  color:rgba(255, 255, 255, 1);
+  background-color: $ft-vert;
+  font-size: 1rem;
+  z-index: 1;
+  padding: 12px 30px;
 }
+
+
 
 .card-proposition-top .row{
   display: flex;
@@ -59,46 +97,25 @@ ul#ba {
   cursor: pointer;
  }
 
-.fa-volleyball-ball{
-  font-size: 25px;
- }
+// .fa-volleyball-ball{
+//   font-size: 25px;
+//  }
 
-.fa-hamburger {
-  font-size: 25px;
-}
-.fa-bed {
-  font-size: 25px;
-}
+// .fa-hamburger {
+//   font-size: 25px;
+// }
+// .fa-bed {
+//   font-size: 25px;
+// }
 
-.bg-color-food  {
- background-color: $ft-orange-clair;
-}
-.bg-color-accomodation {
-  background-color: $ft-duck-blue;
-}
-.bg-color-activity {
-  background-color: $ft-truquoise-clair;
-}
-
-.text-color-food  {
-  color: $ft-orange-clair;
-}
-.text-color-accomodation {
-  color: $ft-duck-blue;
-}
-.text-color-activity {
-  color: $ft-truquoise-clair;
-}
 
 .validation-prop{
   display:flex;
   justify-content: space-between;
-  position: relative;
-  a {
-    position: absolute;
-    right: 0;
-    top: 0px;
-  }
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
 }
 
 .vote-counter {
@@ -181,18 +198,6 @@ ul#ba {
   }
 }
 
-.button-validated{
-  display: inline-block;
-	padding: .20rem 1.25rem;
-	border-radius: 10rem;
-	color:rgba(255, 255, 255, 1);
-  background-color: $ft-vert;
-  transform: translate(440px, 10px);
-	font-size: 1rem;
-	letter-spacing: .15rem;
-	overflow: hidden;
-	z-index: 1;
-}
 
 
 .button-interactive {
@@ -330,8 +335,57 @@ ul#ba {
   color: black;
 }
 
+
+
+
+
+.list-propositions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 45px 24px;
+    margin-bottom: 60px;
+}
+
+.prop-card {
+  &.accomodation {
+    .prop-by {
+      color: #D1e9F9;
+    }
+    .card-proposition-top {
+      background-color: $ft-duck-blue;
+    }
+    .badge-category {
+      color: #173C3E;
+    }
+  }
+  &.food {
+    .prop-by {
+      color: #FBEFE4;
+
+    }
+    .card-proposition-top {
+      background-color: $ft-orange-clair;
+    }
+    .badge-category {
+      color: #A95002;
+    }
+  }
+  &.activity {
+    .prop-by {
+      color: #dcfeff;
+
+    }
+    .card-proposition-top {
+      background-color: $ft-truquoise-clair;
+    }
+    .badge-category {
+      color: #104b4c;
+    }
+  }
+
 ::placeholder {
   font-style: italic;
   font-size: 12px;
   color: rgba(211, 211, 211, 0.808);
+
 }
