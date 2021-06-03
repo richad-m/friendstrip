@@ -27,7 +27,7 @@
             <% if vote.comment != "" %>
             <div class="comment">
               <p class="name"><%= vote.user.first_name %>:</p>
-              <p class="content"><%= vote.comment %></p>
+              <p class="content">"<%= vote.comment %>"</p>
             </div>
             <% end %>
           <% end %>
