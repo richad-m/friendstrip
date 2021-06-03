@@ -218,3 +218,18 @@
   top: 8px;
 }
 
+.delete-prop {
+  display: none;
+  &:hover{
+    text-decoration: none;
+  }
+
+  .button-delete {
+    color: white;
+    font-size: 24px;
+    &:hover {
+      // display: flex;
+      color: red;
+    }
+  }
+}

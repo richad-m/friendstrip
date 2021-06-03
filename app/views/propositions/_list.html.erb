@@ -3,11 +3,25 @@
   <div class="row" >
 
     <div class="col-8">
+
+
     <% propositions.each do |proposition| %>
         <div class="trip-card <%= 'validated-prop' if proposition.status == 'validated'%>" id="prop-<%= proposition.id %>">
           <div class="card-proposition-top bg-color-<%= proposition.category %>"
           >
             <div class="row" >
+
+              <% if proposition.trip.user == current_user %>
+                <%= link_to trip_proposition_path(proposition),
+                              method: :delete,
+                              class: "delete-prop",
+                              data: { confirm: "Are you sure?" } do %>
+                  <span class="button-delete">
+                    <i class="far fa-times-circle"></i>
+                  </span>
+                <% end %>
+              <% end %>
+
               <div>
                 <i class="fas <%=Proposition::ICONS[proposition.category]%>"></i>
                 <%= proposition.category %>
