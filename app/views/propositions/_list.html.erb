@@ -8,30 +8,28 @@
           <div class="prop-card global-card-proposition<%= 'validated-prop' if proposition.status == 'validated'%> <%= proposition.category %>" id="prop-<%= proposition.id %>">
             <!--top card -->
             <div class="card-proposition-top bg-color-<%= proposition.category %>">
-              <h4 data-toggle="modal" data-target="#propositionShow-<%= proposition.id %>" class="proposition-title">
 
-                
-              <div>
-              <% if proposition.trip.user == current_user %>
-                <%= link_to trip_proposition_path(proposition),
-                              method: :delete,
-                              class: "delete-prop",
-                              data: { confirm: "Are you sure?" } do %>
-                  <span class="button-delete">
-                    <i class="far fa-times-circle"></i>
-                  </span>
+                <!-- BUTTON DELETE -->
+                <% if proposition.trip.user == current_user %>
+                  <%= link_to trip_proposition_path(proposition),
+                                method: :delete,
+                                class: "delete-prop",
+                                data: { confirm: "Are you sure you want to delete this proposition?" } do %>
+                    <span class="button-delete">
+                      <i class="far fa-times-circle"></i>
+                    </span>
+                  <% end %>
                 <% end %>
-              <% end %>
-               </div>
-                
+
+                <h4 data-toggle="modal" data-target="#propositionShow-<%= proposition.id %>" class="proposition-title">
                 <%= proposition.title %>
-              </h4>
-              <p class="prop-by">by <%=proposition.user.first_name%></p>
-              <!--category -->
-              <p class="badge-category">
+                </h4>
+                <p class="prop-by">by <%=proposition.user.first_name%></p>
+                <!--category -->
+                <p class="badge-category">
                 <i class="fas <%=Proposition::ICONS[proposition.category]%> "></i>
                 <%= proposition.category %>
-              </p>
+                </p>
             </div>
             <!--bottom card -->
             <div class="card-proposition-bottom">
