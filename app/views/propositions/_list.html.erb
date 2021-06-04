@@ -49,7 +49,7 @@
                     <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
                       <i class='far fa-thumbs-up unactive-vote' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
                     <% else %>
-                      <i class='far fa-thumbs-up' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                      <i class='far fa-thumbs-up unvoted' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
                     <% end %>
                   <% end %>
                   <span class="vote-counter">
@@ -64,7 +64,7 @@
                     <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
                       <i class='far fa-thumbs-down unactive-vote' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
                     <% else %>
-                      <i class='far fa-thumbs-down' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                      <i class='far fa-thumbs-down unvoted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
                     <% end %>
                   <% end %>
                   <span class="vote-counter">
