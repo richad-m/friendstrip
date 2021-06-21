@@ -10,7 +10,7 @@
             <div class="card-proposition-top bg-color-<%= proposition.category %>">
 
                 <!-- BUTTON DELETE -->
-                <% if proposition.trip.user == current_user %>
+                <% if policy(proposition).destroy? %>
                   <%= link_to trip_proposition_path(proposition),
                                 method: :delete,
                                 class: "delete-prop",

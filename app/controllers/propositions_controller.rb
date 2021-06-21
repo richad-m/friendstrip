@@ -2,11 +2,13 @@ class PropositionsController < ApplicationController
 
   def show
     @proposition = Proposition.find(params[:trip_id])
+    authorize @proposition
   end
 
    def new
      @proposition = Proposition.new
      @trip = Trip.find(params[:trip_id])
+     authorize @proposition
    end
 
   def create
@@ -36,6 +38,7 @@ class PropositionsController < ApplicationController
     @proposition.destroy
     flash.notice = "#{@proposition.title} has been removed."
     redirect_to trip_path(@proposition.trip)
+    authorize @proposition
   end
 
   #  def markers(prop)
