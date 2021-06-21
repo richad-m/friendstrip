@@ -23,7 +23,6 @@
           <% else %>
             <i class='fas fa-user-circle avatar dropdown-toggle' id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"type="button" ></i>
           <% end %>
-
           <%= "<i class='fas fa-dot-circle dot-invite'></i>".html_safe if current_user.invites.select {|invite| invite.accepted.nil?}.count!=0%>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <div class = "notification-invite">
