@@ -1,3 +1,40 @@
+@media(max-width: 480px) {
+  .button-green-your-trips{
+    display: none;
+}
+  .logo-font {
+    display: none;
+  }
+}
+
+@media(max-width: 580px) {
+  .button-green-your-trips{
+    display: none;
+  }
+}
+
+@media(min-width: 580px) {
+  .your-trip-drop{
+    display: none !important;
+  }
+}
+@media(max-width: 768px) {
+
+}
+
+
+@media(max-width: 1024px) {
+
+}
+
+@media(max-width: 1200px) {
+
+}
+
+@media(min-width: 1201px) {
+
+}
+
 .navbar-lewagon {
   background: white;
   position: sticky;
@@ -11,14 +48,24 @@
   background-color: white;
 }
 
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-  align-items: left;
 }
 
 
 .navbar-lewagon .navbar-brand img {
   width: 46px;
+}
+
+.button-green-your-trips {
+  border-radius: 50px;
+  background-color: #186F70;
+  color: white;
+  padding: 9px 47px;
+  margin: 9px;
+  text-decoration:none;
+  box-shadow: 0px 2px 3px #0c4344;
 }
 
 .add-product {
@@ -28,7 +75,7 @@
 }
 
 .facette {
-  margin: 2px;;
+  margin: 2px;
 }
 
 .link-new-product{
@@ -42,9 +89,11 @@
   text-decoration: none;
 }
 
-.navbar-expand-sm .navbar-nav {
+.navbar-expand .navbar-nav {
   align-items: center;
 }
+
+
 
 .notification-invite {
   display:flex;
@@ -54,6 +103,7 @@
   }
   width:62%;
 }
+
 
 .dropdown-logged {
   display:flex;
