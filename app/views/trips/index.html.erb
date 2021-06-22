@@ -5,7 +5,9 @@
         <h1>Your trips</h1>
       </div>
       <div>
+      <% if policy(Trip).create? %>
         <%= link_to  "Add a trip", new_trip_path, class: "button-orange" %>
+      <% end %>
       </div>
       <div class="row d-flex text-end">
         <div class="">
