@@ -5,19 +5,23 @@
     overflow: hidden;
     background: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    border-radius: 10%;
+    border-radius: 20px;
     padding: 1rem 0 !important;
+    max-height: 251px;
+    margin-bottom: 16px;
   }
 
   .card-marketing:hover {
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    
+
   }
+
+
 
   .card-marketing > img {
     display: flex;
     height: 150px;
-    width: 250px;
+    width: 80%;
     object-fit: cover;
     border-radius: 20px;
   }
