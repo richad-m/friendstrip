@@ -121,6 +121,85 @@
   font-weight: bold;
 }
 
+@media (max-width: 480px) {
+  .banner-index {
+    height: 150px;
+  }
+}
+
+@media(max-width: 580px) {
+.button-orange-add-a-trip-banner{
+      display: none;
+    }
+}
+@media(min-width: 480px) {
+  .banner-index {
+    height: 150px;
+  }
+}
+
+@media(min-width: 580px) {
+  .banner-index {
+    height: 225px;
+  }
+}
+
+@media(min-width: 768px) {
+  .banner-index {
+    height: 300px;
+  }
+  .banner-index h1 {
+    padding-top: 5% !important;
+  }
+}
+
+@media(min-width: 1200px) {
+  .banner-index {
+    height: 375px;
+  }
+  .banner-index h1 {
+    padding-top: 7% !important;
+  }
+}
+
+@media(min-width: 1201px) {
+
+}
+
+.banner-index {
+  // padding: 150px 0;
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("travel"));
+  &.madrid {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("madrid"));
+    background-position: center;
+    background-size: cover;
+  }&.miami {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("miami"));
+    background-position: center;
+    background-size: cover;
+  }&.bali {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("bali"));
+    background-position: center;
+    background-size: cover;
+  }&.rio {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset-path("rio"));
+    background-position: center;
+    background-size: cover;
+  }
+  background-position: center;
+  background-size: cover;
+}
+
+.banner-index h1 {
+  text-align: center;
+  padding-top: 3%;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
 // .banner
 //   p {
 //   text-align: center;
