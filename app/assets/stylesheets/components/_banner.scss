@@ -83,7 +83,10 @@
   }
 }
 
-
+.text-banner-login {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
 
 //!\ HOME BANNER BELOW //
 
@@ -120,6 +123,10 @@
   font-size: 32px;
   font-weight: bold;
 }
+.text-color {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
 
 
 .text-banner-login {
@@ -148,6 +155,9 @@
   .banner-index {
     height: 225px;
   }
+  .banner-new-trip {
+    height: 255px;
+  }
 }
 
 @media(min-width: 768px) {
@@ -166,6 +176,7 @@
   .banner-index h1 {
     padding-top: 7% !important;
   }
+
 }
 
 @media(min-width: 1201px) {
