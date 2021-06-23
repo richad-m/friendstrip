@@ -9,12 +9,14 @@ class TripsController < ApplicationController
   end
 
   def show
+     
     @trip = Trip.find(params[:id])
     @trip_duration = (@trip.end_date - @trip.start_date).to_i
     @invite = Invite.new
     @proposition = Proposition.new
     @vote = Vote.new
     @propositions = @trip.propositions
+    authorize @trip
     # @pending_propositions = Trip.propositions.where(status: nil)
     # @validation_propositions = Trip.propositions.where(status: validated)
     #Collection of email in DB
@@ -50,11 +52,13 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    authorize @trip
   end
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
+    authorize @trip
     if @trip.save
       flash.notice = "#{@trip.title} has been created"
       redirect_to trip_path(@trip.id)

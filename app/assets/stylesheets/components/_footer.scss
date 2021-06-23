@@ -1,3 +1,15 @@
+@media(max-width: 480px) {
+  .footer-copyright{
+    display: none;
+  }
+}
+
+@media(max-width: 580px) {
+  .footer-copyright{
+    display: none;
+  }
+}
+
 .footer {
   background: white;
   display: flex;
@@ -41,4 +53,7 @@
 
 .main-container{
   min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
+}
+.footer-copyright {
+  text-align: right;
 }
