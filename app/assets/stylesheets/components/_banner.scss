@@ -175,12 +175,16 @@
   }
 }
 
+
+@media(min-width: 768px) {
+  .banner-home {
+
+
 @media (max-width: 480px) {
   .banner-home {
     height: 150px;
   }
 }
-
 @media(min-width: 480px) {
   .banner-home {
     height: 150px;
@@ -193,17 +197,11 @@
   }
 }
 
-@media(min-width: 768px) {
-  .banner-home {
-    height: 300px;
-  }
-}
 
 @media(min-width: 1200px) {
   .banner-home {
     height: 375px;
   }
-}
 
 
 
