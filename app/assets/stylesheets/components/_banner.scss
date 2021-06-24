@@ -176,12 +176,42 @@
   .banner-index h1 {
     padding-top: 7% !important;
   }
-
 }
 
-@media(min-width: 1201px) {
 
+
+@media (max-width: 480px) {
+  .banner-home {
+    height: 150px;
+  }
 }
+@media(min-width: 480px) {
+  .banner-home {
+    height: 150px;
+  }
+}
+
+@media(min-width: 580px) {
+  .banner-home {
+    height: 225px;
+  }
+}
+
+@media(min-width: 768px) {
+  .banner-ihome {
+    height: 300px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .banner-home {
+    height: 375px;
+  }
+  .banner-home h1 {
+    padding-top: 7% !important;
+  }
+}
+
 
 
 .banner-index {
