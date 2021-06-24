@@ -173,11 +173,11 @@
   .banner-index {
     height: 375px;
   }
-  .banner-index h1 {
-    padding-top: 7% !important;
-  }
 }
 
+
+@media(min-width: 768px) {
+  .banner-home {
 
 
 @media (max-width: 480px) {
@@ -197,20 +197,11 @@
   }
 }
 
-@media(min-width: 768px) {
-  .banner-ihome {
-    height: 300px;
-  }
-}
 
 @media(min-width: 1200px) {
   .banner-home {
     height: 375px;
   }
-  .banner-home h1 {
-    padding-top: 7% !important;
-  }
-}
 
 
 
