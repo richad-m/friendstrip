@@ -1,15 +1,20 @@
 class TripsController < ApplicationController
   skip_before_action :authenticate_user!
-  #Richad a code trop vite ce controller!
   def index
+    #Retrieving all trips using pundit policy
+    @all_trips = policy_scope(Trip)
+    # TO DELETE? Retrieving all trips invitations from the user
     @trips_invitations = current_user.invites.select { |invite| invite.accepted?}.map { |invite| invite.trip}
-    @all_user_trips = current_user.trips + @trips_invitations
+    #Retrieving all trips owned by the user or where he has accepted an invite
+    @all_user_trips = @all_trips.select {|trip| trip.user_id == current_user.id || !trip.invites.select {|invite| invite.accepted? && invite.user_id == current_user.id}.empty?}
+    #  OLD CODE : @all_user_trips = current_user.trips + @trips_invitations
+
     @trips = @all_user_trips.uniq.sort {|a,b| b.start_date <=> a.start_date}
-    # @trips = Trip.all.order('start_date DESC')
+    #  OLD CODE : @trips = Trip.all.order('start_date DESC')
+    # raise
   end
 
   def show
-     
     @trip = Trip.find(params[:id])
     @trip_duration = (@trip.end_date - @trip.start_date).to_i
     @invite = Invite.new
@@ -21,6 +26,8 @@ class TripsController < ApplicationController
     # @validation_propositions = Trip.propositions.where(status: validated)
     #Collection of email in DB
     @emails = User.all.map {|user| user.email}
+
+    #Setting markers for all propositions
     @markers = @trip.propositions.select {|prop| prop.status != "validated"}.map do |proposition|
       {
         lat: proposition.latitude,
@@ -32,6 +39,7 @@ class TripsController < ApplicationController
     end
     # @validated_prop = @propositions.select {|prop| prop.status == "validated"}
     @validated_prop = @propositions.where(status: "validated").order('start_date ASC')
+    #Setting markers for validated propositions
     @validated_markers = @validated_prop.map do |proposition|
       {
         lat: proposition.latitude,
