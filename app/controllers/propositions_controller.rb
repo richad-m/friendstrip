@@ -28,7 +28,7 @@ class PropositionsController < ApplicationController
     @proposition = Proposition.find(params[:id])
     @proposition.status = "validated"
     if @proposition.save
-    flash.notice = "#{@proposition.title} has been moved to validated propositions."
+    flash.notice = "#{@proposition.title} has been moved to validated steps."
     redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")
     end
   end
@@ -40,6 +40,17 @@ class PropositionsController < ApplicationController
     redirect_to trip_path(@proposition.trip)
     authorize @proposition
   end
+
+  def book
+    @proposition = Proposition.find(params[:id])
+    @proposition.booked = true
+    if @proposition.save
+      flash.notice = "#{@proposition.trip.title} has been moved to trip details."
+      redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")
+    end
+  end
+
+
 
   #  def markers(prop)
   #   @trip = Trip.find(params[:id])

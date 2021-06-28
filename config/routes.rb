@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :propositions, only: [:new, :create, :show, :destroy]
   end
   patch '/propositions/:id', to: 'propositions#validate', as: :validate
+  patch '/propostitions/:id', to: 'propositions#book', as: :book
   resources :invites, only: [:index]
   # patch '/propositions/:id/dismiss', to: 'propositions#dismiss'
   resources :propositions, only: [:edit ] do
