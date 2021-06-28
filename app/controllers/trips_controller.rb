@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   skip_before_action :authenticate_user!
+  #Richad a code trop vite ce controller!
   def index
     #Retrieving all trips using pundit policy
     @all_trips = policy_scope(Trip)
