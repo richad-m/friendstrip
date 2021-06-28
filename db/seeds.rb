@@ -17,26 +17,35 @@ file4 = URI.open("https://i.pravatar.cc/150?img=68")
 file6 = URI.open("https://i.pravatar.cc/150?img=51")
 file5 = URI.open("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/50a43a42-2380-4d5d-8e2c-e9b8f382d416/1200x680_booba_01072020_miami_gqfrance_paridukovic_0303.jpg")
 
+puts "Creating users..."
 user1 = User.create(email: "richad@friendstrip.com", password:"123456", first_name:"Richad")
-User.last.avatar.attach(io: file1, filename: 'nes.jpg', content_type: 'image/jpg')
+# User.last.avatar.attach(io: file1, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
+puts "Creating user 2..."
+
 user2 = User.create(email: "clotilde@friendstrip.com", password:"123456", first_name:"Clotilde")
-User.last.avatar.attach(io: file2, filename: 'nes.jpg', content_type: 'image/jpg')
+# User.last.avatar.attach(io: file2, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
+puts "Creating users3"
 user3 = User.create(email: "marc-antoine@friendstrip.com", password:"123456", first_name:"Marco")
-User.last.avatar.attach(io: file3, filename: 'nes.jpg', content_type: 'image/jpg')
+# User.last.avatar.attach(io: file3, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
+puts "Creating users4"
 user4 = User.create(email: "inaki@friendstrip.com", password:"123456", first_name:"Inaki")
-User.last.avatar.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg')
+# User.last.avatar.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
+puts "Creating users5"
 user5 = User.create(email: "booba@friendstrip.com", password:"123456", first_name:"Booba")
-User.last.avatar.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
+# User.last.avatar.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
+puts "Creating users6"
 user6 = User.create(email: "kaaris@friendstrip.com", password:"123456", first_name:"Armand")
-User.last.avatar.attach(io: file6, filename: 'nes.jpg', content_type: 'image/jpg')
+# User.last.avatar.attach(io: file6, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 
 #Setting up Trip1 to XXXX
+puts "Creating one trip..."
+
 trip1 = Trip.create(start_date: Date.new(2021,2,25), end_date: Date.new(2021,3,15), title: "Madrid 2021", user_id:user4.id, description:"Super voyage à Madrid prendre le sun", destination:"Madrid")
 invite11 = Invite.create(trip_id:trip1.id, user_id: user1.id, accepted: true)
 invite12 = Invite.create(trip_id:trip1.id, user_id: user2.id, accepted: true)
