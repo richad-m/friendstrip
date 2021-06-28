@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :propositions, only: [:edit ] do
     resources :votes, only: [:new, :create]
     member do
-      get :validate
+      get :validate, :book
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
