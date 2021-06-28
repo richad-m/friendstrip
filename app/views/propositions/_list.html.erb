@@ -82,15 +82,14 @@
                   <% end %>
                 <% elsif proposition.status == 'validated'%>
                   <span class='button-validated'>VALIDATED</span>
-                  <span class='button-interactive-book'>BOOK</span>
+                  <!-- <span class='button-interactive-book'>BOOK</span> -->
                 <% end %>
 
-                <% if proposition.booked == false %>
-                <% end %>
-                <% if proposition.booked == false && proposition.trip.user == current_user %>
+                
+                <% if proposition.booked != true && proposition.trip.user == current_user && proposition.status == "validated" %>
                   <%= link_to book_path(proposition), remote: true, method: :patch do %>
-                    <span class='button-interactive-book'>BOOKED</span>
-                <% end %>
+                    <span class='button-interactive-book'>BOOK</span>
+                  <% end %>
                 <% elsif proposition.booked == true %>
                   <span class='button-booked'>BOOKED</span>
                 <% end %>
