@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   skip_before_action :authenticate_user!
+  #TEST RESET BRANCH ???
   #Richad a code trop vite ce controller!
   def index
     @trips_invitations = current_user.invites.select { |invite| invite.accepted?}.map { |invite| invite.trip}
