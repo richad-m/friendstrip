@@ -22,6 +22,11 @@ const tabButtons = () => {
       if (document.querySelector("#map-all")) {
         initMapbox(document.querySelector("#map-all"));
       }
+
+      if (document.querySelector("#map-validated")) {
+        initMapbox(document.querySelector("#map-validated"));
+      }
+
       if (document.querySelector("#map-pending")) {
         initMapbox(document.querySelector("#map-pending"));
       }
@@ -39,6 +44,11 @@ const tabButtons = () => {
       if (document.querySelector("#map-all")) {
         initMapbox(document.querySelector("#map-all"));
       }
+
+      if (document.querySelector("#map-validated")) {
+        initMapbox(document.querySelector("#map-validated"));
+      }
+
       if (document.querySelector("#map-pending")) {
         initMapbox(document.querySelector("#map-pending"));
       }
@@ -56,6 +66,11 @@ const tabButtons = () => {
       if (document.querySelector("#map-all")) {
         initMapbox(document.querySelector("#map-all"));
       }
+
+      if (document.querySelector("#map-validated")) {
+        initMapbox(document.querySelector("#map-validated"));
+      }
+
       if (document.querySelector("#map-pending")) {
         initMapbox(document.querySelector("#map-pending"));
       }

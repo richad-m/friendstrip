@@ -52,33 +52,28 @@
     <%= render "propositions/avatar_on_cards" %>
     <div>
       <!-- list of pending propositions sorted by descending nb of votes with map and markers -->
-      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}.sort {|a,b| b.votes.count <=> a.votes.count}, map: "map-all", markers: @markers.to_json %>
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}.sort {|a,b| b.votes.count <=> a.votes.count}, map: "map-pending", markers: @markers.to_json %>
     </div>
   </div>
 
 
-
-
-  
-  
-  
   <!-- Validated steps (booked == false et validated) tabs beloowwww -->
   <div class="all-prop d-none">
     <%= render "propositions/avatar_on_cards" %>
     <div>
       <!-- propositions are sorted by due_date -->
-      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated" && prop.booked != true}, map: "map-all", markers: @validated_markers.to_json, steps: @steps %>
+      <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated" && prop.booked != true}, map: "map-validated", markers: @validated_markers.to_json%>
       <%#= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all", markers: @validated_markers.to_json %>
     </div>
-    
+
   </div>
-  
+
     <!-- Trip details (booked propositions & validated) to book tabs beloowwww -->
     <div class="validated-prop d-none">
       <%= render "propositions/avatar_on_cards" %>
       <div>
         <!-- propositions are sorted by due_date -->
-         <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.booked == true} , map: "map-pending", markers: @markers.to_json %>
+         <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.booked == true} , map: "map-all", markers: @markers.to_json, steps: @steps %>
       </div>
     </div>
 

@@ -44,6 +44,10 @@ document.addEventListener('turbolinks:load', () => {
     initMapbox(document.querySelector("#map-pending"));
   }
 
+  if (document.querySelector("#map-validated")) {
+    initMapbox(document.querySelector("#map-validated"));
+  }
+
   if (document.querySelector("#map-all")) {
     initMapbox(document.querySelector("#map-all"));
   }

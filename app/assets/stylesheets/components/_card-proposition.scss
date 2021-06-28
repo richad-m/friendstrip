@@ -75,6 +75,19 @@ ul#ba {
   z-index: 1;
   padding: 1px 8px;
 }
+.button-booked{
+  position: relative;
+  top: -7rem;
+  right: -5rem;
+  height: fit-content;
+  display: inline-block;
+  border-radius: 10rem;
+  color:rgba(255, 255, 255, 1);
+  background-color: #016947;
+  font-size: 1rem;
+  z-index: 1;
+  padding: 1px 8px;
+}
 
 
 
@@ -275,7 +288,7 @@ ul#ba {
 
 .button-interactive-book {
   position: absolute;
-  left: -28%;
+  left: -50%;
 	display: inline-block;
 	padding: .75rem 1.25rem;
 	border-radius: 10rem;
