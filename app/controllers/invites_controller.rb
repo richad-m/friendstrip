@@ -3,7 +3,7 @@ class InvitesController < ApplicationController
  protect_from_forgery with: :null_session
 
   def index
-    @invites = current_user.invites
+    @invites = policy_scope(Invite).select {|invite| invite.user_id == current_user}
     @pending_invites = @invites.select {|invite| invite.accepted.nil?}.uniq
     @accepted_invites = @invites.select {|invite| invite.accepted?}.uniq
   end
@@ -23,6 +23,7 @@ class InvitesController < ApplicationController
     user = User.find_by(email: email)
     if user
       @invite.user = user
+      redirect_to trip_path(@trip.id)
     end
     if @invite.save
       flash.notice = "#{@invite.user.first_name} has been invited to #{@invite.trip.title}"

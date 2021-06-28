@@ -42,7 +42,7 @@
 //   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 // }
 
-.banner
+.banner {
   h3 {
   text-align: center;
   margin-top: 30px;
@@ -51,7 +51,7 @@
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
-
+}
 .sign-in-up-btn {
   display:flex;
   &:hover {
@@ -178,6 +178,8 @@
 
 @media(min-width: 768px) {
   .banner-home {
+  }
+}
 
 
 @media (max-width: 480px) {
@@ -202,6 +204,7 @@
   .banner-home {
     height: 375px;
   }
+}
 
 
 
@@ -259,6 +262,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+
 .sign-in-up-btn {
   display:flex;
   &:hover {
@@ -289,4 +293,3 @@
     right:0px;
   }
 }
-

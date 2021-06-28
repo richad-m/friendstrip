@@ -4,7 +4,7 @@ class TripPolicy < ApplicationPolicy
       scope.all
     end
   end
-
+  
   def create?
     return true
   end
@@ -12,5 +12,6 @@ class TripPolicy < ApplicationPolicy
   def show?
     return true
   end
+
 
 end
