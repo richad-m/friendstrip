@@ -16,6 +16,7 @@ class PropositionsController < ApplicationController
     @proposition.user_id = current_user.id
     @trip = Trip.find(params[:trip_id])
     @proposition.trip_id = @trip.id
+    authorize @proposition
     if @proposition.save
       flash.notice = "#{@proposition.title} has been added to pending propositions"
       redirect_to trip_path(@trip.id, anchor: "prop-#{@proposition.id}")
@@ -27,6 +28,7 @@ class PropositionsController < ApplicationController
   def validate
     @proposition = Proposition.find(params[:id])
     @proposition.status = "validated"
+    authorize @proposition
     if @proposition.save
     flash.notice = "#{@proposition.title} has been moved to validated propositions."
     redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")

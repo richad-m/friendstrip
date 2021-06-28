@@ -21,6 +21,7 @@ class InvitesController < ApplicationController
     email = params[:invite][:email]
     #Getting user from email submitted by the user
     user = User.find_by(email: email)
+    authorize @invite
     if user
       @invite.user = user
       redirect_to trip_path(@trip.id)
@@ -38,6 +39,7 @@ class InvitesController < ApplicationController
     # raise
     @invite = Invite.find(params[:id])
     @invite.accepted = true
+    authorize @invite
     if @invite.save
       flash.notice = "You successfully joined #{@invite.trip.title}"
       redirect_to trip_path(@invite.trip)

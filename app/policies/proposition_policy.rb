@@ -16,4 +16,8 @@ class PropositionPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def validate?
+    return true
+  end
 end
