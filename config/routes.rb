@@ -8,12 +8,13 @@ Rails.application.routes.draw do
     resources :propositions, only: [:new, :create, :show, :destroy]
   end
   patch '/propositions/:id', to: 'propositions#validate', as: :validate
+  patch '/propostitions/:id', to: 'propositions#book', as: :book
   resources :invites, only: [:index]
   # patch '/propositions/:id/dismiss', to: 'propositions#dismiss'
   resources :propositions, only: [:edit ] do
     resources :votes, only: [:new, :create]
     member do
-      get :validate
+      get :validate, :book
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

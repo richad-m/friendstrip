@@ -16,13 +16,26 @@
           </div>
           <div class="navigation-tabs">
             <div class="navigation-tabs-green row">
+
+
+
               <div class="pending button-tabs" id="pending-prop">
                 <h5>Propositions <span><%= @trip.propositions.select {|prop| prop.status != "validated"}.count %></span> </h5>
               </div>
-              <div class="all-steps button-tabs unactive-tab" id="all-prop">
-                  <h5>Trip details <span><%= @trip.propositions.select {|prop| prop.status == "validated"}.count %></span></h5>
+
+              <div class="validated button-tabs unactive-tab" id="all-prop">
+                  <h5>Validated steps <span><%= @trip.propositions.select {|prop| prop.status == "validated"}.count %></span></h5>
               </div>
             </div>
+
+
+              <div class="all-steps button-tabs unactive-tab" id="validated-prop">
+                <h5>Trip details <span><%= @trip.propositions.select {|prop| prop.status == "validated" && prop.booked == true}.count %></span> </h5>
+              </div>
+
+
+
+
 
             <!--  New invitation Modal -->
             <%= render "invites/new_invite_modal" %>
@@ -32,6 +45,8 @@
       </div>
     </div>
   </div>
+
+
   <!-- pending proposition tabs below -->
   <div class="pending-prop">
     <%= render "propositions/avatar_on_cards" %>
@@ -41,7 +56,22 @@
     </div>
   </div>
 
-  <!-- Validated propositions tabs beloowwww -->
+
+
+
+
+  <!-- Validated propositions to book tabs beloowwww -->
+  <div class="validated-prop d-none">
+    <%= render "propositions/avatar_on_cards" %>
+    <div>
+      <!-- propositions are sorted by due_date -->
+       <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.booked == false} , map: "map-pending", markers: @markers.to_json %>
+    </div>
+  </div>
+
+
+
+  <!-- Trip details (validated + booked propositions) tabs beloowwww -->
   <div class="all-prop d-none">
     <%= render "propositions/avatar_on_cards" %>
     <div>
@@ -49,6 +79,7 @@
        <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all", markers: @validated_markers.to_json, steps: @steps %>
        <%#= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all", markers: @validated_markers.to_json %>
     </div>
+
   </div>
   <!-- Button trigger proposition new modal -->
   <div class="button-add-proposition bouton-sticky" data-toggle="modal" data-target="#propositionModal">
