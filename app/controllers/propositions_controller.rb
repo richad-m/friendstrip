@@ -46,6 +46,7 @@ class PropositionsController < ApplicationController
   def book
     @proposition = Proposition.find(params[:id])
     @proposition.booked = true
+    authorize @proposition
     if @proposition.save
       flash.notice = "#{@proposition.trip.title} has been moved to trip details."
       redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")
