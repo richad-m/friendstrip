@@ -11,6 +11,7 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
     @vote.proposition_id = @proposition.id
     @vote.user_id = current_user.id
+    authorize @vote
     if @vote.save
       flash.notice = "Your vote has been submitted"
       redirect_to trip_path(@proposition.trip, anchor: "prop-#{@proposition.id}")

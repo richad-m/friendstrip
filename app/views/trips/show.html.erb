@@ -24,7 +24,7 @@
               </div>
 
               <div class="validated button-tabs unactive-tab" id="all-prop">
-                  <h5>Validated steps <span><%= @trip.propositions.select {|prop| prop.status == "validated"}.count %></span></h5>
+                  <h5>Validated steps <span><%= @trip.propositions.select {|prop| prop.status == "validated" && prop.booked != true}.count %></span></h5>
               </div>
             </div>
 

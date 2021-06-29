@@ -12,6 +12,4 @@ class TripPolicy < ApplicationPolicy
   def show?
     return true
   end
-
-
 end
