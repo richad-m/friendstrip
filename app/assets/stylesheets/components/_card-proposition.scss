@@ -1,3 +1,77 @@
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (min-device-width : 5px)
+and (max-device-width : 480px) {
+.list-propositions {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 40px 100px;
+  margin-bottom: 100px;
+}
+.trip-invitees-show {
+  display: flex;
+  position: absolute;
+  right: 48px;
+  transform: translateY(-830%);
+  img.trip-invitee-show {
+    height: 24px;
+    width: 24px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+    margin-left: 5px;
+  }
+}
+}
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+  .list-propositions {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 40px 100px;
+    margin-bottom: 100px;
+  }
+  .trip-invitees-show {
+    display: flex;
+    position: absolute;
+    right: 48px;
+    transform: translateY(-830%);
+    img.trip-invitee-show {
+      height: 24px;
+      width: 24px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: white;
+      margin-left: 5px;
+    }
+  }
+}
+
+@media only screen
+and (min-width : 1224px) {
+.list-propositions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 45px 24px;
+  margin-bottom: 60px;
+}
+.trip-invitees-show {
+  display: flex;
+  position: absolute;
+  right: 16px;
+  transform: translateY(-150%);
+  img.trip-invitee-show {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+    margin-left: 5px;
+  }
+}
+}
+
 ul#ba {
     list-style-type: none;
 }
@@ -162,20 +236,7 @@ ul#ba {
   font-family: $body-font !important;
 }
 
-.trip-invitees-show {
-  display: flex;
-  position: absolute;
-  right: 16px;
-  transform: translateY(-150%);
-  img.trip-invitee-show {
-    height: 50px;
-    width: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    background: white;
-    margin-left: 5px;
-  }
-}
+
 
 .offset-top-modal  {
   top: -10%;
@@ -432,15 +493,16 @@ ul#ba {
   color: rgba(211, 211, 211, 0.808);
 }
 
-.list-propositions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 45px 24px;
-  margin-bottom: 60px;
-}
+// .list-propositions {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 45px 24px;
+//   margin-bottom: 60px;
+// }
 
 
 .prop-card {
+  min-width: 361px;
   &.accomodation {
     .prop-by {
       color: #D1e9F9;
@@ -501,5 +563,3 @@ ul#ba {
   transform: scale(1.015);
   transition: all .2s ease-in-out;
 }
-
-

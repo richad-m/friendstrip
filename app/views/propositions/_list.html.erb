@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-8">
 
-      <div class="list-propositions">
+      <div class="list-propositions ">
         <% propositions.each do |proposition| %>
           <div class="prop-card global-card-proposition<%= 'validated-prop' if proposition.status == 'validated'%> <%= proposition.category %>" id="prop-<%= proposition.id %>">
             <!--top card -->
@@ -93,11 +93,7 @@
                 <% elsif proposition.booked == true %>
                   <span class='button-booked'>BOOKED</span>
                 <% end %>
-
-
               </div>
-
-
             </div>
           </div>
 
@@ -177,7 +173,7 @@
       </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-lg-4">
         <%#= raise %>
       <div class="map" id="<%= map %>"
         style="width: 100%; height: 100vh; border-radius: 20px;"
