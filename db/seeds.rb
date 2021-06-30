@@ -19,28 +19,28 @@ file5 = URI.open("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/50a43
 
 puts "Creating users..."
 user1 = User.create(email: "richad@friendstrip.com", password:"123456", first_name:"Richad")
-# User.last.avatar.attach(io: file1, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.avatar.attach(io: file1, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 puts "Creating user 2..."
 
 user2 = User.create(email: "clotilde@friendstrip.com", password:"123456", first_name:"Clotilde")
-# User.last.avatar.attach(io: file2, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.avatar.attach(io: file2, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 puts "Creating users3"
 user3 = User.create(email: "marc-antoine@friendstrip.com", password:"123456", first_name:"Marco")
-# User.last.avatar.attach(io: file3, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.avatar.attach(io: file3, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 puts "Creating users4"
 user4 = User.create(email: "inaki@friendstrip.com", password:"123456", first_name:"Inaki")
-# User.last.avatar.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.avatar.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 puts "Creating users5"
 user5 = User.create(email: "booba@friendstrip.com", password:"123456", first_name:"Booba")
-# User.last.avatar.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.avatar.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 puts "Creating users6"
 user6 = User.create(email: "kaaris@friendstrip.com", password:"123456", first_name:"Armand")
-# User.last.avatar.attach(io: file6, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.avatar.attach(io: file6, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 
 #Setting up Trip1 to XXXX

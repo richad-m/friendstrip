@@ -28,9 +28,11 @@
 
 
               <div class="validated button-tabs unactive-tab" id="all-prop">
+
                   <h5 class="big"><i class="fas fa-road road-validate"></i> Validated steps <span><%= @trip.propositions.select {|prop| prop.status == "validated"}.count %></span></h5>
                   <!-- @media max-width 768px -->
                   <h5 class="small"><i class="fas fa-road road-validate"></i>  <span><%= @trip.propositions.select {|prop| prop.status == "validated"}.count %></span></h5>
+
               </div>
             </div>
 
