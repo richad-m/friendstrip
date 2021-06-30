@@ -20,17 +20,25 @@
 
 
               <div class="pending button-tabs" id="pending-prop">
-                <h5>Propositions <span><%= @trip.propositions.select {|prop| prop.status != "validated"}.count %></span> </h5>
+
+                <h5 class="big"><i class="fas fa-road road-prop"></i> Propositions <span><%= @trip.propositions.select {|prop| prop.status != "validated"}.count %></span> </h5>
+                <!-- @media max-width 768px -->
+                <h5 class="small"><i class="fas fa-road road-prop"></i> <span><%= @trip.propositions.select {|prop| prop.status != "validated"}.count %></span></h5>
               </div>
 
+
               <div class="validated button-tabs unactive-tab" id="all-prop">
-                  <h5>Validated steps <span><%= @trip.propositions.select {|prop| prop.status == "validated"}.count %></span></h5>
+                  <h5 class="big"><i class="fas fa-road road-validate"></i> Validated steps <span><%= @trip.propositions.select {|prop| prop.status == "validated"}.count %></span></h5>
+                  <!-- @media max-width 768px -->
+                  <h5 class="small"><i class="fas fa-road road-validate"></i>  <span><%= @trip.propositions.select {|prop| prop.status == "validated"}.count %></span></h5>
               </div>
             </div>
 
 
               <div class="all-steps button-tabs unactive-tab" id="validated-prop">
-                <h5>Trip details <span><%= @trip.propositions.select {|prop| prop.status == "validated" && prop.booked == true}.count %></span> </h5>
+                <h5 class="big"><i class="fas fa-road road-step"></i> Trip details <span><%= @trip.propositions.select {|prop| prop.status == "validated" && prop.booked == true}.count %></span></h5>
+                <!-- @media max-width 768px -->
+                <h5 class="small"><i class="fas fa-road road-step"></i> <span><%= @trip.propositions.select {|prop| prop.status == "validated" && prop.booked == true}.count %></span></h5>
               </div>
 
 
@@ -51,8 +59,8 @@
   <div class="pending-prop">
     <%= render "propositions/avatar_on_cards" %>
     <div>
-      <!-- list of pending propositions sorted by descending nb of votes with map and markers -->
       <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}.sort {|a,b| b.votes.count <=> a.votes.count}, map: "map-pending", markers: @markers.to_json %>
+      <!-- list of pending propositions sorted by descending nb of votes with map and markers -->
     </div>
   </div>
 
@@ -63,7 +71,7 @@
     <div>
       <!-- propositions are sorted by due_date -->
       <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated" && prop.booked != true}, map: "map-validated", markers: @validated_markers.to_json%>
-      <%#= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all", markers: @validated_markers.to_json %>
+      <%#= render "propositions/list", propFFositions: @trip.propositions.select {|prop| prop.status == "validated"}, map: "map-all", markers: @validated_markers.to_json %>
     </div>
 
   </div>
