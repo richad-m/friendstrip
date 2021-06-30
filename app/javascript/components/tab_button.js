@@ -78,14 +78,5 @@ const tabButtons = () => {
   }
 };
 
-// const smallScreen = window.matchMedia("(max-width: 768px)")
-
-// const ongletBig = document.querySelectorAll("navigation-tabs-green h5 .big");
-// const ongletSamell = document.querySelectorAll("navigation-tabs-green h5 .small");
-// if (smallScreen.matches) {ongletBig.remove();
-// } else {
-//   ongletSmall.remove();
-// } ;
-
 
 export {tabButtons}
