@@ -2,118 +2,113 @@
   <h3 class="my-5"></h3>
   <div class="row">
     <div class="col-8">
-
       <div class="list-propositions ">
         <% propositions.each do |proposition| %>
-          <div class="prop-card global-card-proposition<%= 'validated-prop' if proposition.status == 'validated'%> <%= proposition.category %>" id="prop-<%= proposition.id %>">
-            <!--top card -->
-            <div class="card-proposition-top bg-color-<%= proposition.category %>">
-
-                <!-- BUTTON DELETE -->
-                <% if policy(proposition).destroy? %>
-                  <%= link_to trip_proposition_path(proposition),
-                                method: :delete,
-                                class: "delete-prop",
-                                data: { confirm: "Are you sure you want to delete this proposition?" } do %>
-                    <span class="button-delete">
-                      <i class="fas fa-trash-alt"></i>
-                    </span>
-                  <% end %>
-                <% end %>
-
-                <h4 data-toggle="modal" data-target="#propositionShow-<%= proposition.id %>" class="proposition-title">
-                <%= proposition.title %>
-                </h4>
-                <p class="prop-by">by <%=proposition.user.first_name%></p>
-                <!--category -->
-                <p class="badge-category">
-                <i class="fas <%=Proposition::ICONS[proposition.category]%> "></i>
-                <%= proposition.category %>
-                </p>
-            </div>
-            <!--bottom card -->
-            <div class="card-proposition-bottom">
-              <p><i class="fas fa-stopwatch mr-2"></i>Due date: <%= proposition.due_date.strftime("%B %d, %Y") if proposition.due_date %></p>
-              <% if proposition.start_date != proposition.end_date %>
-                <p><i class="fas fa-calendar-alt mr-2"></i><%= "#{proposition.start_date.strftime("%D")} to #{proposition.end_date.strftime("%D")}"%></p>
-              <% else %>
-                <p><i class="fas fa-calendar-alt mr-2"></i><%=" #{proposition.start_date.strftime("%D") if proposition.start_date}" %> </p>
+        <div class="prop-card global-card-proposition<%= 'validated-prop' if proposition.status == 'validated'%> <%= proposition.category %>" id="prop-<%= proposition.id %>">
+        <!--top card -->
+          <div class="card-proposition-top bg-color-<%= proposition.category %>">
+            <!-- BUTTON DELETE -->
+            <% if policy(proposition).destroy? %>
+              <%= link_to trip_proposition_path(proposition),
+                  method: :delete,
+                  class: "delete-prop",
+                  data: { confirm: "Are you sure you want to delete this proposition?" } do %>
+              <span class="button-delete">
+              <i class="fas fa-trash-alt"></i>
+              </span>
               <% end %>
+            <% end %>
 
-              <div class="prop-votes">
-                <!-- Button trigger like vote -->
-                <div class="mx-2">
-                  <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
-                    <i class='far fa-thumbs-up user-voted' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                  <% else %>
-                    <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
-                      <i class='far fa-thumbs-up unactive-vote' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                    <% else %>
-                      <i class='far fa-thumbs-up unvoted' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                    <% end %>
-                  <% end %>
-                  <span class="vote-counter">
-                    <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%>
-                  </span>
-                </div>
-                <!-- Button trigger dislike vote -->
-                <div class = "mx-2">
+            <h4 data-toggle="modal" data-target="#propositionShow-<%= proposition.id %>" class="proposition-title">
+              <%= proposition.title %>
+            </h4>
+            <p class="prop-by">by <%=proposition.user.first_name%></p>
+            <!--category -->
+            <p class="badge-category">
+            <i class="fas <%=Proposition::ICONS[proposition.category]%> "></i>
+            <%= proposition.category %>
+            </p>
+          </div>
+            <!--bottom card -->
+          <div class="card-proposition-bottom">
+            <p><i class="fas fa-stopwatch mr-2"></i>Due date: <%= proposition.due_date.strftime("%B %d, %Y") if proposition.due_date %></p>
+            <% if proposition.start_date != proposition.end_date %>
+              <p><i class="fas fa-calendar-alt mr-2"></i><%= "#{proposition.start_date.strftime("%D")} to #{proposition.end_date.strftime("%D")}"%></p>
+            <% else %>
+              <p><i class="fas fa-calendar-alt mr-2"></i><%=" #{proposition.start_date.strftime("%D") if proposition.start_date}" %> </p>
+            <% end %>
+            <div class="prop-votes">
+              <!-- Button trigger like vote -->
+              <div class="mx-2">
+                <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
+                  <i class='far fa-thumbs-up user-voted' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                <% else %>
                   <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
-                    <i class='far fa-thumbs-down user-voted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                    <i class='far fa-thumbs-up unactive-vote' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
                   <% else %>
-                    <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
-                      <i class='far fa-thumbs-down unactive-vote' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                    <% else %>
-                      <i class='far fa-thumbs-down unvoted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                    <% end %>
+                    <i class='far fa-thumbs-up unvoted' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
                   <% end %>
-                  <span class="vote-counter">
-                    <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%>
-                  </span>
-                </div>
+                <% end %>
+                <span class="vote-counter">
+                  <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%>
+                </span>
               </div>
-
-              <div class="validation-prop">
-                <% if proposition.status != 'validated' %>
-                <% end %>
-                <% if proposition.status != 'validated' && proposition.trip.user == current_user %>
-                  <%= link_to validate_path(proposition), remote: true, method: :patch do %>
-                    <span class='button-interactive'>validate</span>
+              <!-- Button trigger dislike vote -->
+              <div class = "mx-2">
+                <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
+                  <i class='far fa-thumbs-down user-voted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                <% else %>
+                  <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
+                    <i class='far fa-thumbs-down unactive-vote' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+                  <% else %>
+                    <i class='far fa-thumbs-down unvoted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
                   <% end %>
-                <% elsif proposition.status == 'validated'%>
-                  <span class='button-validated'>VALIDATED</span>
-                  
                 <% end %>
+                <span class="vote-counter">
+                  <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%>
+                </span>
+              </div>
+            </div>
 
+            <div class="validation-prop">
+              <% if proposition.status != 'validated' %>
+              <% end %>
+              <% if proposition.status != 'validated' && proposition.trip.user == current_user %>
+                <%= link_to validate_path(proposition), remote: true, method: :patch do %>
+                  <span class='button-interactive'>validate</span>
+                <% end %>
+              <% elsif proposition.status == 'validated'%>
+                <span class='button-validated'>VALIDATED</span>
+              <% end %>
                 
-                <% if proposition.booked != true && proposition.trip.user == current_user && proposition.status == "validated" %>
-                  <%= link_to book_path(proposition), remote: true, method: :patch do %>
-                    <span class='button-interactive-book'>BOOK</span>
-                  <% end %>
-                <% elsif proposition.booked == true %>
-                  <span class='button-booked'>BOOKED</span>
+              <% if proposition.booked != true && proposition.trip.user == current_user && proposition.status == "validated" %>
+                <%= link_to book_path(proposition), remote: true, method: :patch do %>
+                  <span class='button-interactive-book'>BOOK</span>
                 <% end %>
-              </div>
+              <% elsif proposition.booked == true %>
+                <span class='button-booked'>BOOKED</span>
+              <% end %>
             </div>
           </div>
+        </div>
 
-          <%= render 'propositions/proposition_modal', proposition: proposition %>
+        <%= render 'propositions/proposition_modal', proposition: proposition %>
 
-          <!-- Like modal form -->
-          <div class="modal " id="likeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="likeModalLabel-<%=proposition.id%>" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-trip-show-radius"  role="document">
-              <div class="modal-content" style="border-radius: 15px">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="likeModalLabel-<%=proposition.id%>">Upvote <%=proposition.title%> ?</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <%= simple_form_for [ proposition, @vote ], remote: true, method: :post do |f| %>
+        <!-- Like modal form -->
+        <div class="modal " id="likeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="likeModalLabel-<%=proposition.id%>" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-trip-show-radius"  role="document">
+            <div class="modal-content" style="border-radius: 15px">
+              <div class="modal-header">
+                <h5 class="modal-title" id="likeModalLabel-<%=proposition.id%>">Upvote <%=proposition.title%> ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <%= simple_form_for [ proposition, @vote ], remote: true, method: :post do |f| %>
                 <div class="modal-body">
                   <div class="form-wrapper">
-                      <%= f.input :comment %>
-                      <%= f.input :status, as: :hidden, :input_html => { :value =>  "upvote" } %>
+                    <%= f.input :comment %>
+                    <%= f.input :status, as: :hidden, :input_html => { :value =>  "upvote" } %>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -128,21 +123,21 @@
                   <% end %>
                 </div>
                 <% end %>
-              </div>
             </div>
           </div>
+        </div>
 
-          <!-- disLike modal form -->
-          <div class="modal " id="dislikeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="dislikeModalLabel-<%=proposition.id%>" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-trip-show-radius"   role="document">
-              <div class="modal-content" style="border-radius: 15px">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="dislikeModalLabel-<%=proposition.id%>">Downvote <%=proposition.title%> ?</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                    <%= simple_form_for [proposition, @vote], remote: true do |f| %>
+        <!-- disLike modal form -->
+        <div class="modal " id="dislikeModal-<%=proposition.id%>" tabindex="-1" role="dialog" aria-labelledby="dislikeModalLabel-<%=proposition.id%>" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-trip-show-radius"   role="document">
+            <div class="modal-content" style="border-radius: 15px">
+              <div class="modal-header">
+                <h5 class="modal-title" id="dislikeModalLabel-<%=proposition.id%>">Downvote <%=proposition.title%> ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <%= simple_form_for [proposition, @vote], remote: true do |f| %>
                 <div class="modal-body">
                   <div class="form-wrapper">
                     <% if proposition.users.include?(current_user) %>
@@ -156,13 +151,13 @@
                 <div class="modal-footer">
                   <div type="button" class="button-green" data-dismiss="modal">Cancel</div>
                   <% if proposition.users.include?(current_user) %>
-                      <%= f.button :submit, 'Already voted', class: "button-orange d-none" %>
-                      <div class = 'btn btn-disabled'>
-                        You already voted!
-                      </div>
-                    <% else %>
-                      <%= f.button :submit, 'downvote', class: "button-orange" %>
-                    <% end %>
+                    <%= f.button :submit, 'Already voted', class: "button-orange d-none" %>
+                    <div class = 'btn btn-disabled'>
+                      You already voted!
+                    </div>
+                  <% else %>
+                    <%= f.button :submit, 'downvote', class: "button-orange" %>
+                  <% end %>
                 </div>
                 <% end %>
               </div>
@@ -174,9 +169,7 @@
     </div>
 
     <div class="col-lg-4">
-        <%#= raise %>
-      <div class="map" id="<%= map %>"
-        style="width: 100%; height: 100vh; border-radius: 20px;"
+      <div class="map" id="<%= map %>" style="width: 100%; height: 100vh; border-radius: 20px;"
         data-markers="<%= markers %>"
         <% if local_assigns[:steps] %>
           data-steps="<%= steps.to_json %>"
