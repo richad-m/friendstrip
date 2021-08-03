@@ -1,7 +1,7 @@
 .navigation-tabs {
   display:flex;
   justify-content: space-between;
-  position:relative;
+  position: relative;
 }
 
 .button-tabs {
@@ -11,7 +11,7 @@
   border-radius: 25px 25px 0px 0px;
   background-color: #f4f4f4;
   color: #8a8a8a;
-  padding: 9px 47px;
+  padding: 9px 30px;
   margin: 0px 9px 0px 0px;
   font-size:10px;
   vertical-align: middle;
@@ -44,16 +44,91 @@
   }
 
 
-.logo-font{
-  font-family: $logo-font;
+
+  .road-prop {
+    transform: translateY(4px);
+    font-size: 23px;
+    color: red;
+  }
+
+  .road-validate {
+    transform: translateY(4px);
+    font-size: 23px;
+    color: orange;
+  }
+
+  .road-step {
+    transform: translateY(4px);
+    font-size: 23px;
+    color: rgb(25, 202, 25);
+  }
+//   @media only screen
+//   and (max-device-width : 990px)
+// and (min-device-width : 768px){
+//   .button-tabs {
+//     padding: 9px 12px;
+//   }
+// }
+
+  @media (max-width: 768px){
+    .big {
+      max-width: 50px;
+      display: none;
+    }
+    .small {
+      font-size: 20px;
+      align-items: center;
+    }
+    .button-tabs{
+      padding: 9px 24px;
+    }
+    .navigation-tabs {
+      display:flex;
+      // justify-content: start;
+    }
+    .logo-font{
+      font-family: $logo-font;
+    }
+
+    .all-steps {
+      position: absolute;
+      left: 205px;
+      max-height: 41px;
+    }
+
+    .validated {
+      position: absolute;
+      left: 95px;
+    }
+  }
+@media(max-width: 990px){
+  .button-tabs {
+  padding: 9px 15px;
+  }
 }
 
-.all-steps {
-  position: absolute;
-  left: 491px;
-}
 
-.validated {
-  position: absolute;
-  left: 222px;
+  @media (min-width:769px){
+    .small {
+      display: none;
+    }
+    .logo-font{
+      font-family: $logo-font;
+    }
+
+    .all-steps {
+      position: absolute;
+      left: 491px;
+      max-height: 41px;
+    }
+
+    .validated {
+      position: absolute;
+      left: 222px;
+    }
+
+  .navigation-tabs {
+  display:flex;
+  align-items: left;
+  }
 }
