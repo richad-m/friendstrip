@@ -6,7 +6,6 @@
   <% end %>
 </div>
 
-
 <div class="trip-invitees-show ">
  <div class="button-add-invites " data-toggle="modal" data-target="#exampleModal">
     <div data-toggle="tooltip" data-placement="top" title="Invite a friend" class="tooltip-add">
@@ -14,24 +13,22 @@
     </div>
   </div>
   <% @trip.invites.each do |invite| %>
-
-    <div class="position-relative">
-      <div class="">
-        <% if invite.user.avatar.attached? %>
-          <% if invite.accepted?%>
-            <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show" %>
-          <% else %>
-            <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite"%>
-
-          <% end %>
+  <div class="position-relative">
+    <div class="">
+      <% if invite.user.avatar.attached? %>
+        <% if invite.accepted?%>
+          <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show" %>
         <% else %>
-          <%= image_tag("avatar.png", class: "trip-invitee-show") %>
+          <%= cl_image_tag invite.user.avatar.key, width: 50, height: 50, crop: :fill, class: "trip-invitee-show unaccepted-invite"%>
         <% end %>
-      </div>
-      <div class="avatar-card-name">
-        <%= invite.user.first_name %>
-      </div>
+      <% else %>
+        <%= image_tag("avatar.png", class: "trip-invitee-show") %>
+      <% end %>
     </div>
+    <div class="avatar-card-name">
+      <%= invite.user.first_name %>
+    </div>
+  </div>
   <% end %>
 </div>
 
