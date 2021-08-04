@@ -1,4 +1,5 @@
 <div class="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80 );">
+  <%= render 'shared/navbar' %>
   <div>
     <div class="container">
       <% if user_signed_in?%>
@@ -6,7 +7,7 @@
         <h3 class="">Plan your next trip!!</h3>
 
       <div class= "row justify-content-center">
-        <%= link_to  "Add a trip", new_trip_path, class: "button-orange mt-5 " %>
+        <%= link_to  "Plan a trip", new_trip_path, class: "button-orange mt-5 " %>
     </div>
       <% else %>
         <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
@@ -23,7 +24,7 @@
 
 <div class="container my-5">
   <div class="row" >
-    <div class="col-lg-4">
+    <div class="col-lg-4 col-sm-12">
       <div class="card-marketing">
         <img src="https://images.unsplash.com/photo-1552664862-db5607e91378?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hhcmluZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" />
         <div class="card-marketing-infos">
@@ -34,7 +35,7 @@
         </div>
       </div>
     </div>
-     <div class="col-lg-4">
+     <div class="col-lg-4 col-sm-12">
       <div class="card-marketing">
         <img src="https://images.unsplash.com/photo-1429216967620-ece20ff3a5f9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fG9yZ2FuaXplfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" />
         <div class="card-marketing-infos">
@@ -45,7 +46,7 @@
         </div>
       </div>
     </div>
-     <div class="col-lg-4">
+     <div class="col-lg-4 col-sm-12">
       <div class="card-marketing">
         <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" />
         <div class="card-marketing-infos">
