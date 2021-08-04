@@ -43,31 +43,35 @@
     </div>
   </div>
 </div>
-<div class="avatar-on-cards">
-  <%= render "propositions/avatar_on_cards" %>v
+<div class = "container-for-cards-map pt-3 flex-1">
+<div class="avatar-on-cards pb-3">
+  <%= render "propositions/avatar_on_cards" %>
 </div>
 
+  
   <!-- Propositions (unvalidated && unbooked) tabs below -->
   <div class="pending-prop">
     <!-- list of pending propositions sorted by descending nb of votes with map and markers -->
     <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status!="validated"}.sort {|a,b| b.votes.count <=> a.votes.count}, map: "map-pending", markers: @markers.to_json %>
-</div>
-
-<!-- Validated steps (booked == false et validated) tabs beloowwww -->
-<div class="all-prop d-none">
+  </div>
+  
+  <!-- Validated steps (booked == false et validated) tabs beloowwww -->
+  <div class="all-prop d-none">
     <!-- propositions are sorted by due_date -->
     <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.status == "validated" && prop.booked != true}, map: "map-validated", markers: @validated_markers.to_json%>
-</div>
-
-<!-- Trip details (booked propositions & validated) to book tabs beloowwww -->
-<div class="validated-prop d-none">
+  </div>
+  
+  <!-- Trip details (booked propositions & validated) to book tabs beloowwww -->
+  <div class="validated-prop d-none">
     <!-- propositions are sorted by due_date -->
     <%= render "propositions/list", propositions: @trip.propositions.select {|prop| prop.booked == true} , map: "map-all", markers: @markers.to_json, steps: @steps %>
-</div>
-
-<!-- Button trigger proposition new modal -->
-<div class="button-add-proposition bouton-sticky" data-toggle="modal" data-target="#propositionModal">
-  <div data-toggle="tooltip" data-placement="top" title="Add a proposition">
-    <i class="fas fa-plus"></i>
   </div>
+  
+  <!-- Button trigger proposition new modal -->
+  <div class="button-add-proposition bouton-sticky" data-toggle="modal" data-target="#propositionModal">
+    <div data-toggle="tooltip" data-placement="top" title="Add a proposition">
+      <i class="fas fa-plus"></i>
+    </div>
+  </div>
+  
 </div>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-md-8 col-sm-12">
       <div class="list-propositions ">
         <% propositions.each do |proposition| %>
         <div class="prop-card global-card-proposition<%= 'validated-prop' if proposition.status == 'validated'%> <%= proposition.category %>" id="prop-<%= proposition.id %>">
@@ -38,35 +38,10 @@
             <% end %>
             <div class="prop-votes">
               <!-- Button trigger like vote -->
-              <div class="mx-2">
-                <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
-                  <i class='far fa-thumbs-up user-voted' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% else %>
-                  <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
-                    <i class='far fa-thumbs-up unactive-vote' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                  <% else %>
-                    <i class='far fa-thumbs-up unvoted' data-target="#likeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                  <% end %>
-                <% end %>
-                <span class="vote-counter">
-                  <%=proposition.votes.select {|vote| vote.status == "upvote"}.count%>
-                </span>
-              </div>
+              <%= render 'propositions/button_like_vote', proposition: proposition %>
+
               <!-- Button trigger dislike vote -->
-              <div class = "mx-2">
-                <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
-                  <i class='far fa-thumbs-down user-voted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                <% else %>
-                  <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
-                    <i class='far fa-thumbs-down unactive-vote' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                  <% else %>
-                    <i class='far fa-thumbs-down unvoted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
-                  <% end %>
-                <% end %>
-                <span class="vote-counter">
-                  <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%>
-                </span>
-              </div>
+              <%= render 'propositions/button_dislike_vote', proposition: proposition %>
             </div>
 
             <div class="validation-prop">
@@ -103,7 +78,7 @@
       </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-md-4 col-sm-12 ">
       <div class="map" id="<%= map %>" style="width: 100%; height: 100vh; border-radius: 20px;"
         data-markers="<%= markers %>"
         <% if local_assigns[:steps] %>
