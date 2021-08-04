@@ -9,7 +9,7 @@ and (max-device-width : 480px) {
   margin-bottom: 100px;
 }
 .trip-invitees-show {
-  display: flex;
+
   position: absolute;
   right: 48px;
   transform: translateY(-830%);
@@ -17,7 +17,7 @@ and (max-device-width : 480px) {
     height: 24px;
     width: 24px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 0%;
     background: white;
     margin-left: 5px;
   }

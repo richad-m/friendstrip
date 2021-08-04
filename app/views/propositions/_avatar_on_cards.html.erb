@@ -1,12 +1,13 @@
 <div class="trip-owner-show">
-  <% if @trip.user.avatar.attached? %>
+  <!-- The code below displays the photo of the owner of the trip. I disabled it cause of responsivenss -->
+  <!-- <% if @trip.user.avatar.attached? %>
     <p><%= cl_image_tag @trip.user.avatar.key, width: 100, height: 100, crop: :fill, style: "border-radius: 50%;", class: "image" %></p>
   <% else %>
     <%= image_tag("avatar.png", class: "trip-owner-show image") %>
-  <% end %>
+  <% end %> -->
 </div>
 
-<div class="trip-invitees-show d-flex ">
+<div class="trip-invitees-show ">
  <div class="button-add-invites " data-toggle="modal" data-target="#exampleModal">
     <div data-toggle="tooltip" data-placement="top" title="Invite a friend" class="tooltip-add">
       <i class="fas fa-plus"></i>
