@@ -264,7 +264,7 @@ ul#ba {
 }
 
 .booking-form-div-proposition {
-    background: white !important;
+    background: white;
     margin-top: 2px !important;
     padding: 22px !important;
     border-radius: 20px !important;
@@ -273,13 +273,11 @@ ul#ba {
 
 
 .proposition-form-left {
-  display: fles;
   justify-content: center;
-  border-right: 1px solid $ft-duck-blue;
   padding-right: 45px;
 }
 .proposition-form-right {
-  padding-left: 45px;
+  padding-left: 20px;
 }
 
 // .modal-title {
