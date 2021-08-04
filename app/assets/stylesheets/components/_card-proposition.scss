@@ -9,7 +9,7 @@ and (max-device-width : 480px) {
   margin-bottom: 100px;
 }
 .trip-invitees-show {
-  display: flex;
+
   position: absolute;
   right: 48px;
   transform: translateY(-830%);
@@ -17,7 +17,7 @@ and (max-device-width : 480px) {
     height: 24px;
     width: 24px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 0%;
     background: white;
     margin-left: 5px;
   }
@@ -264,7 +264,7 @@ ul#ba {
 }
 
 .booking-form-div-proposition {
-    background: white !important;
+    background: white;
     margin-top: 2px !important;
     padding: 22px !important;
     border-radius: 20px !important;
@@ -273,13 +273,11 @@ ul#ba {
 
 
 .proposition-form-left {
-  display: fles;
   justify-content: center;
-  border-right: 1px solid $ft-duck-blue;
   padding-right: 45px;
 }
 .proposition-form-right {
-  padding-left: 45px;
+  padding-left: 20px;
 }
 
 // .modal-title {

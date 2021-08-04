@@ -2,8 +2,8 @@
 <% content_for :meta_title, "#{@trip.title} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @trip.description %>
 <% content_for :meta_image, cl_image_path(@trip.destination) %>
-
 <div class="banner <%= @trip.destination %>">
+  <%= render 'shared/navbar' %>
   <div>
     <div class="container">
       <h1><strong> <%=@trip.title%></strong></h1>

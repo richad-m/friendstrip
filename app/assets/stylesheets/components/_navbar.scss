@@ -20,13 +20,15 @@
 }
 
 .navbar-lewagon {
-  background: white;
-  position: sticky;
+  background: transparent;
+  position: top;
   top: 0;
   z-index: 99999;
   justify-content: space-between;
   height: $navbar-height;
-  transition: 0.5s background-color ease;
+}
+.logo-font {
+  color:white;
 }
 .white {
   background-color: white;
