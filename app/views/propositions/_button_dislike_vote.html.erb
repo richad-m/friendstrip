@@ -1,0 +1,14 @@
+<div class = "mx-2">
+  <% if proposition.votes.where(status: 'downvote').map {|vote| vote.user}.include?(current_user) %>
+    <i class='far fa-thumbs-down user-voted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+  <% else %>
+    <% if proposition.votes.where(status: 'upvote').map {|vote| vote.user}.include?(current_user) %>
+      <i class='far fa-thumbs-down unactive-vote' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+    <% else %>
+      <i class='far fa-thumbs-down unvoted' data-target="#dislikeModal-<%=proposition.id%>" data-toggle="modal"></i>
+    <% end %>
+  <% end %>
+  <span class="vote-counter">
+    <%=proposition.votes.select {|vote| vote.status == "downvote"}.count%>
+  </span>
+</div>
