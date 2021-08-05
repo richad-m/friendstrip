@@ -22,6 +22,10 @@ class ApplicationController < ActionController::Base
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
+  def after_sign_in_path_for(user)
+    stored_location_for(user) || trips_path
+  end
+
   private
 
   def user_not_authorized
