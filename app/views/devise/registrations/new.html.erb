@@ -1,15 +1,15 @@
 <div class="banner text-center banner-new-trip" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80 );">
   <div>
     <div class="container">
-      <h2>Sign up</h2>
-      <p>Welcome to the family</p>
+      <h2 class="text-banner-login">Sign up</h2>
+      <p class="text-banner-login">Welcome to the family</p>
     </div>
   </div>
 </div>
 
 <div class="container container-new-trip">
   <div class="row justify-content-center row-new-trip">
-    <div class="col-6">
+    <div class="col-md-6 col-sm-12">
       <div class="form-wrapper" id="booking-form-div">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>

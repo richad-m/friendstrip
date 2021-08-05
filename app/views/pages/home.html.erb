@@ -2,18 +2,15 @@
   <%= render 'shared/navbar' %>
   <div>
     <div class="container">
+      <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
       <% if user_signed_in?%>
-        <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
         <h3 class="">Plan your next trip!!</h3>
-
       <div class= "row justify-content-center">
         <%= link_to  "Plan a trip", new_trip_path, class: "button-orange mt-5 " %>
-    </div>
+      </div>
       <% else %>
-        <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
         <h3 class="">Planning trips has never been easier</h3>
-
-        <div class="row d-flex justify-content-between" >
+        <div class="button-sign-in-up row d-flex justify-content-between" >
           <%= link_to "Sign up", new_user_registration_path, class: "sign-button button-green"%>
           <%= link_to "Sign in", new_user_session_path, class: "sign-button button-orange"%>
         </div>
