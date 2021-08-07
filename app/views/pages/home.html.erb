@@ -4,9 +4,9 @@
     <div class="container">
       <h1>FriendsTrip<strong> makes planning trip</strong><strong> a no brainer </strong>!</h1>
       <% if user_signed_in?%>
-        <h3 class="">Plan your next trip!!</h3>
+        <h3 class="">Plan your next trip!</h3>
       <div class= "row justify-content-center">
-        <%= link_to  "Plan a trip", new_trip_path, class: "button-orange" %>
+        <%= link_to  "Plan my next trip", new_trip_path, class: "button-orange" %>
       </div>
       <% else %>
         <h3 class="">Planning trips has never been easier</h3>

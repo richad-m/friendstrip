@@ -58,7 +58,6 @@ const addMarkersToMap = (map, markers) => {
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  // console.log("coucou");
   markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
   console.log(markers);
   map.fitBounds(bounds, { padding: 20, maxZoom: 15, duration: 0 });
