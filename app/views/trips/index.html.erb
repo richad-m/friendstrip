@@ -5,18 +5,13 @@
       <div class="mb-5">
         <h1>Your trips</h1>
       </div>
-      <div>
 
+      <div>
       <% if policy(Trip).create? %>
         <%= link_to  "Add a trip", new_trip_path, class: "button-orange-add-a-trip-banner" %>
       <% end %>
       </div>
-      <div class="row d-flex text-end">
-        <div class="">
-        <%# <h4><%= link_to "Check your next trip" %>
-        <%# <h4><%#= link_to "5 past trips" %>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>
@@ -26,7 +21,7 @@
 
   <div class="row" >
     <% @trips.each do |trip| %>
-      <div class="col-6">
+      <div class="col-md-6 col-sm-12">
 
         <%= link_to trip_path(trip), class: "trip-card-link", data: {turbolinks: false} do%>
           <div class="trip-card <%= "past-trip" if trip.end_date < Date.today %> " >
