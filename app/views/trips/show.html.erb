@@ -15,6 +15,7 @@
       <div class="navigation-tabs">
         <div class="navigation-tabs-green row">
           <div class="pending button-tabs" id="pending-prop">
+            <!-- <h5 class="big"><i class="fas fa-road road-prop"></i> Propositions <span><%= @trip.propositions.select {|prop| prop.status != "validated"}.count %></span> </h5> -->
             <h5 class="big"><i class="fas fa-road road-prop"></i> Propositions <span><%= @trip.propositions.select {|prop| prop.status != "validated"}.count %></span> </h5>
             <!-- @media max-width 768px -->
             <h5 class="small"><i class="fas fa-road road-prop"></i> <span><%= @trip.propositions.select {|prop| prop.status != "validated"}.count %></span></h5>
