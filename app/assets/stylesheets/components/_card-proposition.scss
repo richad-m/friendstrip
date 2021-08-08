@@ -182,7 +182,27 @@ ul#ba {
   width: 450px;
   margin: auto;
 }
-
+@media only screen
+and (min-device-width : 5px)
+and (max-device-width : 480px) {
+  .modal-proposition-new {
+    top: 6%;
+    width: 168%;
+  }
+  .modal-body {
+    width:59%;
+  }
+  .modal-footer {
+    width:65%;
+  }
+  .modal-proposition-new-style {
+    border-radius: 15px;
+    width: auto;
+      .modal-footer {
+        justify-content: center !important;
+      }
+  }
+}
 .modal-proposition-new {
   top: 6%;
   width: 600px;
